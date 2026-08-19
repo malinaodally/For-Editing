@@ -1,0 +1,555 @@
+<!-- =====================================================================
+     INFINITY PLUS FINANCIAL — ONBOARDING REVIEW THANK-YOU PAGE
+     Page 2 of the Tax Partner Onboarding Funnel. Paste this entire
+     block into a GoHighLevel Custom Code / HTML element and set it as
+     the redirect target for the Final Onboarding Review Form.
+
+     HOW TO CONFIGURE THIS PAGE
+     Scroll down to "window.IPF_THANK_YOU_CONFIG" near the bottom of
+     this block. That is the only section you should need to edit.
+     ===================================================================== -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* =====================================================================
+   All rules are namespaced under #ipf-onboarding-thank-you so this
+   element cannot leak styles onto the rest of the GoHighLevel page.
+   ===================================================================== */
+
+#ipf-onboarding-thank-you{
+  --ipfty-deep-emerald:#004D2A;
+  --ipfty-forest-green:#086B32;
+  --ipfty-bright-green:#15952A;
+  --ipfty-gold-rich:#C69A2B;
+  --ipfty-gold-light:#E2C25A;
+  --ipfty-cream:#F7F2E7;
+  --ipfty-beige:#E7D5BD;
+  --ipfty-charcoal:#171717;
+  --ipfty-white:#FFFFFF;
+  --ipfty-font-head:'Playfair Display',Georgia,'Times New Roman',serif;
+  --ipfty-font-body:'Poppins',Arial,Helvetica,sans-serif;
+  --ipfty-radius-sm:10px;
+  --ipfty-radius-md:16px;
+  --ipfty-radius-lg:26px;
+  --ipfty-shadow-sm:0 2px 10px rgba(23,23,23,0.06);
+  --ipfty-shadow-md:0 12px 34px rgba(0,77,42,0.12);
+  --ipfty-shadow-lg:0 22px 60px rgba(0,77,42,0.18);
+  --ipfty-gold-grad:linear-gradient(135deg,var(--ipfty-gold-light),var(--ipfty-gold-rich));
+  --ipfty-green-grad:linear-gradient(135deg,var(--ipfty-forest-green),var(--ipfty-deep-emerald));
+
+  font-family:var(--ipfty-font-body);
+  color:var(--ipfty-charcoal);
+  background:var(--ipfty-cream);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  scroll-behavior:smooth;
+}
+#ipf-onboarding-thank-you *,
+#ipf-onboarding-thank-you *::before,
+#ipf-onboarding-thank-you *::after{box-sizing:border-box;}
+
+@media (prefers-reduced-motion:reduce){
+  #ipf-onboarding-thank-you{scroll-behavior:auto;}
+  #ipf-onboarding-thank-you *,
+  #ipf-onboarding-thank-you *::before,
+  #ipf-onboarding-thank-you *::after{
+    animation-duration:0.001ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:0.001ms !important;
+    scroll-behavior:auto !important;
+  }
+}
+
+#ipf-onboarding-thank-you h1,
+#ipf-onboarding-thank-you h2,
+#ipf-onboarding-thank-you h3,
+#ipf-onboarding-thank-you h4{font-family:var(--ipfty-font-head);color:var(--ipfty-deep-emerald);margin:0;font-weight:600;}
+#ipf-onboarding-thank-you p{margin:0;}
+#ipf-onboarding-thank-you a{color:inherit;}
+#ipf-onboarding-thank-you img{max-width:100%;display:block;}
+#ipf-onboarding-thank-you button{font-family:inherit;cursor:pointer;}
+#ipf-onboarding-thank-you ul{margin:0;padding:0;list-style:none;}
+
+#ipf-onboarding-thank-you a:focus-visible,
+#ipf-onboarding-thank-you button:focus-visible{
+  outline:3px solid var(--ipfty-gold-rich);
+  outline-offset:3px;
+  border-radius:6px;
+}
+#ipf-onboarding-thank-you .ipfty-skip-link{
+  position:absolute;left:-999px;top:auto;background:var(--ipfty-deep-emerald);color:var(--ipfty-white);
+  padding:12px 18px;border-radius:0 0 10px 0;z-index:1000;font-weight:600;
+}
+#ipf-onboarding-thank-you .ipfty-skip-link:focus{left:0;top:0;}
+
+#ipf-onboarding-thank-you .ipfty-container{max-width:920px;margin:0 auto;padding:0 24px;}
+#ipf-onboarding-thank-you .ipfty-section{padding:60px 0;}
+#ipf-onboarding-thank-you .ipfty-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12.5px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--ipfty-forest-green);
+}
+#ipf-onboarding-thank-you .ipfty-eyebrow::before{content:"";width:22px;height:2px;background:var(--ipfty-gold-grad);border-radius:2px;}
+
+/* ---------------- Buttons ---------------- */
+#ipf-onboarding-thank-you .ipfty-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:15px 30px;border-radius:100px;font-weight:600;font-size:14.5px;letter-spacing:.3px;
+  border:2px solid transparent;transition:transform .18s ease, box-shadow .18s ease, background .2s ease, color .2s ease, border-color .2s ease;
+  text-decoration:none;white-space:nowrap;
+}
+#ipf-onboarding-thank-you .ipfty-btn:active{transform:translateY(1px);}
+#ipf-onboarding-thank-you .ipfty-btn-primary{background:var(--ipfty-deep-emerald);color:var(--ipfty-white);box-shadow:var(--ipfty-shadow-sm);}
+#ipf-onboarding-thank-you .ipfty-btn-primary:hover{background:var(--ipfty-gold-grad);color:var(--ipfty-deep-emerald);box-shadow:var(--ipfty-shadow-md);}
+#ipf-onboarding-thank-you .ipfty-btn-gold{background:var(--ipfty-gold-grad);color:var(--ipfty-deep-emerald);box-shadow:var(--ipfty-shadow-sm);}
+#ipf-onboarding-thank-you .ipfty-btn-gold:hover{background:var(--ipfty-deep-emerald);color:var(--ipfty-white);box-shadow:var(--ipfty-shadow-md);}
+#ipf-onboarding-thank-you .ipfty-btn-outline-dark{background:transparent;color:var(--ipfty-deep-emerald);border-color:var(--ipfty-deep-emerald);}
+#ipf-onboarding-thank-you .ipfty-btn-outline-dark:hover{background:var(--ipfty-deep-emerald);color:var(--ipfty-white);}
+#ipf-onboarding-thank-you .ipfty-btn[hidden]{display:none !important;}
+
+/* ---------------- Header ---------------- */
+#ipf-onboarding-thank-you .ipfty-site-header{
+  background:var(--ipfty-cream);border-bottom:2px solid var(--ipfty-gold-rich);padding:16px 0;
+}
+#ipf-onboarding-thank-you .ipfty-header-inner{max-width:920px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:12px;}
+#ipf-onboarding-thank-you .ipfty-brand{display:flex;align-items:center;gap:12px;text-decoration:none;}
+#ipf-onboarding-thank-you .ipfty-brand-logo-fallback{
+  width:44px;height:44px;border-radius:11px;background:var(--ipfty-green-grad);
+  display:flex;align-items:center;justify-content:center;color:var(--ipfty-gold-light);
+  font-family:var(--ipfty-font-head);font-weight:700;font-size:17px;flex-shrink:0;
+}
+#ipf-onboarding-thank-you .ipfty-brand-logo-img{width:44px;height:44px;object-fit:contain;border-radius:11px;background:var(--ipfty-white);}
+#ipf-onboarding-thank-you .ipfty-brand-text{line-height:1.25;}
+#ipf-onboarding-thank-you .ipfty-brand-text .ipfty-name{font-family:var(--ipfty-font-head);font-size:16.5px;color:var(--ipfty-deep-emerald);font-weight:700;}
+#ipf-onboarding-thank-you .ipfty-brand-text .ipfty-tag{display:block;font-family:var(--ipfty-font-body);font-size:10px;letter-spacing:1.8px;text-transform:uppercase;color:var(--ipfty-forest-green);font-weight:600;margin-top:2px;}
+
+/* ---------------- Confirmation hero ---------------- */
+#ipf-onboarding-thank-you .ipfty-confirm-section{
+  position:relative;overflow:hidden;padding:70px 0 50px;text-align:center;
+}
+#ipf-onboarding-thank-you .ipfty-curve{position:absolute;pointer-events:none;border-radius:50%;border:2px solid var(--ipfty-gold-rich);opacity:.3;}
+#ipf-onboarding-thank-you .ipfty-curve.ipfty-c1{width:360px;height:360px;top:-200px;right:-130px;}
+#ipf-onboarding-thank-you .ipfty-curve.ipfty-c2{width:240px;height:240px;bottom:-140px;left:-100px;border-color:var(--ipfty-forest-green);opacity:.16;}
+
+#ipf-onboarding-thank-you .ipfty-check-badge{
+  position:relative;z-index:1;width:88px;height:88px;border-radius:50%;background:var(--ipfty-green-grad);
+  display:flex;align-items:center;justify-content:center;margin:0 auto 22px;box-shadow:var(--ipfty-shadow-md);
+  border:3px solid var(--ipfty-gold-rich);
+}
+#ipf-onboarding-thank-you .ipfty-check-badge svg{color:var(--ipfty-gold-light);}
+
+#ipf-onboarding-thank-you .ipfty-confirm-section h1{position:relative;z-index:1;font-size:36px;line-height:1.22;margin-top:16px;max-width:680px;margin-left:auto;margin-right:auto;}
+#ipf-onboarding-thank-you .ipfty-confirm-lede{position:relative;z-index:1;font-size:15.5px;color:#3a3a3a;margin-top:18px;max-width:600px;margin-left:auto;margin-right:auto;line-height:1.75;}
+
+#ipf-onboarding-thank-you .ipfty-notice-box{
+  position:relative;z-index:1;max-width:620px;margin:26px auto 0;background:#fdf3e0;border:1px solid var(--ipfty-gold-rich);
+  border-radius:var(--ipfty-radius-sm);padding:16px 20px;display:flex;gap:12px;align-items:flex-start;text-align:left;
+}
+#ipf-onboarding-thank-you .ipfty-notice-box svg{flex-shrink:0;color:#8a5a1a;margin-top:2px;}
+#ipf-onboarding-thank-you .ipfty-notice-box p{font-size:13px;color:#5c4423;line-height:1.65;font-weight:500;}
+
+/* ---------------- Review status card ---------------- */
+#ipf-onboarding-thank-you .ipfty-status-section{padding:20px 0 60px;}
+#ipf-onboarding-thank-you .ipfty-status-card{
+  background:var(--ipfty-white);border:1px solid var(--ipfty-beige);border-radius:var(--ipfty-radius-lg);
+  padding:36px;box-shadow:var(--ipfty-shadow-sm);
+}
+#ipf-onboarding-thank-you .ipfty-status-steps{display:flex;flex-direction:column;gap:0;}
+#ipf-onboarding-thank-you .ipfty-status-step{display:flex;gap:18px;padding:16px 0;}
+#ipf-onboarding-thank-you .ipfty-status-step:not(:last-child){border-bottom:1px dashed var(--ipfty-beige);}
+#ipf-onboarding-thank-you .ipfty-status-num{
+  width:42px;height:42px;border-radius:50%;background:var(--ipfty-gold-grad);color:var(--ipfty-deep-emerald);
+  display:flex;align-items:center;justify-content:center;font-family:var(--ipfty-font-head);font-weight:700;font-size:16px;flex-shrink:0;
+}
+#ipf-onboarding-thank-you .ipfty-status-step h3{font-size:14.5px;letter-spacing:.2px;}
+#ipf-onboarding-thank-you .ipfty-status-step p{font-size:13.5px;color:#454540;margin-top:6px;line-height:1.65;}
+
+/* ---------------- What to do next ---------------- */
+#ipf-onboarding-thank-you .ipfty-next-section{padding:20px 0 60px;}
+#ipf-onboarding-thank-you .ipfty-next-card{
+  background:var(--ipfty-white);border:1px solid var(--ipfty-beige);border-radius:var(--ipfty-radius-lg);
+  padding:34px 36px;box-shadow:var(--ipfty-shadow-sm);
+}
+#ipf-onboarding-thank-you .ipfty-next-list{margin-top:20px;display:flex;flex-direction:column;gap:12px;}
+#ipf-onboarding-thank-you .ipfty-next-list li{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:var(--ipfty-charcoal);}
+#ipf-onboarding-thank-you .ipfty-next-list svg{flex-shrink:0;margin-top:2px;color:var(--ipfty-bright-green);}
+
+/* ---------------- Setup timeline ---------------- */
+#ipf-onboarding-thank-you .ipfty-timeline-section{padding:20px 0 60px;}
+#ipf-onboarding-thank-you .ipfty-timeline-card{
+  display:flex;gap:18px;align-items:flex-start;background:linear-gradient(135deg,#fdf8ec,var(--ipfty-cream));
+  border:1px solid var(--ipfty-gold-rich);border-radius:var(--ipfty-radius-md);padding:26px 28px;
+}
+#ipf-onboarding-thank-you .ipfty-timeline-ico{
+  width:46px;height:46px;border-radius:12px;background:var(--ipfty-green-grad);color:var(--ipfty-gold-light);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+#ipf-onboarding-thank-you .ipfty-timeline-card h3{font-size:16.5px;}
+#ipf-onboarding-thank-you .ipfty-timeline-card p{font-size:13.5px;color:#454540;margin-top:8px;line-height:1.7;}
+#ipf-onboarding-thank-you .ipfty-timeline-note{display:block;margin-top:8px;font-size:11.5px;color:#8a8a83;}
+
+/* ---------------- Security reminder ---------------- */
+#ipf-onboarding-thank-you .ipfty-security-section{padding:20px 0 60px;}
+#ipf-onboarding-thank-you .ipfty-security-card{
+  display:flex;gap:22px;align-items:flex-start;background:var(--ipfty-white);border:1px solid var(--ipfty-gold-rich);
+  border-radius:var(--ipfty-radius-lg);padding:32px 34px;box-shadow:var(--ipfty-shadow-sm);
+}
+#ipf-onboarding-thank-you .ipfty-shield{
+  width:56px;height:56px;border-radius:14px;border:2px solid var(--ipfty-gold-rich);flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;color:var(--ipfty-gold-rich);
+}
+#ipf-onboarding-thank-you .ipfty-security-card h3{font-size:18px;}
+#ipf-onboarding-thank-you .ipfty-security-card p{font-size:13.5px;color:#454540;margin-top:10px;line-height:1.7;}
+
+/* ---------------- Resource buttons ---------------- */
+#ipf-onboarding-thank-you .ipfty-resources-section{padding:10px 0 60px;text-align:center;}
+#ipf-onboarding-thank-you .ipfty-resources-actions{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;}
+#ipf-onboarding-thank-you .ipfty-resources-empty-note{font-size:12.5px;color:#8a8a83;margin-top:4px;}
+
+/* ---------------- Support ---------------- */
+#ipf-onboarding-thank-you .ipfty-support-section{padding:20px 0 70px;text-align:center;}
+#ipf-onboarding-thank-you .ipfty-support-actions{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:22px;}
+#ipf-onboarding-thank-you .ipfty-confirmed-phone{font-size:13px;color:var(--ipfty-forest-green);font-weight:600;margin-top:16px;}
+#ipf-onboarding-thank-you .ipfty-support-reminder{max-width:520px;margin:16px auto 0;font-size:11.5px;color:#8a8a83;line-height:1.7;}
+
+/* ---------------- Footer ---------------- */
+#ipf-onboarding-thank-you .ipfty-site-footer{background:var(--ipfty-deep-emerald);color:#dfe8e1;padding:40px 0 26px;}
+#ipf-onboarding-thank-you .ipfty-footer-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;padding-bottom:24px;border-bottom:1px solid rgba(226,194,90,.25);}
+#ipf-onboarding-thank-you .ipfty-footer-brand .ipfty-name{font-family:var(--ipfty-font-head);color:var(--ipfty-white);font-size:18px;font-weight:700;}
+#ipf-onboarding-thank-you .ipfty-footer-brand .ipfty-tag{font-size:12px;color:var(--ipfty-gold-light);margin-top:4px;letter-spacing:.5px;}
+#ipf-onboarding-thank-you .ipfty-footer-links{display:flex;gap:22px;flex-wrap:wrap;align-items:center;}
+#ipf-onboarding-thank-you .ipfty-footer-links a{font-size:13.5px;color:#dfe8e1;text-decoration:none;}
+#ipf-onboarding-thank-you .ipfty-footer-links a:hover{color:var(--ipfty-gold-light);}
+#ipf-onboarding-thank-you .ipfty-footer-links a[hidden]{display:none !important;}
+#ipf-onboarding-thank-you .ipfty-footer-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-top:20px;font-size:12px;color:#a9bdae;}
+#ipf-onboarding-thank-you .ipfty-footer-motto{color:var(--ipfty-gold-light);letter-spacing:.5px;}
+
+@media (max-width:640px){
+  #ipf-onboarding-thank-you .ipfty-confirm-section h1{font-size:28px;}
+  #ipf-onboarding-thank-you .ipfty-status-card,
+  #ipf-onboarding-thank-you .ipfty-next-card{padding:26px 22px;}
+  #ipf-onboarding-thank-you .ipfty-security-card{flex-direction:column;padding:26px 22px;}
+  #ipf-onboarding-thank-you .ipfty-timeline-card{flex-direction:column;padding:22px 20px;}
+  #ipf-onboarding-thank-you .ipfty-footer-top{flex-direction:column;}
+}
+</style>
+
+<div id="ipf-onboarding-thank-you">
+<a class="ipfty-skip-link" href="#ipfty-main-content">Skip to main content</a>
+
+<!-- =====================================================================
+     HEADER (simplified — no full navigation menu on this page)
+     ===================================================================== -->
+<header class="ipfty-site-header">
+  <div class="ipfty-header-inner">
+    <span class="ipfty-brand">
+      <span id="ipfty-logo-slot">
+        <span class="ipfty-brand-logo-fallback">IPF</span>
+      </span>
+      <span class="ipfty-brand-text">
+        <span class="ipfty-name">Infinity Plus Financial</span>
+        <span class="ipfty-tag">Tax Partner Program</span>
+      </span>
+    </span>
+  </div>
+</header>
+
+<main id="ipfty-main-content">
+
+<!-- =====================================================================
+     MAIN CONFIRMATION SECTION
+     ===================================================================== -->
+<section class="ipfty-confirm-section">
+  <span class="ipfty-curve ipfty-c1" aria-hidden="true"></span>
+  <span class="ipfty-curve ipfty-c2" aria-hidden="true"></span>
+  <div class="ipfty-container">
+    <div class="ipfty-check-badge" aria-hidden="true">
+      <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <span class="ipfty-eyebrow" style="justify-content:center;">Submission Received</span>
+    <h1>Thank You &mdash; Your Onboarding Is Under Review</h1>
+    <p class="ipfty-confirm-lede">Your final onboarding-review request has been submitted successfully. The Infinity Plus Financial team will review your information, assigned agreements, and required documents.</p>
+
+    <div class="ipfty-notice-box">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg>
+      <p>Submitting your onboarding for review does not mean your account has been officially approved or activated.</p>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     REVIEW-STATUS CARD
+     ===================================================================== -->
+<section class="ipfty-status-section">
+  <div class="ipfty-container">
+    <div class="ipfty-status-card">
+      <div class="ipfty-status-steps">
+        <div class="ipfty-status-step">
+          <span class="ipfty-status-num">1</span>
+          <div>
+            <h3>Submission Received</h3>
+            <p>Your final onboarding-review request has been received.</p>
+          </div>
+        </div>
+        <div class="ipfty-status-step">
+          <span class="ipfty-status-num">2</span>
+          <div>
+            <h3>Team Review</h3>
+            <p>The Infinity Plus Financial team will review your information, assigned agreements, and required documents.</p>
+          </div>
+        </div>
+        <div class="ipfty-status-step">
+          <span class="ipfty-status-num">3</span>
+          <div>
+            <h3>Follow-Up or Approval</h3>
+            <p>We will contact you if additional information or corrections are required. If your onboarding is approved, you will receive your assigned training and system-access instructions.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     WHAT SHOULD YOU DO NEXT
+     ===================================================================== -->
+<section class="ipfty-next-section">
+  <div class="ipfty-container">
+    <div class="ipfty-next-card">
+      <span class="ipfty-eyebrow">Stay Ready</span>
+      <h2 style="font-size:22px;margin-top:10px;">What Should You Do Next?</h2>
+      <ul class="ipfty-next-list">
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg>Monitor your email for onboarding updates.</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg>Respond promptly if additional information is requested.</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg>Attend your assigned Zoom training.</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg>Review your Tax Partner Handbook and assigned training materials.</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg>Do not resubmit your information unless the Infinity Plus Financial team asks you to do so.</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg>Keep your contact information current.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     SOFTWARE-SETUP TIMELINE
+     ===================================================================== -->
+<section class="ipfty-timeline-section">
+  <div class="ipfty-container">
+    <div class="ipfty-timeline-card">
+      <span class="ipfty-timeline-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span>
+      <div>
+        <h3>Software Setup Timeline</h3>
+        <p>Please allow 7&ndash;21 days for software setup after all required information, documents, and agreements have been submitted and approved.</p>
+        <span class="ipfty-timeline-note">Missing, incomplete, or incorrect information may delay setup.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     IMPORTANT SECURITY REMINDER
+     ===================================================================== -->
+<section class="ipfty-security-section">
+  <div class="ipfty-container">
+    <div class="ipfty-security-card">
+      <span class="ipfty-shield"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 5v6c0 5.2 3.4 9.4 8 11 4.6-1.6 8-5.8 8-11V5l-8-3z"/></svg></span>
+      <div>
+        <h3>Protect Your Information</h3>
+        <p>Do not send Social Security numbers, banking information, identification documents, PTIN records, EFIN records, passwords, or multi-factor authentication codes through regular email or text message. Use only the secure forms, upload links, and portals provided by Infinity Plus Financial.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     RESOURCE BUTTONS (hidden individually when their URL is missing)
+     ===================================================================== -->
+<section class="ipfty-resources-section">
+  <div class="ipfty-container">
+    <div class="ipfty-resources-actions">
+      <a class="ipfty-btn ipfty-btn-primary" id="ipfty-handbook-btn" href="#" target="_blank" rel="noopener noreferrer" hidden>
+        VIEW TAX PARTNER HANDBOOK
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17 17 7M7 7h10v10"/></svg>
+      </a>
+      <a class="ipfty-btn ipfty-btn-outline-dark" id="ipfty-return-btn" href="#" hidden>
+        RETURN TO ONBOARDING RESOURCES
+      </a>
+    </div>
+    <p class="ipfty-resources-empty-note" id="ipfty-resources-empty-note" hidden>Resource links will appear here once they are configured.</p>
+  </div>
+</section>
+
+<!-- =====================================================================
+     SUPPORT SECTION
+     ===================================================================== -->
+<section class="ipfty-support-section">
+  <div class="ipfty-container">
+    <span class="ipfty-eyebrow" style="justify-content:center;">We're Here to Help</span>
+    <h2 style="font-size:22px;margin-top:10px;">Need Assistance?</h2>
+    <p style="font-size:13.5px;color:#4a4a4a;margin-top:12px;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.7;">If you have a general question about your onboarding review, contact the Infinity Plus Financial team. Do not include sensitive information in regular email.</p>
+    <div class="ipfty-support-actions">
+      <a class="ipfty-btn ipfty-btn-gold" id="ipfty-email-btn" href="#" hidden>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m4 4 8 9 8-9"/></svg>
+        EMAIL OUR TEAM
+      </a>
+      <a class="ipfty-btn ipfty-btn-outline-dark" id="ipfty-phone-btn" href="#">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.4 2.1L8.1 9.7a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2.2z"/></svg>
+        CALL SUPPORT
+      </a>
+    </div>
+    <p class="ipfty-confirmed-phone" id="ipfty-confirmed-phone-line"></p>
+    <p class="ipfty-support-reminder">Do not include Social Security numbers, banking details, identity documents, PTIN or EFIN information in regular email.</p>
+  </div>
+</section>
+
+</main>
+
+<!-- =====================================================================
+     FOOTER
+     ===================================================================== -->
+<footer class="ipfty-site-footer">
+  <div class="ipfty-container">
+    <div class="ipfty-footer-top">
+      <div class="ipfty-footer-brand">
+        <div class="ipfty-name">Infinity Plus Financial</div>
+        <div class="ipfty-tag">Tax Partner Onboarding</div>
+      </div>
+      <nav class="ipfty-footer-links" aria-label="Footer navigation">
+        <a id="ipfty-privacy-link" href="#" target="_blank" rel="noopener noreferrer" hidden>Privacy Policy</a>
+        <a id="ipfty-terms-link" href="#" target="_blank" rel="noopener noreferrer" hidden>Terms and Conditions</a>
+      </nav>
+    </div>
+    <div class="ipfty-footer-bottom">
+      <span>&copy; <span id="ipfty-copyright-year"></span> Infinity Plus Financial. All rights reserved.</span>
+      <span class="ipfty-footer-motto">Clarity &bull; Strategy &bull; Confidence</span>
+    </div>
+  </div>
+</footer>
+
+</div><!-- /#ipf-onboarding-thank-you -->
+
+<script>
+/* =====================================================================
+   INFINITY PLUS FINANCIAL — ONBOARDING REVIEW THANK-YOU PAGE (logic)
+   Safe to run more than once: if this block is re-initialized inside
+   the GoHighLevel editor, the guard below skips re-binding so nothing
+   breaks or double-fires.
+   ===================================================================== */
+(function(){
+  var ipftyRoot = document.getElementById('ipf-onboarding-thank-you');
+  if (!ipftyRoot) { return; }
+  if (ipftyRoot.getAttribute('data-ipfty-initialized') === 'true') { return; }
+  ipftyRoot.setAttribute('data-ipfty-initialized', 'true');
+
+  /* ===================================================================
+     CONFIGURATION SECTION
+     This is the only part of the code you should need to edit. Every
+     button and link on this page is generated from these values —
+     nothing else in the file needs to change.
+     =================================================================== */
+  window.IPF_THANK_YOU_CONFIG = {
+    LOGO_URL: 'https://assets.cdn.filesafe.space/MBfkIbLtNoqshFkqOsCC/media/6a0371b6f07c48988970f5d6.png',
+    HANDBOOK_URL: '',          // TODO: paste the Tax Partner Handbook URL — button stays hidden until set
+    ONBOARDING_PAGE_URL: '',   // TODO: paste the URL of Page 1 (the onboarding hub) — button stays hidden until set
+    SUPPORT_EMAIL: '',         // TODO: paste the confirmed support email address — button stays hidden until set
+    SUPPORT_PHONE: '+18039191175',
+    SUPPORT_PHONE_DISPLAY: '(803) 919-1175',
+    PRIVACY_POLICY_URL: '',    // TODO: paste the live Privacy Policy URL — link stays hidden until set
+    TERMS_URL: ''              // TODO: paste the live Terms and Conditions URL — link stays hidden until set
+  };
+
+  var CONFIG = window.IPF_THANK_YOU_CONFIG;
+
+  /* ===================================================================
+     Helpers
+     =================================================================== */
+  function isFilled(v){ return typeof v === 'string' && v.trim() !== ''; }
+  function q(sel){ return ipftyRoot.querySelector(sel); }
+
+  /* Shows a link/button with its real URL, or keeps it fully hidden
+     (never a broken '#' link) when the URL has not been configured. */
+  function setOptionalLink(el, url){
+    if (!el) return;
+    if (isFilled(url)){
+      el.setAttribute('href', url);
+      el.removeAttribute('hidden');
+    } else {
+      el.setAttribute('href', '#');
+      el.setAttribute('hidden', '');
+    }
+  }
+
+  /* Prevent navigation on any hidden/disabled control, in case a
+     hidden element is still reachable in some assistive contexts. */
+  ipftyRoot.addEventListener('click', function(e){
+    var target = e.target.closest ? e.target.closest('[hidden], [aria-disabled="true"]') : null;
+    if (target){
+      e.preventDefault();
+    }
+  });
+
+  /* ===================================================================
+     Logo
+     =================================================================== */
+  (function applyLogo(){
+    var slot = q('#ipfty-logo-slot');
+    if (slot && isFilled(CONFIG.LOGO_URL)){
+      var img = document.createElement('img');
+      img.className = 'ipfty-brand-logo-img';
+      img.src = CONFIG.LOGO_URL;
+      img.alt = 'Infinity Plus Financial logo';
+      slot.innerHTML = '';
+      slot.appendChild(img);
+    }
+  })();
+
+  /* ===================================================================
+     Resource buttons (Handbook / Return to onboarding resources)
+     =================================================================== */
+  setOptionalLink(q('#ipfty-handbook-btn'), CONFIG.HANDBOOK_URL);
+  setOptionalLink(q('#ipfty-return-btn'), CONFIG.ONBOARDING_PAGE_URL);
+
+  (function toggleResourcesEmptyNote(){
+    var note = q('#ipfty-resources-empty-note');
+    if (!note) return;
+    var anyVisible = isFilled(CONFIG.HANDBOOK_URL) || isFilled(CONFIG.ONBOARDING_PAGE_URL);
+    if (anyVisible){
+      note.setAttribute('hidden', '');
+    } else {
+      note.removeAttribute('hidden');
+    }
+  })();
+
+  /* ===================================================================
+     Support section
+     =================================================================== */
+  setOptionalLink(
+    q('#ipfty-email-btn'),
+    isFilled(CONFIG.SUPPORT_EMAIL) ? ('mailto:' + CONFIG.SUPPORT_EMAIL) : ''
+  );
+
+  // Support phone is confirmed, so this button is always active.
+  var phoneBtn = q('#ipfty-phone-btn');
+  if (phoneBtn){
+    phoneBtn.setAttribute('href', 'tel:' + CONFIG.SUPPORT_PHONE);
+  }
+  var confirmedPhoneLine = q('#ipfty-confirmed-phone-line');
+  if (confirmedPhoneLine){
+    confirmedPhoneLine.textContent = 'Confirmed support number: ' + CONFIG.SUPPORT_PHONE_DISPLAY;
+  }
+
+  /* ===================================================================
+     Footer legal links
+     =================================================================== */
+  setOptionalLink(q('#ipfty-privacy-link'), CONFIG.PRIVACY_POLICY_URL);
+  setOptionalLink(q('#ipfty-terms-link'), CONFIG.TERMS_URL);
+
+  /* Copyright year */
+  var yearEl = q('#ipfty-copyright-year');
+  if (yearEl){ yearEl.textContent = new Date().getFullYear(); }
+
+})();
+</script>

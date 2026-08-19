@@ -1,0 +1,1593 @@
+<!-- =====================================================================
+     INFINITY PLUS FINANCIAL — TAX PARTNER ONBOARDING HUB
+     Repeatable master page. Paste this entire block into a GoHighLevel
+     Custom Code / HTML element. GoHighLevel tracks each partner
+     separately through forms, tags, workflows, and pipeline stages —
+     this page itself never changes per partner.
+
+     HOW TO CONFIGURE THIS PAGE
+     Scroll down to "window.IPF_ONBOARDING_CONFIG" near the bottom of
+     this block. That is the only section you should need to edit for
+     day-to-day updates (links, support contact, document lists, etc).
+     ===================================================================== -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* =====================================================================
+   All rules are namespaced under #ipf-onboarding-hub so this element
+   cannot leak styles onto the rest of the GoHighLevel page.
+   ===================================================================== */
+
+#ipf-onboarding-hub{
+  --ipf-deep-emerald:#004D2A;
+  --ipf-forest-green:#086B32;
+  --ipf-bright-green:#15952A;
+  --ipf-gold-rich:#C69A2B;
+  --ipf-gold-light:#E2C25A;
+  --ipf-cream:#F7F2E7;
+  --ipf-beige:#E7D5BD;
+  --ipf-charcoal:#171717;
+  --ipf-white:#FFFFFF;
+  --ipf-font-head:'Playfair Display',Georgia,'Times New Roman',serif;
+  --ipf-font-body:'Poppins',Arial,Helvetica,sans-serif;
+  --ipf-radius-sm:10px;
+  --ipf-radius-md:16px;
+  --ipf-radius-lg:26px;
+  --ipf-shadow-sm:0 2px 10px rgba(23,23,23,0.06);
+  --ipf-shadow-md:0 12px 34px rgba(0,77,42,0.12);
+  --ipf-shadow-lg:0 22px 60px rgba(0,77,42,0.18);
+  --ipf-gold-grad:linear-gradient(135deg,var(--ipf-gold-light),var(--ipf-gold-rich));
+  --ipf-green-grad:linear-gradient(135deg,var(--ipf-forest-green),var(--ipf-deep-emerald));
+
+  font-family:var(--ipf-font-body);
+  color:var(--ipf-charcoal);
+  background:var(--ipf-white);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  scroll-behavior:smooth;
+}
+#ipf-onboarding-hub *,
+#ipf-onboarding-hub *::before,
+#ipf-onboarding-hub *::after{box-sizing:border-box;}
+
+@media (prefers-reduced-motion:reduce){
+  #ipf-onboarding-hub{scroll-behavior:auto;}
+  #ipf-onboarding-hub *,
+  #ipf-onboarding-hub *::before,
+  #ipf-onboarding-hub *::after{
+    animation-duration:0.001ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:0.001ms !important;
+    scroll-behavior:auto !important;
+  }
+}
+
+#ipf-onboarding-hub h1,
+#ipf-onboarding-hub h2,
+#ipf-onboarding-hub h3,
+#ipf-onboarding-hub h4{font-family:var(--ipf-font-head);color:var(--ipf-deep-emerald);margin:0;font-weight:600;}
+#ipf-onboarding-hub p{margin:0;}
+#ipf-onboarding-hub a{color:inherit;}
+#ipf-onboarding-hub img{max-width:100%;display:block;}
+#ipf-onboarding-hub button{font-family:inherit;cursor:pointer;}
+#ipf-onboarding-hub ul{margin:0;padding:0;list-style:none;}
+
+#ipf-onboarding-hub a:focus-visible,
+#ipf-onboarding-hub button:focus-visible,
+#ipf-onboarding-hub input:focus-visible{
+  outline:3px solid var(--ipf-gold-rich);
+  outline-offset:3px;
+  border-radius:6px;
+}
+#ipf-onboarding-hub .ipf-skip-link{
+  position:absolute;left:-999px;top:auto;background:var(--ipf-deep-emerald);color:var(--ipf-white);
+  padding:12px 18px;border-radius:0 0 10px 0;z-index:1000;font-weight:600;
+}
+#ipf-onboarding-hub .ipf-skip-link:focus{left:0;top:0;}
+
+#ipf-onboarding-hub .ipf-container{max-width:1180px;margin:0 auto;padding:0 24px;}
+#ipf-onboarding-hub .ipf-section{padding:80px 0;}
+#ipf-onboarding-hub .ipf-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12.5px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--ipf-forest-green);
+}
+#ipf-onboarding-hub .ipf-eyebrow::before{content:"";width:22px;height:2px;background:var(--ipf-gold-grad);border-radius:2px;}
+
+/* ---------------- Buttons ---------------- */
+#ipf-onboarding-hub .ipf-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:15px 30px;border-radius:100px;font-weight:600;font-size:14.5px;letter-spacing:.3px;
+  border:2px solid transparent;transition:transform .18s ease, box-shadow .18s ease, background .2s ease, color .2s ease, border-color .2s ease;
+  text-decoration:none;white-space:nowrap;
+}
+#ipf-onboarding-hub .ipf-btn:active{transform:translateY(1px);}
+#ipf-onboarding-hub .ipf-btn-primary{background:var(--ipf-deep-emerald);color:var(--ipf-white);box-shadow:var(--ipf-shadow-sm);}
+#ipf-onboarding-hub .ipf-btn-primary:hover{background:var(--ipf-gold-grad);color:var(--ipf-deep-emerald);box-shadow:var(--ipf-shadow-md);}
+#ipf-onboarding-hub .ipf-btn-gold{background:var(--ipf-gold-grad);color:var(--ipf-deep-emerald);box-shadow:var(--ipf-shadow-sm);}
+#ipf-onboarding-hub .ipf-btn-gold:hover{background:var(--ipf-deep-emerald);color:var(--ipf-white);box-shadow:var(--ipf-shadow-md);}
+#ipf-onboarding-hub .ipf-btn-outline-dark{background:transparent;color:var(--ipf-deep-emerald);border-color:var(--ipf-deep-emerald);}
+#ipf-onboarding-hub .ipf-btn-outline-dark:hover{background:var(--ipf-deep-emerald);color:var(--ipf-white);}
+#ipf-onboarding-hub .ipf-btn-block{width:100%;}
+#ipf-onboarding-hub .ipf-btn svg{flex-shrink:0;}
+#ipf-onboarding-hub .ipf-btn[aria-disabled="true"]{
+  opacity:.5;cursor:not-allowed;pointer-events:auto;
+  background:var(--ipf-beige);color:#8a8a83;box-shadow:none;
+}
+#ipf-onboarding-hub .ipf-btn[aria-disabled="true"]:hover{background:var(--ipf-beige);color:#8a8a83;transform:none;box-shadow:none;}
+#ipf-onboarding-hub .ipf-btn-note{
+  display:block;font-size:11.5px;color:#8a8a83;margin-top:8px;font-weight:500;
+}
+
+/* ---------------- Setup warning banner ---------------- */
+#ipf-onboarding-hub .ipf-setup-warning{
+  display:none;background:#fdf3e0;border-bottom:2px solid var(--ipf-gold-rich);
+  padding:18px 0;
+}
+#ipf-onboarding-hub .ipf-setup-warning.ipf-show{display:block;}
+#ipf-onboarding-hub .ipf-setup-warning-inner{display:flex;gap:16px;align-items:flex-start;}
+#ipf-onboarding-hub .ipf-setup-warning svg{flex-shrink:0;color:#8a5a1a;margin-top:3px;}
+#ipf-onboarding-hub .ipf-setup-warning h4{font-size:15px;color:#7a4a10;}
+#ipf-onboarding-hub .ipf-setup-warning p{font-size:12.5px;color:#5c4423;margin-top:6px;}
+#ipf-onboarding-hub .ipf-setup-warning ul{margin-top:10px;display:flex;flex-wrap:wrap;gap:8px;}
+#ipf-onboarding-hub .ipf-setup-warning li{
+  font-size:11.5px;font-weight:600;background:var(--ipf-white);border:1px solid var(--ipf-gold-rich);
+  color:#7a4a10;padding:5px 11px;border-radius:100px;
+}
+
+/* ---------------- Header ---------------- */
+#ipf-onboarding-hub .ipf-site-header{
+  position:sticky;top:0;z-index:500;background:var(--ipf-cream);border-bottom:2px solid var(--ipf-gold-rich);
+}
+#ipf-onboarding-hub .ipf-header-inner{max-width:1180px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;gap:20px;}
+#ipf-onboarding-hub .ipf-brand{display:flex;align-items:center;gap:12px;text-decoration:none;flex-shrink:0;}
+#ipf-onboarding-hub .ipf-brand-logo-fallback{
+  width:44px;height:44px;border-radius:11px;background:var(--ipf-green-grad);
+  display:flex;align-items:center;justify-content:center;color:var(--ipf-gold-light);
+  font-family:var(--ipf-font-head);font-weight:700;font-size:17px;flex-shrink:0;
+}
+#ipf-onboarding-hub .ipf-brand-logo-img{width:44px;height:44px;object-fit:contain;border-radius:11px;background:var(--ipf-white);}
+#ipf-onboarding-hub .ipf-brand-text{line-height:1.25;}
+#ipf-onboarding-hub .ipf-brand-text .ipf-name{font-family:var(--ipf-font-head);font-size:16.5px;color:var(--ipf-deep-emerald);font-weight:700;}
+#ipf-onboarding-hub .ipf-brand-text .ipf-tag{display:block;font-family:var(--ipf-font-body);font-size:10px;letter-spacing:1.8px;text-transform:uppercase;color:var(--ipf-forest-green);font-weight:600;margin-top:2px;}
+#ipf-onboarding-hub .ipf-main-nav{display:flex;align-items:center;gap:6px;margin-left:auto;}
+#ipf-onboarding-hub .ipf-main-nav a{padding:10px 16px;border-radius:100px;font-size:14px;font-weight:500;color:var(--ipf-charcoal);text-decoration:none;transition:background .15s,color .15s;}
+#ipf-onboarding-hub .ipf-main-nav a:hover{background:var(--ipf-beige);color:var(--ipf-deep-emerald);}
+#ipf-onboarding-hub .ipf-header-cta{margin-left:8px;flex-shrink:0;}
+#ipf-onboarding-hub .ipf-header-cta .ipf-btn{padding:11px 22px;font-size:13.5px;}
+#ipf-onboarding-hub .ipf-mobile-nav-toggle{
+  display:none;width:44px;height:44px;border-radius:10px;border:1.5px solid var(--ipf-beige);
+  background:var(--ipf-white);align-items:center;justify-content:center;flex-shrink:0;
+}
+#ipf-onboarding-hub .ipf-mobile-nav-panel{display:none;}
+
+@media (max-width:900px){
+  #ipf-onboarding-hub .ipf-main-nav{display:none;}
+  #ipf-onboarding-hub .ipf-header-cta{display:none;}
+  #ipf-onboarding-hub .ipf-mobile-nav-toggle{display:inline-flex;}
+  #ipf-onboarding-hub .ipf-mobile-nav-panel{
+    display:none;flex-direction:column;gap:4px;background:var(--ipf-cream);
+    border-top:1px solid var(--ipf-beige);padding:14px 24px 20px;
+  }
+  #ipf-onboarding-hub .ipf-mobile-nav-panel.ipf-open{display:flex;}
+  #ipf-onboarding-hub .ipf-mobile-nav-panel a{padding:12px 14px;border-radius:10px;font-size:15px;font-weight:500;color:var(--ipf-charcoal);text-decoration:none;}
+  #ipf-onboarding-hub .ipf-mobile-nav-panel a:hover{background:var(--ipf-beige);}
+  #ipf-onboarding-hub .ipf-mobile-nav-panel .ipf-btn{margin-top:8px;}
+}
+
+/* ---------------- Hero ---------------- */
+#ipf-onboarding-hub .ipf-hero{position:relative;overflow:hidden;background:var(--ipf-cream);padding:70px 0 90px;}
+#ipf-onboarding-hub .ipf-hero-curve{position:absolute;pointer-events:none;border-radius:50%;border:2px solid var(--ipf-gold-rich);opacity:.35;}
+#ipf-onboarding-hub .ipf-hero-curve.ipf-c1{width:420px;height:420px;top:-220px;right:-140px;}
+#ipf-onboarding-hub .ipf-hero-curve.ipf-c2{width:260px;height:260px;bottom:-140px;left:-100px;border-color:var(--ipf-forest-green);opacity:.18;}
+#ipf-onboarding-hub .ipf-hero-curve.ipf-c3{
+  position:absolute;top:0;right:0;width:55%;height:100%;pointer-events:none;
+  background:radial-gradient(circle at 100% 0%, rgba(198,154,43,0.14), transparent 60%);border:none;
+}
+#ipf-onboarding-hub .ipf-hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.15fr 1fr;gap:56px;align-items:center;}
+#ipf-onboarding-hub .ipf-hero-copy h1{font-size:44px;line-height:1.16;margin-top:14px;}
+#ipf-onboarding-hub .ipf-hero-copy .ipf-lede{font-size:16.5px;color:#3a3a3a;margin-top:20px;max-width:520px;line-height:1.7;}
+#ipf-onboarding-hub .ipf-hero-actions{display:flex;align-items:center;gap:18px;margin-top:30px;flex-wrap:wrap;}
+#ipf-onboarding-hub .ipf-security-note{
+  display:flex;align-items:flex-start;gap:10px;margin-top:26px;padding:14px 16px;
+  background:var(--ipf-white);border:1px solid var(--ipf-beige);border-radius:var(--ipf-radius-sm);max-width:520px;
+}
+#ipf-onboarding-hub .ipf-security-note svg{flex-shrink:0;color:var(--ipf-gold-rich);margin-top:2px;}
+#ipf-onboarding-hub .ipf-security-note p{font-size:12.5px;color:#4a4a4a;line-height:1.6;}
+
+#ipf-onboarding-hub .ipf-checklist-card{
+  position:relative;background:var(--ipf-white);border:1px solid var(--ipf-beige);border-radius:var(--ipf-radius-lg);
+  padding:34px 30px;box-shadow:var(--ipf-shadow-lg);
+}
+#ipf-onboarding-hub .ipf-checklist-card h3{font-size:18px;}
+#ipf-onboarding-hub .ipf-checklist-card .ipf-cc-sub{font-size:12.5px;color:#6b6b65;margin-top:6px;}
+#ipf-onboarding-hub .ipf-checklist-items{margin-top:22px;display:flex;flex-direction:column;gap:16px;}
+#ipf-onboarding-hub .ipf-checklist-item{display:flex;align-items:center;gap:14px;}
+#ipf-onboarding-hub .ipf-checklist-item .ipf-num-badge{
+  width:40px;height:40px;border-radius:12px;background:var(--ipf-gold-grad);color:var(--ipf-deep-emerald);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+#ipf-onboarding-hub .ipf-checklist-item .ipf-ci-text .ipf-t1{font-size:14px;font-weight:600;color:var(--ipf-charcoal);}
+#ipf-onboarding-hub .ipf-checklist-item .ipf-ci-text .ipf-t2{font-size:11.5px;color:#8a8a83;margin-top:2px;}
+
+@media (max-width:980px){
+  #ipf-onboarding-hub .ipf-hero-grid{grid-template-columns:1fr;}
+  #ipf-onboarding-hub .ipf-hero-copy h1{font-size:34px;}
+  #ipf-onboarding-hub .ipf-checklist-card{max-width:460px;}
+}
+
+/* ---------------- Progress section ---------------- */
+#ipf-onboarding-hub .ipf-progress-section{padding:76px 0 40px;background:var(--ipf-white);}
+#ipf-onboarding-hub .ipf-section-head{max-width:680px;margin:0 auto 44px;text-align:center;}
+#ipf-onboarding-hub .ipf-section-head h2{font-size:32px;margin-top:12px;}
+#ipf-onboarding-hub .ipf-section-head p{font-size:15px;color:#4a4a4a;margin-top:14px;line-height:1.7;}
+
+#ipf-onboarding-hub .ipf-progress-track{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;max-width:960px;margin:0 auto;position:relative;}
+#ipf-onboarding-hub .ipf-progress-track::before{
+  content:"";position:absolute;top:26px;left:60px;right:60px;height:2px;
+  background:linear-gradient(90deg,var(--ipf-beige),var(--ipf-gold-rich),var(--ipf-beige));z-index:0;
+}
+#ipf-onboarding-hub .ipf-progress-step{position:relative;z-index:1;flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;}
+#ipf-onboarding-hub .ipf-progress-step .ipf-p-num{
+  width:52px;height:52px;border-radius:50%;background:var(--ipf-white);border:2px solid var(--ipf-gold-rich);
+  display:flex;align-items:center;justify-content:center;font-family:var(--ipf-font-head);font-weight:700;
+  font-size:18px;color:var(--ipf-deep-emerald);flex-shrink:0;
+}
+#ipf-onboarding-hub .ipf-progress-step .ipf-p-label{font-size:13.5px;font-weight:600;color:var(--ipf-charcoal);max-width:140px;}
+
+@media (max-width:760px){
+  #ipf-onboarding-hub .ipf-progress-track{flex-direction:column;align-items:stretch;gap:22px;}
+  #ipf-onboarding-hub .ipf-progress-track::before{display:none;}
+  #ipf-onboarding-hub .ipf-progress-step{flex-direction:row;text-align:left;justify-content:flex-start;}
+  #ipf-onboarding-hub .ipf-progress-step .ipf-p-label{max-width:none;}
+}
+
+#ipf-onboarding-hub .ipf-progress-note{
+  max-width:640px;margin:40px auto 0;text-align:center;font-size:12.5px;color:#7a7a72;
+  padding:14px 18px;background:var(--ipf-cream);border-radius:var(--ipf-radius-sm);border:1px dashed var(--ipf-beige);
+}
+
+/* ---------------- Step cards ---------------- */
+#ipf-onboarding-hub .ipf-steps-wrap{padding:50px 0 30px;background:var(--ipf-white);}
+#ipf-onboarding-hub .ipf-step-card{
+  display:grid;grid-template-columns:88px 1fr;gap:28px;
+  background:var(--ipf-white);border:1px solid var(--ipf-beige);border-radius:var(--ipf-radius-lg);
+  padding:36px;box-shadow:var(--ipf-shadow-sm);margin-bottom:28px;transition:box-shadow .2s ease;
+}
+#ipf-onboarding-hub .ipf-step-card:hover{box-shadow:var(--ipf-shadow-md);}
+#ipf-onboarding-hub .ipf-step-num-col{display:flex;flex-direction:column;align-items:center;gap:14px;}
+#ipf-onboarding-hub .ipf-step-num{
+  width:72px;height:72px;border-radius:20px;background:var(--ipf-gold-grad);color:var(--ipf-deep-emerald);
+  display:flex;align-items:center;justify-content:center;font-family:var(--ipf-font-head);font-weight:700;font-size:26px;
+  box-shadow:var(--ipf-shadow-sm);
+}
+#ipf-onboarding-hub .ipf-step-status{
+  font-size:10.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:5px 10px;
+  border-radius:100px;text-align:center;white-space:nowrap;
+}
+#ipf-onboarding-hub .ipf-step-status.ipf-required{background:#fbeee0;color:#8a5a1a;border:1px solid var(--ipf-gold-rich);}
+#ipf-onboarding-hub .ipf-step-status.ipf-available{background:#e7f3ea;color:var(--ipf-forest-green);border:1px solid var(--ipf-bright-green);}
+#ipf-onboarding-hub .ipf-step-body h3{font-size:21px;}
+#ipf-onboarding-hub .ipf-step-body .ipf-step-desc{font-size:14.5px;color:#454540;margin-top:10px;line-height:1.7;max-width:640px;}
+#ipf-onboarding-hub .ipf-step-checklist{margin-top:20px;display:flex;flex-direction:column;gap:10px;}
+#ipf-onboarding-hub .ipf-step-checklist li{display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:var(--ipf-charcoal);}
+#ipf-onboarding-hub .ipf-step-checklist svg{flex-shrink:0;margin-top:2px;color:var(--ipf-bright-green);}
+#ipf-onboarding-hub .ipf-step-card .ipf-btn{margin-top:24px;}
+#ipf-onboarding-hub .ipf-step-inline-note{
+  margin-top:18px;padding:13px 16px;background:var(--ipf-cream);border:1px solid var(--ipf-beige);
+  border-radius:var(--ipf-radius-sm);font-size:13px;color:#454540;line-height:1.6;max-width:600px;
+}
+#ipf-onboarding-hub .ipf-training-meta{display:flex;flex-wrap:wrap;gap:22px;margin-top:18px;}
+#ipf-onboarding-hub .ipf-training-meta .ipf-tm{background:var(--ipf-cream);border:1px solid var(--ipf-beige);border-radius:var(--ipf-radius-sm);padding:12px 16px;min-width:180px;}
+#ipf-onboarding-hub .ipf-training-meta .ipf-tm .ipf-lbl{font-size:10.5px;text-transform:uppercase;letter-spacing:.5px;color:#8a8a83;font-weight:700;}
+#ipf-onboarding-hub .ipf-training-meta .ipf-tm .ipf-val{font-size:14px;font-weight:600;color:var(--ipf-deep-emerald);margin-top:4px;}
+
+@media (max-width:700px){
+  #ipf-onboarding-hub .ipf-step-card{grid-template-columns:1fr;padding:26px 22px;}
+  #ipf-onboarding-hub .ipf-step-num-col{flex-direction:row;justify-content:flex-start;}
+}
+
+/* ---------------- What happens next ---------------- */
+#ipf-onboarding-hub .ipf-next-section{background:var(--ipf-green-grad);color:var(--ipf-white);padding:84px 0;position:relative;overflow:hidden;}
+#ipf-onboarding-hub .ipf-next-section::before{content:"";position:absolute;top:-160px;right:-160px;width:400px;height:400px;border-radius:50%;border:2px solid rgba(226,194,90,.35);}
+#ipf-onboarding-hub .ipf-next-section::after{content:"";position:absolute;bottom:-180px;left:-140px;width:340px;height:340px;border-radius:50%;border:2px solid rgba(226,194,90,.2);}
+#ipf-onboarding-hub .ipf-next-section .ipf-section-head h2{color:var(--ipf-white);}
+#ipf-onboarding-hub .ipf-next-section .ipf-section-head p{color:#dfe8e1;}
+#ipf-onboarding-hub .ipf-next-section .ipf-eyebrow{color:var(--ipf-gold-light);}
+#ipf-onboarding-hub .ipf-next-section .ipf-eyebrow::before{background:var(--ipf-gold-grad);}
+#ipf-onboarding-hub .ipf-next-cols{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1000px;margin:0 auto;}
+#ipf-onboarding-hub .ipf-next-card{background:rgba(255,255,255,0.06);border:1px solid rgba(226,194,90,.4);border-radius:var(--ipf-radius-md);padding:30px 26px;}
+#ipf-onboarding-hub .ipf-next-card .ipf-n-ico{width:48px;height:48px;border-radius:12px;background:var(--ipf-gold-grad);color:var(--ipf-deep-emerald);display:flex;align-items:center;justify-content:center;margin-bottom:18px;}
+#ipf-onboarding-hub .ipf-next-card h3{color:var(--ipf-gold-light);font-size:18px;letter-spacing:.3px;}
+#ipf-onboarding-hub .ipf-next-card p{color:#e7eee9;font-size:13.5px;margin-top:12px;line-height:1.7;}
+#ipf-onboarding-hub .ipf-next-note{position:relative;z-index:1;max-width:640px;margin:36px auto 0;text-align:center;font-size:12.5px;color:#cfe0d4;padding:14px 18px;border-radius:var(--ipf-radius-sm);border:1px dashed rgba(226,194,90,.4);}
+@media (max-width:800px){#ipf-onboarding-hub .ipf-next-cols{grid-template-columns:1fr;}}
+
+/* ---------------- Security notice ---------------- */
+#ipf-onboarding-hub .ipf-security-section{padding:80px 0;background:var(--ipf-cream);}
+#ipf-onboarding-hub .ipf-security-card{
+  max-width:820px;margin:0 auto;background:var(--ipf-white);border:1px solid var(--ipf-gold-rich);
+  border-radius:var(--ipf-radius-lg);padding:42px 40px;box-shadow:var(--ipf-shadow-sm);
+  display:flex;gap:26px;align-items:flex-start;
+}
+#ipf-onboarding-hub .ipf-security-card .ipf-shield{
+  width:64px;height:64px;border-radius:16px;border:2px solid var(--ipf-gold-rich);flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;color:var(--ipf-gold-rich);
+}
+#ipf-onboarding-hub .ipf-security-card h3{font-size:21px;}
+#ipf-onboarding-hub .ipf-security-card p{font-size:14px;color:#454540;margin-top:12px;line-height:1.75;}
+@media (max-width:640px){#ipf-onboarding-hub .ipf-security-card{flex-direction:column;padding:30px 24px;}}
+
+/* ---------------- Support ---------------- */
+#ipf-onboarding-hub .ipf-support-section{padding:80px 0 96px;background:var(--ipf-white);text-align:center;}
+#ipf-onboarding-hub .ipf-support-section .ipf-section-head{margin-bottom:30px;}
+#ipf-onboarding-hub .ipf-support-actions{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;}
+#ipf-onboarding-hub .ipf-support-reminder{max-width:560px;margin:26px auto 0;font-size:12px;color:#8a8a83;line-height:1.7;}
+#ipf-onboarding-hub .ipf-confirmed-phone{font-size:13px;color:var(--ipf-forest-green);font-weight:600;margin-top:14px;}
+
+/* ---------------- Footer ---------------- */
+#ipf-onboarding-hub .ipf-site-footer{background:var(--ipf-deep-emerald);color:#dfe8e1;padding:52px 0 30px;}
+#ipf-onboarding-hub .ipf-footer-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:30px;padding-bottom:30px;border-bottom:1px solid rgba(226,194,90,.25);}
+#ipf-onboarding-hub .ipf-footer-brand .ipf-name{font-family:var(--ipf-font-head);color:var(--ipf-white);font-size:19px;font-weight:700;}
+#ipf-onboarding-hub .ipf-footer-brand .ipf-tag{font-size:12px;color:var(--ipf-gold-light);margin-top:4px;letter-spacing:.5px;}
+#ipf-onboarding-hub .ipf-footer-links{display:flex;gap:26px;flex-wrap:wrap;}
+#ipf-onboarding-hub .ipf-footer-links a{font-size:13.5px;color:#dfe8e1;text-decoration:none;}
+#ipf-onboarding-hub .ipf-footer-links a:hover{color:var(--ipf-gold-light);}
+#ipf-onboarding-hub .ipf-footer-links a[aria-disabled="true"]{color:#7f9a86;cursor:not-allowed;pointer-events:auto;}
+#ipf-onboarding-hub .ipf-footer-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-top:22px;font-size:12px;color:#a9bdae;}
+#ipf-onboarding-hub .ipf-footer-motto{color:var(--ipf-gold-light);letter-spacing:.5px;}
+
+/* ---------------- Back to top / sticky mobile CTA ---------------- */
+#ipf-onboarding-hub #ipf-back-to-top{
+  position:fixed;right:22px;bottom:22px;width:48px;height:48px;border-radius:50%;
+  background:var(--ipf-gold-grad);color:var(--ipf-deep-emerald);border:none;box-shadow:var(--ipf-shadow-md);
+  display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;
+  transform:translateY(10px);transition:opacity .2s,transform .2s,visibility .2s;z-index:400;
+}
+#ipf-onboarding-hub #ipf-back-to-top.ipf-show{opacity:1;visibility:visible;transform:translateY(0);}
+#ipf-onboarding-hub #ipf-back-to-top:hover{background:var(--ipf-deep-emerald);color:var(--ipf-gold-light);}
+
+#ipf-onboarding-hub #ipf-sticky-mobile-cta{
+  display:none;position:fixed;left:0;right:0;bottom:0;z-index:399;
+  background:var(--ipf-cream);border-top:2px solid var(--ipf-gold-rich);padding:12px 16px;
+  box-shadow:0 -8px 24px rgba(0,0,0,.08);
+}
+#ipf-onboarding-hub #ipf-sticky-mobile-cta .ipf-btn{width:100%;}
+@media (max-width:900px){
+  #ipf-onboarding-hub #ipf-sticky-mobile-cta.ipf-show{display:block;}
+}
+
+/* ---------------- Before You Begin ---------------- */
+#ipf-onboarding-hub .ipf-before-section{padding:70px 0;background:var(--ipf-cream);}
+#ipf-onboarding-hub .ipf-before-card{background:var(--ipf-white);border:1px solid var(--ipf-beige);border-radius:var(--ipf-radius-lg);padding:34px 36px;box-shadow:var(--ipf-shadow-sm);max-width:900px;margin:0 auto;}
+#ipf-onboarding-hub .ipf-before-card > p{font-size:13.5px;color:#4a4a4a;margin-top:10px;line-height:1.65;max-width:640px;}
+#ipf-onboarding-hub .ipf-before-list{display:grid;grid-template-columns:1fr 1fr;gap:12px 24px;margin-top:20px;}
+#ipf-onboarding-hub .ipf-before-list li{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:var(--ipf-charcoal);}
+#ipf-onboarding-hub .ipf-before-list svg{flex-shrink:0;margin-top:2px;color:var(--ipf-bright-green);}
+#ipf-onboarding-hub .ipf-before-security-note{margin-top:22px;padding:14px 16px;background:var(--ipf-cream);border:1px solid var(--ipf-beige);border-radius:var(--ipf-radius-sm);font-size:12.5px;color:#4a4a4a;line-height:1.65;}
+@media (max-width:640px){#ipf-onboarding-hub .ipf-before-list{grid-template-columns:1fr;}}
+
+/* ---------------- Role notice + timeline notice ---------------- */
+#ipf-onboarding-hub .ipf-notice-wrap{padding:70px 0 10px;background:var(--ipf-white);}
+#ipf-onboarding-hub .ipf-role-card{
+  max-width:900px;margin:0 auto;display:flex;gap:18px;align-items:flex-start;
+  background:linear-gradient(135deg,#fdf8ec,var(--ipf-cream));border:1px solid var(--ipf-gold-rich);
+  border-radius:var(--ipf-radius-md);padding:24px 28px;
+}
+#ipf-onboarding-hub .ipf-role-card .ipf-role-ico{width:44px;height:44px;border-radius:12px;background:var(--ipf-gold-grad);color:var(--ipf-deep-emerald);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+#ipf-onboarding-hub .ipf-role-card h3{font-size:16.5px;}
+#ipf-onboarding-hub .ipf-role-card p{font-size:13px;color:#454540;margin-top:8px;line-height:1.65;}
+
+#ipf-onboarding-hub .ipf-timeline-card{
+  max-width:900px;margin:20px auto 0;display:flex;gap:18px;align-items:flex-start;
+  background:var(--ipf-white);border:1px solid var(--ipf-beige);border-radius:var(--ipf-radius-md);padding:24px 28px;
+}
+#ipf-onboarding-hub .ipf-timeline-card .ipf-timeline-ico{width:44px;height:44px;border-radius:12px;background:var(--ipf-green-grad);color:var(--ipf-gold-light);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+#ipf-onboarding-hub .ipf-timeline-card h3{font-size:16.5px;}
+#ipf-onboarding-hub .ipf-timeline-card p{font-size:13px;color:#454540;margin-top:8px;line-height:1.65;}
+#ipf-onboarding-hub .ipf-timeline-card .ipf-timeline-note{display:block;margin-top:8px;font-size:11.5px;color:#8a8a83;}
+@media (max-width:640px){
+  #ipf-onboarding-hub .ipf-role-card, #ipf-onboarding-hub .ipf-timeline-card{flex-direction:column;padding:22px 20px;}
+}
+
+/* ---------------- Handbook & resources ---------------- */
+#ipf-onboarding-hub .ipf-handbook-section{padding:80px 0;background:var(--ipf-cream);}
+#ipf-onboarding-hub .ipf-handbook-primary{max-width:760px;margin:0 auto;text-align:center;}
+#ipf-onboarding-hub .ipf-handbook-primary .ipf-handbook-label{display:block;font-size:12px;color:var(--ipf-forest-green);font-weight:600;margin-top:14px;}
+#ipf-onboarding-hub .ipf-handbook-primary .ipf-btn{margin-top:20px;}
+#ipf-onboarding-hub .ipf-resource-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;max-width:900px;margin:40px auto 0;}
+#ipf-onboarding-hub .ipf-resource-card{background:var(--ipf-white);border:1px solid var(--ipf-beige);border-radius:var(--ipf-radius-md);padding:22px 24px;box-shadow:var(--ipf-shadow-sm);}
+#ipf-onboarding-hub .ipf-resource-card h4{font-size:15px;color:var(--ipf-deep-emerald);font-family:var(--ipf-font-head);font-weight:600;}
+#ipf-onboarding-hub .ipf-resource-card p{font-size:12.5px;color:#5a5a54;margin-top:8px;line-height:1.6;}
+#ipf-onboarding-hub .ipf-resource-card a{display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-size:12.5px;font-weight:700;color:var(--ipf-forest-green);text-decoration:none;}
+#ipf-onboarding-hub .ipf-resource-card a:hover{color:var(--ipf-gold-rich);}
+#ipf-onboarding-hub .ipf-resource-empty-note{text-align:center;max-width:600px;margin:34px auto 0;font-size:12.5px;color:#8a8a83;}
+@media (max-width:700px){#ipf-onboarding-hub .ipf-resource-grid{grid-template-columns:1fr;}}
+
+/* ---------------- Technology requirements ---------------- */
+#ipf-onboarding-hub .ipf-tech-section{padding:80px 0;background:var(--ipf-white);}
+#ipf-onboarding-hub .ipf-tech-list{display:grid;grid-template-columns:1fr 1fr;gap:12px 24px;max-width:900px;margin:30px auto 0;}
+#ipf-onboarding-hub .ipf-tech-list li{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:var(--ipf-charcoal);}
+#ipf-onboarding-hub .ipf-tech-list svg{flex-shrink:0;margin-top:2px;color:var(--ipf-bright-green);}
+#ipf-onboarding-hub .ipf-tech-note{max-width:640px;margin:26px auto 0;text-align:center;font-size:12.5px;color:#8a5a1a;background:#fdf3e0;border:1px solid var(--ipf-gold-rich);padding:12px 16px;border-radius:var(--ipf-radius-sm);}
+@media (max-width:640px){#ipf-onboarding-hub .ipf-tech-list{grid-template-columns:1fr;}}
+
+/* ---------------- Submit for review ---------------- */
+#ipf-onboarding-hub .ipf-review-section{padding:80px 0;background:var(--ipf-cream);}
+#ipf-onboarding-hub .ipf-review-card{max-width:760px;margin:0 auto;background:var(--ipf-white);border:1px solid var(--ipf-gold-rich);border-radius:var(--ipf-radius-lg);padding:36px 38px;box-shadow:var(--ipf-shadow-sm);}
+#ipf-onboarding-hub .ipf-review-card h2{font-size:24px;text-align:center;}
+#ipf-onboarding-hub .ipf-review-card .ipf-review-lede{text-align:center;font-size:14px;color:#4a4a4a;margin-top:10px;}
+#ipf-onboarding-hub .ipf-review-checklist{margin-top:24px;display:flex;flex-direction:column;gap:11px;}
+#ipf-onboarding-hub .ipf-review-checklist li{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:var(--ipf-charcoal);}
+#ipf-onboarding-hub .ipf-review-checklist svg{flex-shrink:0;margin-top:2px;color:var(--ipf-bright-green);}
+#ipf-onboarding-hub .ipf-review-actions{text-align:center;margin-top:28px;}
+#ipf-onboarding-hub .ipf-review-disclaimer{max-width:560px;margin:18px auto 0;text-align:center;font-size:12px;color:#8a8a83;line-height:1.7;}
+#ipf-onboarding-hub .ipf-confirmation-note{max-width:640px;margin:26px auto 0;text-align:center;font-size:12.5px;color:#454540;padding:16px 18px;background:var(--ipf-cream);border:1px dashed var(--ipf-beige);border-radius:var(--ipf-radius-sm);}
+#ipf-onboarding-hub .ipf-confirmation-note strong{display:block;color:var(--ipf-deep-emerald);font-family:var(--ipf-font-head);font-size:14.5px;margin-bottom:6px;font-weight:600;}
+@media (max-width:640px){#ipf-onboarding-hub .ipf-review-card{padding:26px 22px;}}
+
+/* ---------------- FAQ ---------------- */
+#ipf-onboarding-hub .ipf-faq-section{padding:80px 0;background:var(--ipf-white);}
+#ipf-onboarding-hub .ipf-faq-list{max-width:820px;margin:0 auto;}
+#ipf-onboarding-hub .ipf-faq-item{border-bottom:1px solid var(--ipf-beige);}
+#ipf-onboarding-hub .ipf-faq-question{
+  width:100%;text-align:left;background:none;border:none;padding:18px 4px;
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  font-size:14.5px;font-weight:600;color:var(--ipf-deep-emerald);font-family:var(--ipf-font-body);
+}
+#ipf-onboarding-hub .ipf-faq-question .ipf-faq-plus{
+  width:26px;height:26px;border-radius:50%;border:1.5px solid var(--ipf-gold-rich);color:var(--ipf-gold-rich);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .2s ease, background .2s ease, color .2s ease;
+}
+#ipf-onboarding-hub .ipf-faq-question[aria-expanded="true"] .ipf-faq-plus{transform:rotate(45deg);background:var(--ipf-gold-grad);color:var(--ipf-deep-emerald);border-color:transparent;}
+#ipf-onboarding-hub .ipf-faq-answer{overflow:hidden;max-height:0;transition:max-height .25s ease;}
+#ipf-onboarding-hub .ipf-faq-answer.ipf-open{max-height:400px;}
+#ipf-onboarding-hub .ipf-faq-answer p{font-size:13.5px;color:#454540;line-height:1.7;padding:0 4px 18px;}
+
+/* ---------------- Access after approval ---------------- */
+#ipf-onboarding-hub .ipf-access-section{padding:80px 0;background:var(--ipf-cream);}
+#ipf-onboarding-hub .ipf-access-list{max-width:760px;margin:30px auto 0;display:flex;flex-direction:column;gap:12px;}
+#ipf-onboarding-hub .ipf-access-list li{display:flex;gap:12px;align-items:flex-start;background:var(--ipf-white);border:1px solid var(--ipf-beige);border-radius:var(--ipf-radius-sm);padding:14px 16px;font-size:13.5px;color:var(--ipf-charcoal);}
+#ipf-onboarding-hub .ipf-access-list svg{flex-shrink:0;margin-top:2px;color:var(--ipf-gold-rich);}
+#ipf-onboarding-hub .ipf-access-security-note{max-width:680px;margin:26px auto 0;text-align:center;font-size:12.5px;color:#4a4a4a;padding:14px 18px;background:var(--ipf-white);border:1px solid var(--ipf-beige);border-radius:var(--ipf-radius-sm);}
+
+/* ---------------- Expanded training info blocks ---------------- */
+#ipf-onboarding-hub .ipf-training-extra{margin-top:18px;display:flex;flex-direction:column;gap:12px;}
+#ipf-onboarding-hub .ipf-training-extra .ipf-te-item{background:var(--ipf-cream);border:1px solid var(--ipf-beige);border-radius:var(--ipf-radius-sm);padding:13px 16px;}
+#ipf-onboarding-hub .ipf-training-extra .ipf-te-item .ipf-lbl{font-size:10.5px;text-transform:uppercase;letter-spacing:.5px;color:#8a8a83;font-weight:700;}
+#ipf-onboarding-hub .ipf-training-extra .ipf-te-item .ipf-val{font-size:13px;color:var(--ipf-charcoal);margin-top:4px;line-height:1.6;}
+
+/* ---------------- Support hours ---------------- */
+#ipf-onboarding-hub .ipf-support-hours{font-size:12.5px;color:#4a4a4a;margin-top:10px;}
+</style>
+
+<div id="ipf-onboarding-hub">
+<a class="ipf-skip-link" href="#ipf-main-content">Skip to main content</a>
+
+<!-- =====================================================================
+     SETUP-STATUS WARNING (admin-only visual cue)
+     Populated automatically by JavaScript from window.IPF_ONBOARDING_CONFIG.
+     Disappears on its own once every required value below is filled in.
+     ===================================================================== -->
+<div class="ipf-setup-warning" id="ipf-setup-warning">
+  <div class="ipf-container">
+    <div class="ipf-setup-warning-inner">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg>
+      <div>
+        <h4>Setup Required Before Sharing This Page</h4>
+        <p>This page is not yet ready to send to partners. The following configuration items still need to be completed in <code>window.IPF_ONBOARDING_CONFIG</code>:</p>
+        <ul id="ipf-setup-warning-list"></ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- =====================================================================
+     HEADER
+     ===================================================================== -->
+<header class="ipf-site-header">
+  <div class="ipf-header-inner">
+    <a class="ipf-brand" href="#ipf-hero-top" aria-label="Infinity Plus Financial home">
+      <span id="ipf-logo-slot">
+        <span class="ipf-brand-logo-fallback">IPF</span>
+      </span>
+      <span class="ipf-brand-text">
+        <span class="ipf-name">Infinity Plus Financial</span>
+        <span class="ipf-tag">Tax Partner Program</span>
+      </span>
+    </a>
+
+    <nav class="ipf-main-nav" aria-label="Primary navigation">
+      <a href="#ipf-onboarding-steps">Onboarding Steps</a>
+      <a href="#ipf-what-happens-next">What Happens Next</a>
+      <a href="#ipf-support">Support</a>
+    </nav>
+
+    <a class="ipf-header-cta ipf-btn ipf-btn-primary" href="#ipf-support">Support</a>
+
+    <button class="ipf-mobile-nav-toggle" id="ipf-mobile-nav-toggle" aria-expanded="false" aria-controls="ipf-mobile-nav-panel" aria-label="Open menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+  <nav class="ipf-mobile-nav-panel" id="ipf-mobile-nav-panel" aria-label="Mobile navigation">
+    <a href="#ipf-onboarding-steps">Onboarding Steps</a>
+    <a href="#ipf-what-happens-next">What Happens Next</a>
+    <a href="#ipf-support">Support</a>
+    <a class="ipf-btn ipf-btn-primary" href="#ipf-support">Support</a>
+  </nav>
+</header>
+
+<main id="ipf-main-content">
+
+<!-- =====================================================================
+     HERO
+     ===================================================================== -->
+<section class="ipf-hero" id="ipf-hero-top">
+  <span class="ipf-hero-curve ipf-c1" aria-hidden="true"></span>
+  <span class="ipf-hero-curve ipf-c2" aria-hidden="true"></span>
+  <span class="ipf-hero-curve ipf-c3" aria-hidden="true"></span>
+  <div class="ipf-container">
+    <div class="ipf-hero-grid">
+      <div class="ipf-hero-copy">
+        <span class="ipf-eyebrow">Infinity Plus Financial</span>
+        <h1>Welcome to Your Tax Partner Onboarding Hub</h1>
+        <p class="ipf-lede">Complete each onboarding step so our team can confirm your information, review your documents, prepare your account, and provide the appropriate training and system access.</p>
+        <div class="ipf-hero-actions">
+          <a href="#ipf-onboarding-steps" class="ipf-btn ipf-btn-primary" id="ipf-start-onboarding-btn">
+            START ONBOARDING
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+        <div class="ipf-security-note">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 5v6c0 5.2 3.4 9.4 8 11 4.6-1.6 8-5.8 8-11V5l-8-3z"/></svg>
+          <p>Your personal and business information should only be submitted through the secure forms provided below.</p>
+        </div>
+      </div>
+
+      <div class="ipf-checklist-card">
+        <h3>Onboarding Checklist</h3>
+        <p class="ipf-cc-sub">Four steps to complete your partner setup</p>
+        <div class="ipf-checklist-items">
+          <div class="ipf-checklist-item">
+            <span class="ipf-num-badge"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+            <span class="ipf-ci-text"><span class="ipf-t1">Partner Information</span><span class="ipf-t2">Legal, contact &amp; business details</span></span>
+          </div>
+          <div class="ipf-checklist-item">
+            <span class="ipf-num-badge"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 15l2 2 4-4"/></svg></span>
+            <span class="ipf-ci-text"><span class="ipf-t1">Required Agreements</span><span class="ipf-t2">Review &amp; sign your documents</span></span>
+          </div>
+          <div class="ipf-checklist-item">
+            <span class="ipf-num-badge"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></span>
+            <span class="ipf-ci-text"><span class="ipf-t1">Secure Documents</span><span class="ipf-t2">Upload records through a protected link</span></span>
+          </div>
+          <div class="ipf-checklist-item">
+            <span class="ipf-num-badge"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span>
+            <span class="ipf-ci-text"><span class="ipf-t1">Training and Setup</span><span class="ipf-t2">Access details after your review</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     BEFORE YOU BEGIN
+     ===================================================================== -->
+<section class="ipf-before-section">
+  <div class="ipf-container">
+    <div class="ipf-before-card">
+      <span class="ipf-eyebrow">Get Ready</span>
+      <h2 style="font-size:24px;margin-top:10px;">Before You Begin</h2>
+      <p>Preparing the following information before you begin can help you complete the onboarding process more efficiently.</p>
+      <ul class="ipf-before-list" id="ipf-before-you-begin-list"></ul>
+      <div class="ipf-before-security-note">Do not email or text Social Security numbers, banking information, identification documents, PTIN records, EFIN records, or other sensitive information. Use only the secure forms and upload links provided on this page.</div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     ONBOARDING PROGRESS
+     ===================================================================== -->
+<section class="ipf-progress-section" id="ipf-onboarding-steps">
+  <div class="ipf-container">
+    <div class="ipf-section-head">
+      <span class="ipf-eyebrow">Process Overview</span>
+      <h2>Your Onboarding Process</h2>
+      <p>Please complete the steps in order. Our team will review your submission and contact you if additional information is required.</p>
+    </div>
+
+    <div class="ipf-progress-track">
+      <div class="ipf-progress-step"><span class="ipf-p-num">1</span><span class="ipf-p-label">Submit Information</span></div>
+      <div class="ipf-progress-step"><span class="ipf-p-num">2</span><span class="ipf-p-label">Review Agreements</span></div>
+      <div class="ipf-progress-step"><span class="ipf-p-num">3</span><span class="ipf-p-label">Upload Documents</span></div>
+      <div class="ipf-progress-step"><span class="ipf-p-num">4</span><span class="ipf-p-label">Training and Setup</span></div>
+    </div>
+
+    <p class="ipf-progress-note">Official onboarding statuses are updated only after Infinity Plus Financial reviews the submitted information and documents.</p>
+  </div>
+</section>
+
+<!-- =====================================================================
+     PARTNER-SPECIFIC REQUIREMENTS NOTICE + SETUP TIMELINE
+     ===================================================================== -->
+<section class="ipf-notice-wrap">
+  <div class="ipf-container">
+    <div class="ipf-role-card">
+      <span class="ipf-role-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+      <div>
+        <h3>Requirements May Vary by Partner Role</h3>
+        <p>Your required forms, agreements, documents, training, and system access may vary according to your approved partner role and contract type. Complete only the requirements assigned to you by Infinity Plus Financial.</p>
+      </div>
+    </div>
+
+    <div class="ipf-timeline-card">
+      <span class="ipf-timeline-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span>
+      <div>
+        <h3>Software Setup Timeline</h3>
+        <p id="ipf-setup-timeline-text">Please allow 7&ndash;21 days for software setup after all required information, documents, and agreements have been submitted and approved.</p>
+        <span class="ipf-timeline-note">Missing or incomplete information may delay setup.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     STEP CARDS
+     ===================================================================== -->
+<section class="ipf-steps-wrap">
+  <div class="ipf-container">
+
+    <!-- Step 1 -->
+    <article class="ipf-step-card" id="ipf-step-1">
+      <div class="ipf-step-num-col">
+        <span class="ipf-step-num">01</span>
+        <span class="ipf-step-status ipf-required">Required</span>
+      </div>
+      <div class="ipf-step-body">
+        <h3>Complete Your Onboarding Information</h3>
+        <p class="ipf-step-desc">Submit your legal name, contact information, business details, PTIN, EFIN information when applicable, and required banking information.</p>
+        <ul class="ipf-step-checklist">
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg>Legal and contact information</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg>Business information</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg>PTIN information</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg>EFIN information, when applicable</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg>Banking and payment information</li>
+        </ul>
+        <!-- Button target is set by JS from ONBOARDING_FORM_URL -->
+        <a class="ipf-btn ipf-btn-primary" id="ipf-onboarding-form-btn" href="#" target="_blank" rel="noopener noreferrer">
+          COMPLETE ONBOARDING FORM
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </article>
+
+    <!-- Step 2 -->
+    <article class="ipf-step-card" id="ipf-step-2">
+      <div class="ipf-step-num-col">
+        <span class="ipf-step-num">02</span>
+        <span class="ipf-step-status ipf-required">Required</span>
+      </div>
+      <div class="ipf-step-body">
+        <h3>Review and Sign Required Agreements</h3>
+        <p class="ipf-step-desc">Review all assigned documents carefully. Confirm that your legal name, business information, role, compensation terms, and payment information are correct before signing.</p>
+        <ul class="ipf-step-checklist" id="ipf-agreements-list"></ul>
+        <div class="ipf-step-inline-note" id="ipf-agreement-note"></div>
+        <a class="ipf-btn ipf-btn-primary" id="ipf-agreement-btn" href="#" target="_blank" rel="noopener noreferrer"></a>
+      </div>
+    </article>
+
+    <!-- Step 3 -->
+    <article class="ipf-step-card" id="ipf-step-3">
+      <div class="ipf-step-num-col">
+        <span class="ipf-step-num">03</span>
+        <span class="ipf-step-status ipf-required">Required</span>
+      </div>
+      <div class="ipf-step-body">
+        <h3>Upload Required Records Securely</h3>
+        <p class="ipf-step-desc">Use the protected upload page to provide the records requested for your tax-partner account. Never send identity, tax, or banking documents through regular email or text message.</p>
+        <ul class="ipf-step-checklist" id="ipf-uploads-list"></ul>
+        <a class="ipf-btn ipf-btn-primary" id="ipf-upload-btn" href="#" target="_blank" rel="noopener noreferrer">
+          UPLOAD DOCUMENTS SECURELY
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </article>
+
+    <!-- Step 4 -->
+    <article class="ipf-step-card" id="ipf-step-4">
+      <div class="ipf-step-num-col">
+        <span class="ipf-step-num">04</span>
+        <span class="ipf-step-status ipf-available">Available After Review</span>
+      </div>
+      <div class="ipf-step-body">
+        <h3>Review Training and Setup Information</h3>
+        <p class="ipf-step-desc">After your information and documents are reviewed, you will receive the training schedule, Zoom access, software-setup details, policies, support information, and final onboarding instructions.</p>
+        <div class="ipf-training-meta">
+          <div class="ipf-tm"><span class="ipf-lbl">Training Format</span><span class="ipf-val">Live Zoom Training</span></div>
+          <div class="ipf-tm"><span class="ipf-lbl">Schedule</span><span class="ipf-val" id="ipf-training-schedule-val"></span></div>
+          <div class="ipf-tm"><span class="ipf-lbl">Time Zone</span><span class="ipf-val" id="ipf-training-timezone-val"></span></div>
+        </div>
+        <ul class="ipf-step-checklist" id="ipf-training-list" style="margin-top:22px;"></ul>
+        <div class="ipf-training-extra">
+          <div class="ipf-te-item">
+            <span class="ipf-lbl">Attendance Expectations</span>
+            <span class="ipf-val" id="ipf-training-attendance-val"></span>
+          </div>
+          <div class="ipf-te-item">
+            <span class="ipf-lbl">Replay or Recording Policy</span>
+            <span class="ipf-val" id="ipf-training-replay-val"></span>
+          </div>
+          <div class="ipf-te-item">
+            <span class="ipf-lbl">If You Cannot Attend</span>
+            <span class="ipf-val" id="ipf-training-contact-val"></span>
+          </div>
+        </div>
+        <a class="ipf-btn ipf-btn-primary" id="ipf-training-btn" href="#" target="_blank" rel="noopener noreferrer" style="margin-top:22px;">
+          VIEW TRAINING INFORMATION
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- =====================================================================
+     TECHNOLOGY REQUIREMENTS
+     ===================================================================== -->
+<section class="ipf-tech-section">
+  <div class="ipf-container">
+    <div class="ipf-section-head">
+      <span class="ipf-eyebrow">Get Set Up</span>
+      <h2>Technology Requirements</h2>
+      <p>Please have the following ready before training and software setup.</p>
+    </div>
+    <ul class="ipf-tech-list" id="ipf-technology-requirements-list"></ul>
+    <p class="ipf-tech-note">Never share your personal password or multi-factor authentication code with another person.</p>
+  </div>
+</section>
+
+<!-- =====================================================================
+     PARTNER HANDBOOK AND RESOURCES
+     ===================================================================== -->
+<section class="ipf-handbook-section">
+  <div class="ipf-container">
+    <div class="ipf-handbook-primary">
+      <span class="ipf-eyebrow">Reference Materials</span>
+      <h2>Partner Handbook and Resources</h2>
+      <p style="font-size:14.5px;color:#4a4a4a;margin-top:14px;line-height:1.7;">Review the materials assigned to you so you understand the onboarding process, training expectations, compliance responsibilities, and available support.</p>
+      <span class="ipf-handbook-label">Infinity Plus Academy Tax Partner Handbook</span>
+      <a class="ipf-btn ipf-btn-primary" id="ipf-handbook-btn" href="#" target="_blank" rel="noopener noreferrer">
+        VIEW TAX PARTNER HANDBOOK
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17 17 7M7 7h10v10"/></svg>
+      </a>
+    </div>
+
+    <div class="ipf-resource-grid" id="ipf-optional-resources-grid"></div>
+    <p class="ipf-resource-empty-note" id="ipf-optional-resources-empty" style="display:none;">Additional partner resources will appear here as they become available.</p>
+  </div>
+</section>
+
+<!-- =====================================================================
+     SUBMIT ONBOARDING FOR REVIEW
+     ===================================================================== -->
+<section class="ipf-review-section">
+  <div class="ipf-container">
+    <div class="ipf-review-card">
+      <h2>Ready for Final Review?</h2>
+      <p class="ipf-review-lede">After completing your assigned form, agreements, document uploads, and training review, submit your onboarding for team review.</p>
+
+      <ul class="ipf-review-checklist">
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg>I completed my onboarding-information form.</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg>I reviewed or signed my assigned agreements.</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg>I uploaded all requested documents securely.</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg>I reviewed the handbook and assigned training information.</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg>I understand that Infinity Plus Financial must review my submission before my onboarding is officially complete.</li>
+      </ul>
+
+      <div class="ipf-review-actions">
+        <a class="ipf-btn ipf-btn-primary" id="ipf-final-review-btn" href="#" target="_blank" rel="noopener noreferrer">
+          SUBMIT ONBOARDING FOR REVIEW
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+      <p class="ipf-review-disclaimer">Submitting this review request does not mean your onboarding has been approved. Infinity Plus Financial will review your information and contact you if anything else is required.</p>
+
+      <div class="ipf-confirmation-note">
+        <strong>Thank You &mdash; Your Onboarding Is Under Review</strong>
+        Your onboarding information has been submitted for review. The Infinity Plus Financial team will contact you if additional information or corrections are required. After submitting the final-review form above, you will be directed to this confirmation on a secure GoHighLevel page.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     WHAT HAPPENS NEXT
+     ===================================================================== -->
+<section class="ipf-next-section" id="ipf-what-happens-next">
+  <div class="ipf-container">
+    <div class="ipf-section-head">
+      <span class="ipf-eyebrow">After You Submit</span>
+      <h2>What Happens After You Submit Everything?</h2>
+    </div>
+    <div class="ipf-next-cols">
+      <div class="ipf-next-card">
+        <span class="ipf-n-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
+        <h3>Review</h3>
+        <p>Our team checks your submitted information, assigned agreements, and required records.</p>
+      </div>
+      <div class="ipf-next-card">
+        <span class="ipf-n-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+        <h3>Follow-Up</h3>
+        <p>If anything is missing or needs correction, we will contact you with the next required action.</p>
+      </div>
+      <div class="ipf-next-card">
+        <span class="ipf-n-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg></span>
+        <h3>Activation</h3>
+        <p>After approval, you will receive the appropriate training, system access, and onboarding confirmation.</p>
+      </div>
+    </div>
+    <p class="ipf-next-note">Access is provided according to the partner&rsquo;s approved role and onboarding status.</p>
+  </div>
+</section>
+
+<!-- =====================================================================
+     SECURITY NOTICE
+     ===================================================================== -->
+<section class="ipf-security-section">
+  <div class="ipf-container">
+    <div class="ipf-security-card">
+      <span class="ipf-shield"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 5v6c0 5.2 3.4 9.4 8 11 4.6-1.6 8-5.8 8-11V5l-8-3z"/></svg></span>
+      <div>
+        <h3>Protect Your Information</h3>
+        <p>Only submit sensitive records through the secure forms and document-upload links provided on this page. Do not send Social Security numbers, banking information, identification documents, PTIN or EFIN records, or other sensitive information through regular email or text message.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     FREQUENTLY ASKED QUESTIONS
+     ===================================================================== -->
+<section class="ipf-faq-section">
+  <div class="ipf-container">
+    <div class="ipf-section-head">
+      <span class="ipf-eyebrow">Common Questions</span>
+      <h2>Frequently Asked Onboarding Questions</h2>
+    </div>
+    <div class="ipf-faq-list" id="ipf-faq-list"></div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     ACCESS AFTER APPROVAL
+     ===================================================================== -->
+<section class="ipf-access-section">
+  <div class="ipf-container">
+    <div class="ipf-section-head">
+      <span class="ipf-eyebrow">Once Approved</span>
+      <h2>Access Provided After Approval</h2>
+      <p>After your onboarding is reviewed and approved, Infinity Plus Financial will provide the access and instructions appropriate for your role.</p>
+    </div>
+    <ul class="ipf-access-list" id="ipf-access-after-approval-list"></ul>
+    <p class="ipf-access-security-note">Login credentials, passwords, and multi-factor authentication codes must never be posted on this landing page or shared through unsecured messages.</p>
+  </div>
+</section>
+
+<!-- =====================================================================
+     SUPPORT
+     ===================================================================== -->
+<section class="ipf-support-section" id="ipf-support">
+  <div class="ipf-container">
+    <div class="ipf-section-head">
+      <span class="ipf-eyebrow">We're Here to Help</span>
+      <h2>Need Assistance With Your Onboarding?</h2>
+      <p>If you have questions or experience difficulty completing a form, reviewing an assigned document, or uploading a record, contact the Infinity Plus Financial team.</p>
+    </div>
+    <div class="ipf-support-actions">
+      <a class="ipf-btn ipf-btn-gold" id="ipf-email-btn" href="#">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m4 4 8 9 8-9"/></svg>
+        EMAIL OUR TEAM
+      </a>
+      <a class="ipf-btn ipf-btn-outline-dark" id="ipf-phone-btn" href="#">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.4 2.1L8.1 9.7a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2.2z"/></svg>
+        CALL SUPPORT
+      </a>
+    </div>
+    <p class="ipf-confirmed-phone" id="ipf-confirmed-phone-line"></p>
+    <p class="ipf-support-hours" id="ipf-support-hours-line" style="display:none;"></p>
+    <p class="ipf-support-reminder">Do not include Social Security numbers, banking details, identity documents, PTIN or EFIN information in regular email.</p>
+  </div>
+</section>
+
+</main>
+
+<!-- =====================================================================
+     FOOTER
+     ===================================================================== -->
+<footer class="ipf-site-footer">
+  <div class="ipf-container">
+    <div class="ipf-footer-top">
+      <div class="ipf-footer-brand">
+        <div class="ipf-name">Infinity Plus Financial</div>
+        <div class="ipf-tag">Tax Partner Onboarding Hub</div>
+      </div>
+      <nav class="ipf-footer-links" aria-label="Footer navigation">
+        <a id="ipf-privacy-link" href="#" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+        <a id="ipf-terms-link" href="#" target="_blank" rel="noopener noreferrer">Terms and Conditions</a>
+        <a href="#ipf-support">Support</a>
+      </nav>
+    </div>
+    <div class="ipf-footer-bottom">
+      <span>&copy; <span id="ipf-copyright-year"></span> Infinity Plus Financial. All rights reserved.</span>
+      <span class="ipf-footer-motto">Clarity &bull; Strategy &bull; Confidence</span>
+    </div>
+  </div>
+</footer>
+
+<button id="ipf-back-to-top" aria-label="Back to top">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+</button>
+
+<div id="ipf-sticky-mobile-cta">
+  <a href="#ipf-onboarding-steps" class="ipf-btn ipf-btn-primary">Continue Onboarding</a>
+</div>
+
+</div><!-- /#ipf-onboarding-hub -->
+
+<script>
+/* =====================================================================
+   INFINITY PLUS FINANCIAL — TAX PARTNER ONBOARDING HUB (logic)
+   Safe to run more than once: if this block is re-initialized inside
+   the GoHighLevel editor, the guard below skips re-binding so nothing
+   breaks or double-fires.
+   ===================================================================== */
+(function(){
+  var ipfRoot = document.getElementById('ipf-onboarding-hub');
+  if (!ipfRoot) { return; }
+  if (ipfRoot.getAttribute('data-ipf-initialized') === 'true') { return; }
+  ipfRoot.setAttribute('data-ipf-initialized', 'true');
+
+  /* ===================================================================
+     CONFIGURATION SECTION
+     This is the only part of the code you should need to edit for
+     day-to-day updates. Every button, list, and warning on the page
+     is generated from these values — nothing else in the file needs
+     to change.
+
+     AGREEMENT_DELIVERY_METHOD accepts one of three values:
+       "secure_url"      -> uses AGREEMENT_URL directly as a single
+                             public "Review and Sign Documents" link.
+                             Only use this if one universal, approved
+                             signing URL truly applies to every partner.
+       "email_or_portal"  -> (default) tells the partner their
+                             agreements are assigned individually and
+                             sent by email or through a secure portal.
+                             AGREEMENT_URL is used as the "Open Secure
+                             Partner Portal" button link (leave it
+                             empty to keep that button disabled until
+                             a portal link exists).
+       "instructions_only"-> tells the partner their agreement will be
+                             sent separately after review. No button is
+                             shown at all.
+     =================================================================== */
+  window.IPF_ONBOARDING_CONFIG = {
+
+    // ---- Brand / logo ----
+    LOGO_URL: 'https://assets.cdn.filesafe.space/MBfkIbLtNoqshFkqOsCC/media/6a0371b6f07c48988970f5d6.png',
+
+    // ---- Step 1: Onboarding information form ----
+    ONBOARDING_FORM_URL: '', // TODO: paste the live GoHighLevel onboarding form URL
+
+    // ---- Step 2: Agreements ----
+    AGREEMENT_DELIVERY_METHOD: 'email_or_portal', // "secure_url" | "email_or_portal" | "instructions_only"
+    AGREEMENT_URL: '', // TODO: secure sign URL (secure_url) OR secure partner portal URL (email_or_portal)
+
+    // ---- Step 3: Secure document upload ----
+    SECURE_UPLOAD_URL: '', // TODO: paste the secure GoHighLevel upload page URL
+
+    // ---- Step 4: Training ----
+    TRAINING_URL: '', // TODO: paste the training / Zoom information page URL
+    TRAINING_SCHEDULE: 'Tuesday at 7:30 PM',
+    TRAINING_TIME_ZONE: '', // TODO: confirm and enter time zone, e.g. "Eastern Time (ET)"
+
+    // Temporary text — reviewed and provided by the boss. Update if the
+    // official attendance, replay, or contact policy changes.
+    TRAINING_ATTENDANCE_EXPECTATIONS: 'Partners are expected to attend the assigned Zoom training, listen carefully, take notes, and ask questions when clarification is needed.',
+    TRAINING_REPLAY_POLICY: 'Recording or replay availability will be confirmed by the Infinity Plus Financial team.',
+    TRAINING_CONTACT_TEXT: 'If you cannot attend the assigned training, contact the Infinity Plus Financial team as soon as possible.',
+
+    // ---- Handbook & resource center ----
+    HANDBOOK_URL: '', // TODO: paste the Infinity Plus Academy Tax Partner Handbook URL
+
+    /* -----------------------------------------------------------------
+       Optional resource cards. Any item with an empty url is hidden
+       automatically — it will not render as a broken or disabled card.
+       Add, remove, or edit entries as approved resources become
+       available.
+       ----------------------------------------------------------------- */
+    OPTIONAL_RESOURCE_LINKS: [
+      {
+        title: 'Policies and Procedures',
+        description: 'Review the operating standards and partner expectations.',
+        url: ''
+      },
+      {
+        title: 'Compliance and Security Guidelines',
+        description: 'Review the requirements for protecting taxpayer and business information.',
+        url: ''
+      },
+      {
+        title: 'Brand and Marketing Guidelines',
+        description: 'Review approved branding, messaging, and marketing-use requirements.',
+        url: ''
+      },
+      {
+        title: 'Partner Support Resources',
+        description: 'Access approved support information and reference materials.',
+        url: ''
+      }
+    ],
+
+    // ---- Final onboarding review ----
+    FINAL_REVIEW_FORM_URL: '', // TODO: paste the secure GoHighLevel final-review confirmation form URL
+
+    // ---- Setup timeline ----
+    SETUP_TIMELINE: 'Please allow 7\u201321 days for software setup after all required information, documents, and agreements have been submitted and approved.',
+
+    /* -----------------------------------------------------------------
+       TEMPORARY LIST — replace with the boss's final approved list of
+       items a partner should prepare before starting onboarding.
+       ----------------------------------------------------------------- */
+    BEFORE_YOU_BEGIN_ITEMS: [
+      'Legal name and current contact information',
+      'Business name and business information',
+      'PTIN confirmation',
+      'EFIN information, if applicable',
+      'Government-issued identification',
+      'Banking verification information',
+      'Reliable access to your email',
+      'Access to a computer and secure internet connection'
+    ],
+
+    /* -----------------------------------------------------------------
+       TEMPORARY LIST — replace with the boss's final approved list of
+       technology requirements.
+       ----------------------------------------------------------------- */
+    TECHNOLOGY_REQUIREMENTS: [
+      'Desktop or laptop computer',
+      'Reliable internet connection',
+      'Working email account',
+      'Zoom installed or available in a supported browser',
+      'Current supported web browser',
+      'Ability to receive verification codes',
+      'Ability to use multi-factor authentication',
+      'Secure personal login credentials'
+    ],
+
+    /* -----------------------------------------------------------------
+       TEMPORARY LIST — replace with the boss's final approved list of
+       what a partner receives after approval.
+       ----------------------------------------------------------------- */
+    ACCESS_AFTER_APPROVAL_ITEMS: [
+      'Secure partner-portal access',
+      'Tax-software login instructions',
+      'Training and reference materials',
+      'Support contact information',
+      'Final activation confirmation',
+      'Additional role-specific instructions, when applicable'
+    ],
+
+    /* -----------------------------------------------------------------
+       TEMPORARY LIST — replace with the boss's final approved FAQ
+       content.
+       ----------------------------------------------------------------- */
+    FAQ_ITEMS: [
+      {
+        question: 'What if I do not have an EFIN?',
+        answer: 'Complete the information assigned to you. EFIN requirements may vary according to your approved role and contract type.'
+      },
+      {
+        question: 'How will I receive my agreement?',
+        answer: 'Agreements are assigned individually and may be delivered through email, GoHighLevel, or a secure partner portal.'
+      },
+      {
+        question: 'Where should I upload my documents?',
+        answer: 'Use only the secure document-upload link provided in the onboarding steps. Do not send sensitive documents through regular email or text message.'
+      },
+      {
+        question: 'When will I receive software access?',
+        answer: 'Software access is provided after the required information, agreements, and documents have been reviewed and approved.'
+      },
+      {
+        question: 'How long does software setup take?',
+        answer: 'Please allow 7\u201321 days after all required information, documents, and agreements have been submitted and approved.'
+      },
+      {
+        question: 'What happens if something is missing?',
+        answer: 'The Infinity Plus Financial team will contact you and explain the additional information or correction that is required.'
+      },
+      {
+        question: 'Who should I contact for assistance?',
+        answer: 'Use the support contact information provided on this page. Do not include sensitive personal, tax, identity, or banking information in regular email.'
+      },
+      {
+        question: 'What if I cannot attend the Zoom training?',
+        answer: 'Contact the Infinity Plus Financial team as soon as possible for further instructions. Do not assume that a recording or alternative session will be available.'
+      }
+    ],
+
+    // ---- Support ----
+    SUPPORT_EMAIL: '', // TODO: paste the confirmed support email address
+    SUPPORT_PHONE: '+18039191175',
+    SUPPORT_PHONE_DISPLAY: '(803) 919-1175',
+    // Only shown on the page if filled in — do not invent business hours.
+    SUPPORT_HOURS: '', // TODO: e.g. "Monday to Friday, 9:00 AM to 5:00 PM ET"
+
+    // ---- Legal ----
+    PRIVACY_POLICY_URL: '', // TODO: paste the live Privacy Policy URL
+    TERMS_URL: '', // TODO: paste the live Terms and Conditions URL
+
+    // Set this to true only after the boss has given final approval to
+    // the arrays below (REQUIRED_AGREEMENTS, REQUIRED_UPLOADS,
+    // TRAINING_MATERIALS). Until then the setup warning at the top of
+    // the page will keep flagging them as unconfirmed.
+    FINAL_LISTS_CONFIRMED: false,
+
+    /* -----------------------------------------------------------------
+       TEMPORARY LIST — replace with the boss's final approved list of
+       required agreements before this page goes live for real partners.
+       ----------------------------------------------------------------- */
+    REQUIRED_AGREEMENTS: [
+      'Tax Partner Agreement',
+      'Independent Contractor Agreement',
+      'W-9 or Business Information Form',
+      'Payment Authorization',
+      'Compliance Acknowledgment',
+      'Marketing and Brand Usage Agreement'
+    ],
+
+    /* -----------------------------------------------------------------
+       TEMPORARY LIST — replace with the boss's final approved list of
+       required uploads before this page goes live for real partners.
+       ----------------------------------------------------------------- */
+    REQUIRED_UPLOADS: [
+      'Government-issued photo identification',
+      'Social Security card or EIN confirmation',
+      'PTIN confirmation',
+      'EFIN approval letter, if applicable',
+      'Voided check or bank verification',
+      'Completed W-9',
+      'Additional requested business records'
+    ],
+
+    /* -----------------------------------------------------------------
+       TEMPORARY LIST — replace with the boss's final approved list of
+       training materials before this page goes live for real partners.
+       ----------------------------------------------------------------- */
+    TRAINING_MATERIALS: [
+      'Live Zoom training information',
+      'Software-access instructions',
+      'Policies and procedures',
+      'Partner support information',
+      'Final onboarding confirmation'
+    ]
+  };
+
+  var CONFIG = window.IPF_ONBOARDING_CONFIG;
+
+  /* ===================================================================
+     Helpers
+     =================================================================== */
+  function isFilled(v){ return typeof v === 'string' && v.trim() !== ''; }
+  function q(sel){ return ipfRoot.querySelector(sel); }
+  function qa(sel){ return Array.prototype.slice.call(ipfRoot.querySelectorAll(sel)); }
+
+  var ICON_ARROW = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17 17 7M7 7h10v10"/></svg>';
+  var ICON_CHECK = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg>';
+
+  function renderList(el, items){
+    if (!el) return;
+    el.innerHTML = '';
+    (items || []).forEach(function(text){
+      var li = document.createElement('li');
+      var span = document.createElement('span');
+      span.innerHTML = ICON_CHECK;
+      li.appendChild(span);
+      var t = document.createTextNode(text);
+      li.appendChild(t);
+      el.appendChild(li);
+    });
+  }
+
+  /* Configures a link as either a live button (URL present) or a
+     disabled, non-navigating button with a helpful tooltip. */
+  function setLinkState(el, url, tooltip){
+    if (!el) return;
+    if (isFilled(url)){
+      el.setAttribute('href', url);
+      el.setAttribute('target', '_blank');
+      el.setAttribute('rel', 'noopener noreferrer');
+      el.removeAttribute('aria-disabled');
+      el.removeAttribute('title');
+    } else {
+      el.setAttribute('href', '#');
+      el.removeAttribute('target');
+      el.setAttribute('aria-disabled', 'true');
+      el.setAttribute('title', tooltip || 'This has not been configured yet.');
+    }
+  }
+
+  /* Prevent navigation on any disabled control anywhere in the widget. */
+  ipfRoot.addEventListener('click', function(e){
+    var disabledEl = e.target.closest ? e.target.closest('[aria-disabled="true"]') : null;
+    if (disabledEl){
+      e.preventDefault();
+    }
+  });
+
+  /* ===================================================================
+     Logo
+     =================================================================== */
+  (function applyLogo(){
+    var slot = q('#ipf-logo-slot');
+    if (slot && isFilled(CONFIG.LOGO_URL)){
+      var img = document.createElement('img');
+      img.className = 'ipf-brand-logo-img';
+      img.src = CONFIG.LOGO_URL;
+      img.alt = 'Infinity Plus Financial logo';
+      slot.innerHTML = '';
+      slot.appendChild(img);
+    }
+  })();
+
+  /* ===================================================================
+     Step 1 — Onboarding form
+     =================================================================== */
+  setLinkState(
+    q('#ipf-onboarding-form-btn'),
+    CONFIG.ONBOARDING_FORM_URL,
+    'Add ONBOARDING_FORM_URL in the configuration section to enable this button.'
+  );
+
+  /* ===================================================================
+     Step 2 — Agreements (list + delivery-method-aware button)
+     =================================================================== */
+  renderList(q('#ipf-agreements-list'), CONFIG.REQUIRED_AGREEMENTS);
+
+  (function configureAgreementStep(){
+    var noteEl = q('#ipf-agreement-note');
+    var btnEl = q('#ipf-agreement-btn');
+    var method = CONFIG.AGREEMENT_DELIVERY_METHOD;
+
+    if (method === 'secure_url'){
+      noteEl.style.display = 'none';
+      btnEl.style.display = 'inline-flex';
+      btnEl.innerHTML = 'REVIEW AND SIGN DOCUMENTS ' + ICON_ARROW;
+      setLinkState(btnEl, CONFIG.AGREEMENT_URL, 'Add AGREEMENT_URL in the configuration section to enable this button.');
+
+    } else if (method === 'instructions_only'){
+      noteEl.style.display = 'block';
+      noteEl.textContent = 'Your agreement will be sent separately after your information is reviewed.';
+      btnEl.style.display = 'none';
+
+    } else {
+      // Default / fallback: "email_or_portal"
+      noteEl.style.display = 'block';
+      noteEl.textContent = 'Your agreements are assigned individually. Please check your email or secure client portal.';
+      btnEl.style.display = 'inline-flex';
+      btnEl.innerHTML = 'OPEN SECURE PARTNER PORTAL ' + ICON_ARROW;
+      setLinkState(btnEl, CONFIG.AGREEMENT_URL, 'Add the secure partner portal URL as AGREEMENT_URL in the configuration section to enable this button.');
+    }
+  })();
+
+  /* ===================================================================
+     Step 3 — Secure uploads
+     =================================================================== */
+  renderList(q('#ipf-uploads-list'), CONFIG.REQUIRED_UPLOADS);
+  setLinkState(
+    q('#ipf-upload-btn'),
+    CONFIG.SECURE_UPLOAD_URL,
+    'Add SECURE_UPLOAD_URL in the configuration section to enable this button.'
+  );
+
+  /* ===================================================================
+     Step 4 — Training
+     =================================================================== */
+  renderList(q('#ipf-training-list'), CONFIG.TRAINING_MATERIALS);
+  q('#ipf-training-schedule-val').textContent = isFilled(CONFIG.TRAINING_SCHEDULE) ? CONFIG.TRAINING_SCHEDULE : 'Schedule to be confirmed.';
+  q('#ipf-training-timezone-val').textContent = isFilled(CONFIG.TRAINING_TIME_ZONE) ? CONFIG.TRAINING_TIME_ZONE : 'Time zone confirmation pending.';
+  q('#ipf-training-attendance-val').textContent = CONFIG.TRAINING_ATTENDANCE_EXPECTATIONS || '';
+  q('#ipf-training-replay-val').textContent = CONFIG.TRAINING_REPLAY_POLICY || '';
+  q('#ipf-training-contact-val').textContent = CONFIG.TRAINING_CONTACT_TEXT || '';
+  setLinkState(
+    q('#ipf-training-btn'),
+    CONFIG.TRAINING_URL,
+    'Add TRAINING_URL in the configuration section to enable this button.'
+  );
+
+  /* ===================================================================
+     Before You Begin
+     =================================================================== */
+  renderList(q('#ipf-before-you-begin-list'), CONFIG.BEFORE_YOU_BEGIN_ITEMS);
+
+  /* ===================================================================
+     Setup timeline
+     =================================================================== */
+  var timelineEl = q('#ipf-setup-timeline-text');
+  if (timelineEl && isFilled(CONFIG.SETUP_TIMELINE)){
+    timelineEl.textContent = CONFIG.SETUP_TIMELINE;
+  }
+
+  /* ===================================================================
+     Technology requirements
+     =================================================================== */
+  renderList(q('#ipf-technology-requirements-list'), CONFIG.TECHNOLOGY_REQUIREMENTS);
+
+  /* ===================================================================
+     Partner handbook and optional resources
+     =================================================================== */
+  setLinkState(
+    q('#ipf-handbook-btn'),
+    CONFIG.HANDBOOK_URL,
+    'Add HANDBOOK_URL in the configuration section to enable this button.'
+  );
+
+  (function renderOptionalResources(){
+    var grid = q('#ipf-optional-resources-grid');
+    var emptyNote = q('#ipf-optional-resources-empty');
+    if (!grid) return;
+    grid.innerHTML = '';
+
+    var items = (CONFIG.OPTIONAL_RESOURCE_LINKS || []).filter(function(item){
+      return item && isFilled(item.url);
+    });
+
+    if (items.length === 0){
+      if (emptyNote) emptyNote.style.display = 'block';
+      return;
+    }
+    if (emptyNote) emptyNote.style.display = 'none';
+
+    items.forEach(function(item){
+      var card = document.createElement('div');
+      card.className = 'ipf-resource-card';
+
+      var h4 = document.createElement('h4');
+      h4.textContent = item.title || 'Resource';
+      card.appendChild(h4);
+
+      if (item.description){
+        var p = document.createElement('p');
+        p.textContent = item.description;
+        card.appendChild(p);
+      }
+
+      var a = document.createElement('a');
+      a.href = item.url;
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      a.innerHTML = 'View resource ' + ICON_ARROW;
+      card.appendChild(a);
+
+      grid.appendChild(card);
+    });
+  })();
+
+  /* ===================================================================
+     Submit onboarding for final review
+     =================================================================== */
+  setLinkState(
+    q('#ipf-final-review-btn'),
+    CONFIG.FINAL_REVIEW_FORM_URL,
+    'Add FINAL_REVIEW_FORM_URL in the configuration section to enable this button.'
+  );
+
+  /* ===================================================================
+     Frequently asked questions (accessible accordion)
+     =================================================================== */
+  (function renderFaq(){
+    var list = q('#ipf-faq-list');
+    if (!list) return;
+    list.innerHTML = '';
+
+    (CONFIG.FAQ_ITEMS || []).forEach(function(item, index){
+      var panelId = 'ipf-faq-panel-' + index;
+      var btnId = 'ipf-faq-question-' + index;
+
+      var wrap = document.createElement('div');
+      wrap.className = 'ipf-faq-item';
+
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'ipf-faq-question';
+      btn.id = btnId;
+      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-controls', panelId);
+
+      var qText = document.createElement('span');
+      qText.textContent = item.question || '';
+      btn.appendChild(qText);
+
+      var plus = document.createElement('span');
+      plus.className = 'ipf-faq-plus';
+      plus.setAttribute('aria-hidden', 'true');
+      plus.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>';
+      btn.appendChild(plus);
+
+      var panel = document.createElement('div');
+      panel.className = 'ipf-faq-answer';
+      panel.id = panelId;
+      panel.setAttribute('role', 'region');
+      panel.setAttribute('aria-labelledby', btnId);
+
+      var answerP = document.createElement('p');
+      answerP.textContent = item.answer || '';
+      panel.appendChild(answerP);
+
+      btn.addEventListener('click', function(){
+        var isOpen = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+        panel.classList.toggle('ipf-open', !isOpen);
+      });
+
+      wrap.appendChild(btn);
+      wrap.appendChild(panel);
+      list.appendChild(wrap);
+    });
+  })();
+
+  /* ===================================================================
+     Access provided after approval
+     =================================================================== */
+  renderList(q('#ipf-access-after-approval-list'), CONFIG.ACCESS_AFTER_APPROVAL_ITEMS);
+
+  /* ===================================================================
+     Support section
+     =================================================================== */
+  setLinkState(
+    q('#ipf-email-btn'),
+    isFilled(CONFIG.SUPPORT_EMAIL) ? ('mailto:' + CONFIG.SUPPORT_EMAIL) : '',
+    'Add SUPPORT_EMAIL in the configuration section to enable this button.'
+  );
+  // Support phone is confirmed, so this button is always active.
+  var phoneBtn = q('#ipf-phone-btn');
+  if (phoneBtn){
+    phoneBtn.setAttribute('href', 'tel:' + CONFIG.SUPPORT_PHONE);
+    phoneBtn.removeAttribute('aria-disabled');
+    phoneBtn.removeAttribute('title');
+  }
+  var confirmedPhoneLine = q('#ipf-confirmed-phone-line');
+  if (confirmedPhoneLine){
+    confirmedPhoneLine.textContent = 'Confirmed support number: ' + CONFIG.SUPPORT_PHONE_DISPLAY;
+  }
+  // Support hours are only ever shown if SUPPORT_HOURS has been supplied —
+  // this page never invents or guesses business hours.
+  var supportHoursLine = q('#ipf-support-hours-line');
+  if (supportHoursLine){
+    if (isFilled(CONFIG.SUPPORT_HOURS)){
+      supportHoursLine.textContent = 'Support hours: ' + CONFIG.SUPPORT_HOURS;
+      supportHoursLine.style.display = 'block';
+    } else {
+      supportHoursLine.style.display = 'none';
+    }
+  }
+
+  /* ===================================================================
+     Footer legal links
+     =================================================================== */
+  setLinkState(q('#ipf-privacy-link'), CONFIG.PRIVACY_POLICY_URL, 'Add PRIVACY_POLICY_URL in the configuration section to enable this link.');
+  setLinkState(q('#ipf-terms-link'), CONFIG.TERMS_URL, 'Add TERMS_URL in the configuration section to enable this link.');
+
+  /* Copyright year */
+  var yearEl = q('#ipf-copyright-year');
+  if (yearEl){ yearEl.textContent = new Date().getFullYear(); }
+
+  /* ===================================================================
+     Setup-status warning banner
+     =================================================================== */
+  (function renderSetupWarning(){
+    var missing = [];
+
+    if (!isFilled(CONFIG.ONBOARDING_FORM_URL)) missing.push('Live onboarding-form link');
+
+    if (CONFIG.AGREEMENT_DELIVERY_METHOD !== 'instructions_only' && !isFilled(CONFIG.AGREEMENT_URL)){
+      missing.push('Agreement or secure portal process');
+    }
+
+    if (!isFilled(CONFIG.SECURE_UPLOAD_URL)) missing.push('Secure document-upload link');
+    if (!isFilled(CONFIG.TRAINING_URL)) missing.push('Training or Zoom link');
+    if (!isFilled(CONFIG.TRAINING_TIME_ZONE)) missing.push('Training time zone');
+    if (!isFilled(CONFIG.SUPPORT_EMAIL)) missing.push('Support email');
+    if (!isFilled(CONFIG.HANDBOOK_URL)) missing.push('Tax Partner Handbook link');
+    if (!isFilled(CONFIG.FINAL_REVIEW_FORM_URL)) missing.push('Final onboarding-review form link');
+    if (!isFilled(CONFIG.PRIVACY_POLICY_URL)) missing.push('Privacy Policy link');
+    if (!isFilled(CONFIG.TERMS_URL)) missing.push('Terms and Conditions link');
+    if (!CONFIG.FINAL_LISTS_CONFIRMED) missing.push('Confirmation of final documents and training materials');
+
+    var banner = q('#ipf-setup-warning');
+    var list = q('#ipf-setup-warning-list');
+    if (!banner || !list) return;
+
+    if (missing.length === 0){
+      banner.classList.remove('ipf-show');
+      return;
+    }
+
+    list.innerHTML = '';
+    missing.forEach(function(text){
+      var li = document.createElement('li');
+      li.textContent = text;
+      list.appendChild(li);
+    });
+    banner.classList.add('ipf-show');
+  })();
+
+  /* ===================================================================
+     Mobile navigation toggle
+     =================================================================== */
+  (function mobileNav(){
+    var toggle = q('#ipf-mobile-nav-toggle');
+    var panel = q('#ipf-mobile-nav-panel');
+    if (!toggle || !panel) return;
+
+    toggle.addEventListener('click', function(){
+      var isOpen = panel.classList.toggle('ipf-open');
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    qa('#ipf-mobile-nav-panel a').forEach(function(link){
+      link.addEventListener('click', function(){
+        panel.classList.remove('ipf-open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  })();
+
+  /* ===================================================================
+     Back-to-top button + sticky mobile CTA visibility
+     =================================================================== */
+  (function scrollUI(){
+    var backBtn = q('#ipf-back-to-top');
+    var stickyCta = q('#ipf-sticky-mobile-cta');
+    var trigger = 420;
+
+    function onScroll(){
+      var y = window.scrollY || document.documentElement.scrollTop;
+      if (backBtn) backBtn.classList.toggle('ipf-show', y > trigger);
+      if (stickyCta) stickyCta.classList.toggle('ipf-show', y > trigger);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    if (backBtn){
+      backBtn.addEventListener('click', function(){
+        var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+      });
+    }
+  })();
+
+  /* ===================================================================
+     Keyboard-friendly focus move after in-page anchor navigation
+     =================================================================== */
+  (function anchorFocus(){
+    qa('a[href^="#"]').forEach(function(link){
+      link.addEventListener('click', function(){
+        var id = link.getAttribute('href');
+        if (!id || id === '#') return;
+        var target = ipfRoot.querySelector(id);
+        if (!target) return;
+        window.setTimeout(function(){
+          target.setAttribute('tabindex', '-1');
+          target.focus({ preventScroll: true });
+        }, 400);
+      });
+    });
+  })();
+
+})();
+</script>
