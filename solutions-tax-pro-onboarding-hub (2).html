@@ -1,0 +1,1579 @@
+<!-- =====================================================================
+     SOLUTIONS TAX PRO SOFTWARE — CUSTOMER ONBOARDING HUB
+     Repeatable master page. Paste this entire block into a GoHighLevel
+     Custom Code / HTML element. GoHighLevel tracks each customer
+     separately through forms, tags, workflows, and pipeline stages —
+     this page itself never changes per customer.
+
+     HOW TO CONFIGURE THIS PAGE
+     Scroll down to "window.STP_ONBOARDING_CONFIG" near the bottom of
+     this block. That is the only section you should need to edit for
+     day-to-day updates (links, support contact, document lists, etc).
+     Nearly every value starts blank/placeholder since no live links,
+     contact details, or final document lists were supplied — the
+     setup warning at the top of the page will flag exactly what is
+     still outstanding.
+     ===================================================================== -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+/* =====================================================================
+   All rules are namespaced under #stp-onboarding-hub with an "stpoh-"
+   class prefix so this element cannot conflict with the separate
+   Solutions Tax Pro sales landing page (namespaced "stp-") or any
+   other GoHighLevel page content.
+   ===================================================================== */
+
+#stp-onboarding-hub{
+  /* ---- Matte black surfaces ---- */
+  --stpoh-bg-primary:#121212;
+  --stpoh-bg-secondary:#1A1A1A;
+  --stpoh-card-bg:#202020;
+  --stpoh-bg-header:#202020;
+
+  /* ---- Metallic gold system ---- */
+  --stpoh-gold-champagne:#F2DC8D;
+  --stpoh-gold-classic:#C9A227;
+  --stpoh-gold-dark:#8A681F;
+  --stpoh-gold-deep:#A67C00;
+  --stpoh-gold:var(--stpoh-gold-classic);
+  --stpoh-gold-light:var(--stpoh-gold-champagne);
+  --stpoh-gold-border:rgba(201,162,39,0.28);
+  --stpoh-gold-tint-bg:#241E0C;
+  --stpoh-champagne-muted:#D9C48A;
+
+  /* Dimensional metallic-gold gradient: champagne highlight through
+     classic gold into a deep-gold shadow, for a brushed-metal feel
+     rather than a flat, glossy fill. */
+  --stpoh-gold-grad:linear-gradient(135deg,var(--stpoh-gold-champagne) 0%,var(--stpoh-gold-classic) 48%,var(--stpoh-gold-deep) 100%);
+  --stpoh-gold-grad-hover:linear-gradient(135deg,#FBF0D2 0%,var(--stpoh-gold-champagne) 45%,var(--stpoh-gold-classic) 100%);
+  --stpoh-gold-text-on:#121212;
+
+  --stpoh-white:#FFFFFF;
+  --stpoh-gray:#D6D6D6;
+  --stpoh-radius-sm:10px;
+  --stpoh-radius-md:16px;
+  --stpoh-radius-lg:24px;
+  --stpoh-shadow-glow:0 0 40px rgba(201,162,39,0.16);
+  --stpoh-shadow-card:0 10px 30px rgba(0,0,0,0.45);
+  --stpoh-font:'Inter',Arial,Helvetica,sans-serif;
+
+  font-family:var(--stpoh-font);
+  background:var(--stpoh-bg-primary);
+  color:var(--stpoh-gray);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  scroll-behavior:smooth;
+}
+#stp-onboarding-hub *,
+#stp-onboarding-hub *::before,
+#stp-onboarding-hub *::after{box-sizing:border-box;}
+
+@media (prefers-reduced-motion:reduce){
+  #stp-onboarding-hub{scroll-behavior:auto;}
+  #stp-onboarding-hub *,
+  #stp-onboarding-hub *::before,
+  #stp-onboarding-hub *::after{
+    animation-duration:0.001ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:0.001ms !important;
+    scroll-behavior:auto !important;
+  }
+}
+
+#stp-onboarding-hub h1,#stp-onboarding-hub h2,#stp-onboarding-hub h3,#stp-onboarding-hub h4{
+  font-family:var(--stpoh-font);color:var(--stpoh-white);margin:0;font-weight:800;letter-spacing:-.01em;
+}
+#stp-onboarding-hub p{margin:0;}
+#stp-onboarding-hub a{color:inherit;text-decoration:none;}
+#stp-onboarding-hub img{max-width:100%;display:block;}
+#stp-onboarding-hub button{font-family:inherit;cursor:pointer;}
+#stp-onboarding-hub ul{margin:0;padding:0;list-style:none;}
+#stp-onboarding-hub code{font-family:monospace;background:rgba(255,255,255,0.08);padding:1px 6px;border-radius:5px;font-size:.9em;}
+
+#stp-onboarding-hub a:focus-visible,
+#stp-onboarding-hub button:focus-visible{
+  outline:3px solid var(--stpoh-gold);
+  outline-offset:3px;
+  border-radius:6px;
+}
+#stp-onboarding-hub .stpoh-skip-link{
+  position:absolute;left:-999px;top:auto;background:var(--stpoh-gold);color:var(--stpoh-gold-text-on);
+  padding:12px 18px;border-radius:0 0 10px 0;z-index:1000;font-weight:700;
+}
+#stp-onboarding-hub .stpoh-skip-link:focus{left:0;top:0;}
+
+#stp-onboarding-hub .stpoh-container{max-width:1000px;margin:0 auto;padding:0 24px;}
+#stp-onboarding-hub .stpoh-section{padding:70px 0;}
+#stp-onboarding-hub .stpoh-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;
+  letter-spacing:2.5px;text-transform:uppercase;color:var(--stpoh-gold);
+}
+#stp-onboarding-hub .stpoh-eyebrow::before{content:"";width:22px;height:2px;background:var(--stpoh-gold-grad);border-radius:2px;}
+#stp-onboarding-hub .stpoh-section-head{max-width:680px;margin:0 auto 44px;text-align:center;}
+#stp-onboarding-hub .stpoh-section-head h2{font-size:30px;margin-top:12px;line-height:1.22;}
+#stp-onboarding-hub .stpoh-section-head p{font-size:14.5px;color:var(--stpoh-gray);margin-top:14px;line-height:1.7;}
+
+/* ---------------- Buttons ---------------- */
+#stp-onboarding-hub .stpoh-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:15px 30px;border-radius:100px;font-weight:700;font-size:14px;letter-spacing:.2px;
+  border:1.5px solid transparent;transition:transform .18s ease, box-shadow .18s ease, background .2s ease, color .2s ease, border-color .2s ease;
+  white-space:nowrap;
+}
+#stp-onboarding-hub .stpoh-btn:active{transform:translateY(1px);}
+#stp-onboarding-hub .stpoh-btn-primary{background:var(--stpoh-gold-grad);color:var(--stpoh-gold-text-on);box-shadow:0 6px 20px rgba(201,162,39,0.28);}
+#stp-onboarding-hub .stpoh-btn-primary:hover{background:var(--stpoh-gold-grad-hover);box-shadow:0 8px 30px rgba(201,162,39,0.5),0 0 18px rgba(242,220,141,0.35);transform:translateY(-1px);}
+#stp-onboarding-hub .stpoh-btn-outline{background:transparent;color:var(--stpoh-white);border-color:rgba(255,255,255,0.3);}
+#stp-onboarding-hub .stpoh-btn-outline:hover{border-color:var(--stpoh-gold);color:var(--stpoh-gold);}
+#stp-onboarding-hub .stpoh-btn[aria-disabled="true"]{
+  opacity:.45;cursor:not-allowed;background:#2a2a2a;color:#8a8a8a;box-shadow:none;
+}
+#stp-onboarding-hub .stpoh-btn[aria-disabled="true"]:hover{transform:none;box-shadow:none;background:#2a2a2a;color:#8a8a8a;}
+#stp-onboarding-hub .stpoh-btn[hidden]{display:none !important;}
+
+/* ---------------- Setup warning banner ---------------- */
+#stp-onboarding-hub .stpoh-setup-warning{display:none;background:var(--stpoh-gold-tint-bg);border-bottom:2px solid var(--stpoh-gold);padding:18px 0;}
+#stp-onboarding-hub .stpoh-setup-warning.stpoh-show{display:block;}
+#stp-onboarding-hub .stpoh-setup-warning-inner{display:flex;gap:16px;align-items:flex-start;max-width:1000px;margin:0 auto;padding:0 24px;}
+#stp-onboarding-hub .stpoh-setup-warning svg{flex-shrink:0;color:var(--stpoh-gold);margin-top:3px;}
+#stp-onboarding-hub .stpoh-setup-warning h4{font-size:15px;color:var(--stpoh-gold-light);}
+#stp-onboarding-hub .stpoh-setup-warning p{font-size:12.5px;color:var(--stpoh-champagne-muted);margin-top:6px;}
+#stp-onboarding-hub .stpoh-setup-warning ul{margin-top:10px;display:flex;flex-wrap:wrap;gap:8px;}
+#stp-onboarding-hub .stpoh-setup-warning li{
+  font-size:11.5px;font-weight:600;background:var(--stpoh-bg-primary);border:1px solid var(--stpoh-gold-border);
+  color:var(--stpoh-gold-light);padding:5px 11px;border-radius:100px;
+}
+
+/* ---------------- Header ---------------- */
+#stp-onboarding-hub .stpoh-site-header{position:sticky;top:0;z-index:500;background:rgba(32,32,32,0.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--stpoh-gold-border);}
+#stp-onboarding-hub .stpoh-header-inner{max-width:1000px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;gap:18px;}
+#stp-onboarding-hub .stpoh-brand{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0;}
+#stp-onboarding-hub .stpoh-brand-logo-fallback{
+  width:40px;height:40px;border-radius:9px;background:var(--stpoh-gold-grad);
+  display:flex;align-items:center;justify-content:center;color:var(--stpoh-gold-text-on);font-weight:900;font-size:15px;flex-shrink:0;
+}
+#stp-onboarding-hub .stpoh-brand-logo-img{width:40px;height:40px;object-fit:contain;border-radius:9px;}
+#stp-onboarding-hub .stpoh-brand-text{line-height:1.25;}
+#stp-onboarding-hub .stpoh-brand-text .stpoh-name{font-size:15.5px;font-weight:800;color:var(--stpoh-white);}
+#stp-onboarding-hub .stpoh-brand-text .stpoh-tag{display:block;font-size:10px;letter-spacing:1.8px;text-transform:uppercase;color:var(--stpoh-gold);font-weight:700;margin-top:2px;}
+#stp-onboarding-hub .stpoh-main-nav{display:flex;align-items:center;gap:4px;margin-left:auto;}
+#stp-onboarding-hub .stpoh-main-nav a{padding:9px 14px;border-radius:100px;font-size:13.5px;font-weight:600;color:var(--stpoh-gray);transition:background .15s,color .15s;}
+#stp-onboarding-hub .stpoh-main-nav a:hover{background:rgba(201,162,39,0.1);color:var(--stpoh-gold-light);}
+#stp-onboarding-hub .stpoh-header-cta{margin-left:8px;flex-shrink:0;}
+#stp-onboarding-hub .stpoh-header-cta .stpoh-btn{padding:10px 20px;font-size:13px;}
+#stp-onboarding-hub .stpoh-mobile-nav-toggle{
+  display:none;width:42px;height:42px;border-radius:9px;border:1.5px solid var(--stpoh-gold-border);
+  background:transparent;align-items:center;justify-content:center;flex-shrink:0;color:var(--stpoh-white);
+}
+#stp-onboarding-hub .stpoh-mobile-nav-panel{display:none;}
+
+@media (max-width:900px){
+  #stp-onboarding-hub .stpoh-main-nav{display:none;}
+  #stp-onboarding-hub .stpoh-header-cta{display:none;}
+  #stp-onboarding-hub .stpoh-mobile-nav-toggle{display:inline-flex;}
+  #stp-onboarding-hub .stpoh-mobile-nav-panel{
+    display:none;flex-direction:column;gap:4px;background:var(--stpoh-bg-header);
+    border-top:1px solid var(--stpoh-gold-border);padding:14px 24px 20px;
+  }
+  #stp-onboarding-hub .stpoh-mobile-nav-panel.stpoh-open{display:flex;}
+  #stp-onboarding-hub .stpoh-mobile-nav-panel a{padding:12px 14px;border-radius:9px;font-size:14.5px;font-weight:600;color:var(--stpoh-white);}
+  #stp-onboarding-hub .stpoh-mobile-nav-panel a:hover{background:rgba(201,162,39,0.1);}
+  #stp-onboarding-hub .stpoh-mobile-nav-panel .stpoh-btn{margin-top:8px;justify-content:center;}
+}
+
+/* ---------------- Hero ---------------- */
+#stp-onboarding-hub .stpoh-hero{position:relative;overflow:hidden;padding:70px 0 60px;}
+#stp-onboarding-hub .stpoh-glow-circle{position:absolute;border-radius:50%;pointer-events:none;border:1px solid var(--stpoh-gold-border);}
+#stp-onboarding-hub .stpoh-hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr 1fr;gap:52px;align-items:center;}
+#stp-onboarding-hub .stpoh-hero-copy h1{font-size:38px;line-height:1.18;margin-top:14px;}
+#stp-onboarding-hub .stpoh-hero-copy .stpoh-lede{font-size:15.5px;color:var(--stpoh-gray);margin-top:18px;max-width:480px;line-height:1.75;}
+#stp-onboarding-hub .stpoh-hero-actions{display:flex;align-items:center;gap:16px;margin-top:28px;flex-wrap:wrap;}
+#stp-onboarding-hub .stpoh-security-note{
+  display:flex;align-items:flex-start;gap:10px;margin-top:24px;padding:14px 16px;
+  background:var(--stpoh-card-bg);border:1px solid var(--stpoh-gold-border);border-radius:var(--stpoh-radius-sm);max-width:480px;
+}
+#stp-onboarding-hub .stpoh-security-note svg{flex-shrink:0;color:var(--stpoh-gold);margin-top:2px;}
+#stp-onboarding-hub .stpoh-security-note p{font-size:12.5px;color:var(--stpoh-gray);line-height:1.6;}
+
+#stp-onboarding-hub .stpoh-checklist-card{
+  position:relative;background:var(--stpoh-card-bg);border:1px solid var(--stpoh-gold-border);border-radius:var(--stpoh-radius-lg);
+  padding:32px 28px;box-shadow:var(--stpoh-shadow-card), var(--stpoh-shadow-glow);
+}
+#stp-onboarding-hub .stpoh-checklist-card h3{font-size:17px;}
+#stp-onboarding-hub .stpoh-checklist-card .stpoh-cc-sub{font-size:12.5px;color:#9a9a9a;margin-top:6px;}
+#stp-onboarding-hub .stpoh-checklist-items{margin-top:20px;display:flex;flex-direction:column;gap:16px;}
+#stp-onboarding-hub .stpoh-checklist-item{display:flex;align-items:center;gap:14px;}
+#stp-onboarding-hub .stpoh-checklist-item .stpoh-num-badge{
+  width:40px;height:40px;border-radius:12px;background:var(--stpoh-gold-grad);color:var(--stpoh-gold-text-on);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+#stp-onboarding-hub .stpoh-checklist-item .stpoh-ci-text .stpoh-t1{font-size:13.5px;font-weight:700;color:var(--stpoh-white);}
+#stp-onboarding-hub .stpoh-checklist-item .stpoh-ci-text .stpoh-t2{font-size:11.5px;color:#9a9a9a;margin-top:2px;}
+
+@media (max-width:980px){
+  #stp-onboarding-hub .stpoh-hero-grid{grid-template-columns:1fr;}
+  #stp-onboarding-hub .stpoh-hero-copy h1{font-size:30px;}
+  #stp-onboarding-hub .stpoh-checklist-card{max-width:440px;}
+}
+
+/* ---------------- Before You Begin ---------------- */
+#stp-onboarding-hub .stpoh-before-section{padding:60px 0;background:var(--stpoh-bg-secondary);}
+#stp-onboarding-hub .stpoh-before-card{background:var(--stpoh-card-bg);border:1px solid var(--stpoh-gold-border);border-radius:var(--stpoh-radius-lg);padding:32px 34px;box-shadow:var(--stpoh-shadow-card);max-width:860px;margin:0 auto;}
+#stp-onboarding-hub .stpoh-before-card > p{font-size:13.5px;color:var(--stpoh-gray);margin-top:10px;line-height:1.65;max-width:620px;}
+#stp-onboarding-hub .stpoh-before-list{display:grid;grid-template-columns:1fr 1fr;gap:12px 24px;margin-top:20px;}
+#stp-onboarding-hub .stpoh-before-list li{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:var(--stpoh-white);}
+#stp-onboarding-hub .stpoh-before-list svg{flex-shrink:0;margin-top:2px;color:var(--stpoh-gold);}
+#stp-onboarding-hub .stpoh-before-security-note{margin-top:22px;padding:14px 16px;background:var(--stpoh-bg-secondary);border:1px solid var(--stpoh-gold-border);border-radius:var(--stpoh-radius-sm);font-size:12.5px;color:var(--stpoh-gray);line-height:1.65;}
+@media (max-width:640px){#stp-onboarding-hub .stpoh-before-list{grid-template-columns:1fr;}}
+
+/* ---------------- Progress section ---------------- */
+#stp-onboarding-hub .stpoh-progress-section{padding:70px 0 30px;}
+#stp-onboarding-hub .stpoh-progress-track{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;max-width:900px;margin:0 auto;position:relative;}
+#stp-onboarding-hub .stpoh-progress-track::before{
+  content:"";position:absolute;top:26px;left:60px;right:60px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--stpoh-gold-border) 20%,var(--stpoh-gold-border) 80%,transparent);z-index:0;
+}
+#stp-onboarding-hub .stpoh-progress-step{position:relative;z-index:1;flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;}
+#stp-onboarding-hub .stpoh-progress-step .stpoh-p-num{
+  width:52px;height:52px;border-radius:50%;background:var(--stpoh-card-bg);border:2px solid var(--stpoh-gold-border);
+  display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;color:var(--stpoh-gold);flex-shrink:0;
+}
+#stp-onboarding-hub .stpoh-progress-step .stpoh-p-label{font-size:13px;font-weight:600;color:var(--stpoh-white);max-width:140px;}
+
+@media (max-width:760px){
+  #stp-onboarding-hub .stpoh-progress-track{flex-direction:column;align-items:stretch;gap:22px;}
+  #stp-onboarding-hub .stpoh-progress-track::before{display:none;}
+  #stp-onboarding-hub .stpoh-progress-step{flex-direction:row;text-align:left;justify-content:flex-start;}
+  #stp-onboarding-hub .stpoh-progress-step .stpoh-p-label{max-width:none;}
+}
+
+#stp-onboarding-hub .stpoh-progress-note{
+  max-width:600px;margin:36px auto 0;text-align:center;font-size:12.5px;color:#9a9a9a;
+  padding:13px 18px;background:var(--stpoh-card-bg);border-radius:var(--stpoh-radius-sm);border:1px dashed var(--stpoh-gold-border);
+}
+
+/* ---------------- Role/package + timeline notice ---------------- */
+#stp-onboarding-hub .stpoh-notice-wrap{padding:60px 0 10px;}
+#stp-onboarding-hub .stpoh-role-card{
+  max-width:860px;margin:0 auto;display:flex;gap:18px;align-items:flex-start;
+  background:linear-gradient(135deg,var(--stpoh-gold-tint-bg),var(--stpoh-card-bg));border:1px solid var(--stpoh-gold);
+  border-radius:var(--stpoh-radius-md);padding:24px 28px;
+}
+#stp-onboarding-hub .stpoh-role-card .stpoh-role-ico{width:44px;height:44px;border-radius:12px;background:var(--stpoh-gold-grad);color:var(--stpoh-gold-text-on);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+#stp-onboarding-hub .stpoh-role-card h3{font-size:16px;}
+#stp-onboarding-hub .stpoh-role-card p{font-size:13px;color:var(--stpoh-gray);margin-top:8px;line-height:1.65;}
+
+#stp-onboarding-hub .stpoh-timeline-card{
+  max-width:860px;margin:20px auto 0;display:flex;gap:18px;align-items:flex-start;
+  background:var(--stpoh-card-bg);border:1px solid var(--stpoh-gold-border);border-radius:var(--stpoh-radius-md);padding:24px 28px;
+}
+#stp-onboarding-hub .stpoh-timeline-ico{width:44px;height:44px;border-radius:12px;border:1.5px solid var(--stpoh-gold-border);color:var(--stpoh-gold);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+#stp-onboarding-hub .stpoh-timeline-card h3{font-size:16px;}
+#stp-onboarding-hub .stpoh-timeline-card p{font-size:13px;color:var(--stpoh-gray);margin-top:8px;line-height:1.65;}
+#stp-onboarding-hub .stpoh-timeline-note{display:block;margin-top:8px;font-size:11.5px;color:#8a8a8a;}
+@media (max-width:640px){
+  #stp-onboarding-hub .stpoh-role-card, #stp-onboarding-hub .stpoh-timeline-card{flex-direction:column;padding:22px 20px;}
+}
+</style>
+<style>
+/* ---------------- Step cards ---------------- */
+#stp-onboarding-hub .stpoh-steps-wrap{padding:40px 0 30px;}
+#stp-onboarding-hub .stpoh-step-card{
+  display:grid;grid-template-columns:80px 1fr;gap:26px;
+  background:var(--stpoh-card-bg);border:1px solid var(--stpoh-gold-border);border-radius:var(--stpoh-radius-lg);
+  padding:32px;box-shadow:var(--stpoh-shadow-card);margin-bottom:26px;transition:border-color .2s ease, box-shadow .2s ease;
+}
+#stp-onboarding-hub .stpoh-step-card:hover{border-color:var(--stpoh-gold);box-shadow:var(--stpoh-shadow-glow);}
+#stp-onboarding-hub .stpoh-step-num-col{display:flex;flex-direction:column;align-items:center;gap:14px;}
+#stp-onboarding-hub .stpoh-step-num{
+  width:64px;height:64px;border-radius:18px;background:var(--stpoh-gold-grad);color:var(--stpoh-gold-text-on);
+  display:flex;align-items:center;justify-content:center;font-weight:900;font-size:23px;box-shadow:0 6px 18px rgba(201,162,39,0.3);
+}
+#stp-onboarding-hub .stpoh-step-status{
+  font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:5px 9px;
+  border-radius:100px;text-align:center;white-space:nowrap;
+}
+#stp-onboarding-hub .stpoh-step-status.stpoh-required{background:var(--stpoh-gold-tint-bg);color:var(--stpoh-gold-light);border:1px solid var(--stpoh-gold);}
+#stp-onboarding-hub .stpoh-step-status.stpoh-available{background:var(--stpoh-bg-secondary);color:#9a9a9a;border:1px solid rgba(255,255,255,0.2);}
+#stp-onboarding-hub .stpoh-step-body h3{font-size:19px;}
+#stp-onboarding-hub .stpoh-step-body .stpoh-step-desc{font-size:13.5px;color:var(--stpoh-gray);margin-top:9px;line-height:1.7;max-width:600px;}
+#stp-onboarding-hub .stpoh-step-checklist{margin-top:18px;display:flex;flex-direction:column;gap:9px;}
+#stp-onboarding-hub .stpoh-step-checklist li{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--stpoh-white);}
+#stp-onboarding-hub .stpoh-step-checklist svg{flex-shrink:0;margin-top:2px;color:var(--stpoh-gold);}
+#stp-onboarding-hub .stpoh-step-card .stpoh-btn{margin-top:22px;}
+#stp-onboarding-hub .stpoh-step-inline-note{
+  margin-top:16px;padding:12px 16px;background:var(--stpoh-bg-primary);border:1px solid var(--stpoh-gold-border);
+  border-radius:var(--stpoh-radius-sm);font-size:12.5px;color:var(--stpoh-gray);line-height:1.6;max-width:580px;
+}
+#stp-onboarding-hub .stpoh-training-meta{display:flex;flex-wrap:wrap;gap:14px;margin-top:16px;}
+#stp-onboarding-hub .stpoh-training-meta .stpoh-tm{background:var(--stpoh-bg-primary);border:1px solid var(--stpoh-gold-border);border-radius:var(--stpoh-radius-sm);padding:11px 15px;min-width:170px;}
+#stp-onboarding-hub .stpoh-training-meta .stpoh-tm .stpoh-lbl{font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:#8a8a8a;font-weight:700;}
+#stp-onboarding-hub .stpoh-training-meta .stpoh-tm .stpoh-val{font-size:13px;font-weight:700;color:var(--stpoh-gold-light);margin-top:4px;}
+
+#stp-onboarding-hub .stpoh-training-extra{margin-top:16px;display:flex;flex-direction:column;gap:11px;}
+#stp-onboarding-hub .stpoh-training-extra .stpoh-te-item{background:var(--stpoh-bg-primary);border:1px solid var(--stpoh-gold-border);border-radius:var(--stpoh-radius-sm);padding:12px 15px;}
+#stp-onboarding-hub .stpoh-training-extra .stpoh-te-item .stpoh-lbl{font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:#8a8a8a;font-weight:700;}
+#stp-onboarding-hub .stpoh-training-extra .stpoh-te-item .stpoh-val{font-size:12.5px;color:var(--stpoh-gray);margin-top:4px;line-height:1.6;}
+
+@media (max-width:700px){
+  #stp-onboarding-hub .stpoh-step-card{grid-template-columns:1fr;padding:24px 20px;}
+  #stp-onboarding-hub .stpoh-step-num-col{flex-direction:row;justify-content:flex-start;}
+}
+
+/* ---------------- Technology requirements ---------------- */
+#stp-onboarding-hub .stpoh-tech-section{padding:70px 0;background:var(--stpoh-bg-secondary);}
+#stp-onboarding-hub .stpoh-tech-list{display:grid;grid-template-columns:1fr 1fr;gap:12px 24px;max-width:860px;margin:26px auto 0;}
+#stp-onboarding-hub .stpoh-tech-list li{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:var(--stpoh-white);}
+#stp-onboarding-hub .stpoh-tech-list svg{flex-shrink:0;margin-top:2px;color:var(--stpoh-gold);}
+#stp-onboarding-hub .stpoh-tech-note{max-width:600px;margin:24px auto 0;text-align:center;font-size:12.5px;color:var(--stpoh-gold-light);background:var(--stpoh-gold-tint-bg);border:1px solid var(--stpoh-gold);padding:12px 16px;border-radius:var(--stpoh-radius-sm);}
+@media (max-width:640px){#stp-onboarding-hub .stpoh-tech-list{grid-template-columns:1fr;}}
+
+/* ---------------- Handbook & resources ---------------- */
+#stp-onboarding-hub .stpoh-handbook-section{padding:70px 0;}
+#stp-onboarding-hub .stpoh-handbook-primary{max-width:700px;margin:0 auto;text-align:center;}
+#stp-onboarding-hub .stpoh-handbook-primary .stpoh-handbook-label{display:block;font-size:12px;color:var(--stpoh-gold);font-weight:600;margin-top:14px;}
+#stp-onboarding-hub .stpoh-handbook-primary .stpoh-btn{margin-top:20px;}
+#stp-onboarding-hub .stpoh-resource-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:860px;margin:36px auto 0;}
+#stp-onboarding-hub .stpoh-resource-card{background:var(--stpoh-card-bg);border:1px solid var(--stpoh-gold-border);border-radius:var(--stpoh-radius-md);padding:20px 22px;transition:border-color .2s, transform .2s;}
+#stp-onboarding-hub .stpoh-resource-card:hover{border-color:var(--stpoh-gold);transform:translateY(-2px);}
+#stp-onboarding-hub .stpoh-resource-card h4{font-size:14.5px;color:var(--stpoh-white);font-weight:700;}
+#stp-onboarding-hub .stpoh-resource-card p{font-size:12.5px;color:var(--stpoh-gray);margin-top:8px;line-height:1.6;}
+#stp-onboarding-hub .stpoh-resource-card a{display:inline-flex;align-items:center;gap:6px;margin-top:13px;font-size:12.5px;font-weight:700;color:var(--stpoh-gold);}
+#stp-onboarding-hub .stpoh-resource-card a:hover{color:var(--stpoh-gold-light);}
+#stp-onboarding-hub .stpoh-resource-empty-note{text-align:center;max-width:560px;margin:30px auto 0;font-size:12.5px;color:#8a8a8a;}
+@media (max-width:700px){#stp-onboarding-hub .stpoh-resource-grid{grid-template-columns:1fr;}}
+
+/* ---------------- Submit for review ---------------- */
+#stp-onboarding-hub .stpoh-review-section{padding:70px 0;background:var(--stpoh-bg-secondary);}
+#stp-onboarding-hub .stpoh-review-card{max-width:700px;margin:0 auto;background:var(--stpoh-card-bg);border:1.5px solid var(--stpoh-gold);border-radius:var(--stpoh-radius-lg);padding:34px 36px;box-shadow:var(--stpoh-shadow-glow), var(--stpoh-shadow-card);}
+#stp-onboarding-hub .stpoh-review-card h2{font-size:23px;text-align:center;}
+#stp-onboarding-hub .stpoh-review-card .stpoh-review-lede{text-align:center;font-size:13.5px;color:var(--stpoh-gray);margin-top:10px;}
+#stp-onboarding-hub .stpoh-review-checklist{margin-top:22px;display:flex;flex-direction:column;gap:10px;}
+#stp-onboarding-hub .stpoh-review-checklist li{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--stpoh-white);}
+#stp-onboarding-hub .stpoh-review-checklist svg{flex-shrink:0;margin-top:2px;color:var(--stpoh-gold);}
+#stp-onboarding-hub .stpoh-review-actions{text-align:center;margin-top:26px;}
+#stp-onboarding-hub .stpoh-review-disclaimer{max-width:540px;margin:16px auto 0;text-align:center;font-size:11.5px;color:#8a8a8a;line-height:1.7;}
+#stp-onboarding-hub .stpoh-confirmation-note{max-width:600px;margin:24px auto 0;text-align:center;font-size:12px;color:var(--stpoh-gray);padding:15px 18px;background:var(--stpoh-bg-secondary);border:1px dashed var(--stpoh-gold-border);border-radius:var(--stpoh-radius-sm);}
+#stp-onboarding-hub .stpoh-confirmation-note strong{display:block;color:var(--stpoh-gold-light);font-size:14px;margin-bottom:6px;font-weight:700;}
+@media (max-width:640px){#stp-onboarding-hub .stpoh-review-card{padding:24px 20px;}}
+
+/* ---------------- What happens next ---------------- */
+#stp-onboarding-hub .stpoh-next-section{background:linear-gradient(160deg,var(--stpoh-bg-secondary),var(--stpoh-bg-primary));border-top:1px solid var(--stpoh-gold-border);border-bottom:1px solid var(--stpoh-gold-border);position:relative;overflow:hidden;}
+#stp-onboarding-hub .stpoh-next-section .stpoh-section-head h2{color:var(--stpoh-white);}
+#stp-onboarding-hub .stpoh-next-cols{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:920px;margin:0 auto;}
+#stp-onboarding-hub .stpoh-next-card{background:rgba(255,255,255,0.03);border:1px solid var(--stpoh-gold-border);border-radius:var(--stpoh-radius-md);padding:26px 24px;}
+#stp-onboarding-hub .stpoh-next-card .stpoh-n-ico{width:44px;height:44px;border-radius:11px;background:var(--stpoh-gold-grad);color:var(--stpoh-gold-text-on);display:flex;align-items:center;justify-content:center;margin-bottom:16px;}
+#stp-onboarding-hub .stpoh-next-card h3{color:var(--stpoh-gold-light);font-size:16.5px;letter-spacing:.2px;}
+#stp-onboarding-hub .stpoh-next-card p{color:var(--stpoh-gray);font-size:13px;margin-top:11px;line-height:1.7;}
+#stp-onboarding-hub .stpoh-next-note{position:relative;z-index:1;max-width:600px;margin:32px auto 0;text-align:center;font-size:12px;color:#9a9a9a;padding:13px 18px;border-radius:var(--stpoh-radius-sm);border:1px dashed var(--stpoh-gold-border);}
+@media (max-width:800px){#stp-onboarding-hub .stpoh-next-cols{grid-template-columns:1fr;}}
+
+/* ---------------- Security notice ---------------- */
+#stp-onboarding-hub .stpoh-security-section{padding:70px 0;}
+#stp-onboarding-hub .stpoh-security-card{
+  max-width:760px;margin:0 auto;background:var(--stpoh-card-bg);border:1px solid var(--stpoh-gold);
+  border-radius:var(--stpoh-radius-lg);padding:36px 38px;box-shadow:var(--stpoh-shadow-card);
+  display:flex;gap:24px;align-items:flex-start;
+}
+#stp-onboarding-hub .stpoh-shield{
+  width:58px;height:58px;border-radius:14px;border:2px solid var(--stpoh-gold);flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;color:var(--stpoh-gold);
+}
+#stp-onboarding-hub .stpoh-security-card h3{font-size:19px;}
+#stp-onboarding-hub .stpoh-security-card p{font-size:13.5px;color:var(--stpoh-gray);margin-top:11px;line-height:1.75;}
+@media (max-width:640px){#stp-onboarding-hub .stpoh-security-card{flex-direction:column;padding:26px 22px;}}
+
+/* ---------------- FAQ ---------------- */
+#stp-onboarding-hub .stpoh-faq-section{padding:70px 0;background:var(--stpoh-bg-secondary);}
+#stp-onboarding-hub .stpoh-faq-list{max-width:780px;margin:0 auto;}
+#stp-onboarding-hub .stpoh-faq-item{border-bottom:1px solid var(--stpoh-gold-border);}
+#stp-onboarding-hub .stpoh-faq-question{
+  width:100%;text-align:left;background:none;border:none;padding:18px 4px;
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  font-size:14.5px;font-weight:700;color:var(--stpoh-white);font-family:var(--stpoh-font);
+}
+#stp-onboarding-hub .stpoh-faq-question .stpoh-faq-plus{
+  width:26px;height:26px;border-radius:50%;border:1.5px solid var(--stpoh-gold-border);color:var(--stpoh-gold);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .2s ease, background .2s ease, color .2s ease;
+}
+#stp-onboarding-hub .stpoh-faq-question[aria-expanded="true"] .stpoh-faq-plus{transform:rotate(45deg);background:var(--stpoh-gold-grad);color:var(--stpoh-gold-text-on);border-color:transparent;}
+#stp-onboarding-hub .stpoh-faq-answer{overflow:hidden;max-height:0;transition:max-height .25s ease;}
+#stp-onboarding-hub .stpoh-faq-answer.stpoh-open{max-height:400px;}
+#stp-onboarding-hub .stpoh-faq-answer p{font-size:13px;color:var(--stpoh-gray);line-height:1.7;padding:0 4px 18px;}
+
+/* ---------------- Access after approval ---------------- */
+#stp-onboarding-hub .stpoh-access-section{padding:70px 0;}
+#stp-onboarding-hub .stpoh-access-list{max-width:700px;margin:26px auto 0;display:flex;flex-direction:column;gap:11px;}
+#stp-onboarding-hub .stpoh-access-list li{display:flex;gap:12px;align-items:flex-start;background:var(--stpoh-card-bg);border:1px solid var(--stpoh-gold-border);border-radius:var(--stpoh-radius-sm);padding:13px 15px;font-size:13px;color:var(--stpoh-white);}
+#stp-onboarding-hub .stpoh-access-list svg{flex-shrink:0;margin-top:2px;color:var(--stpoh-gold);}
+#stp-onboarding-hub .stpoh-access-security-note{max-width:660px;margin:24px auto 0;text-align:center;font-size:12.5px;color:var(--stpoh-gray);padding:13px 18px;background:var(--stpoh-card-bg);border:1px solid var(--stpoh-gold-border);border-radius:var(--stpoh-radius-sm);}
+
+/* ---------------- Support ---------------- */
+#stp-onboarding-hub .stpoh-support-section{padding:70px 0 90px;text-align:center;background:var(--stpoh-bg-secondary);}
+#stp-onboarding-hub .stpoh-support-actions{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:24px;}
+#stp-onboarding-hub .stpoh-confirmed-phone{font-size:13px;color:var(--stpoh-gold);font-weight:600;margin-top:16px;}
+#stp-onboarding-hub .stpoh-support-hours{font-size:12.5px;color:var(--stpoh-gray);margin-top:10px;}
+#stp-onboarding-hub .stpoh-support-reminder{max-width:540px;margin:16px auto 0;font-size:11.5px;color:#8a8a8a;line-height:1.7;}
+
+/* ---------------- Footer ---------------- */
+#stp-onboarding-hub .stpoh-site-footer{background:var(--stpoh-bg-primary);border-top:1px solid var(--stpoh-gold-border);padding:48px 0 28px;}
+#stp-onboarding-hub .stpoh-footer-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:26px;padding-bottom:28px;border-bottom:1px solid rgba(255,255,255,0.08);}
+#stp-onboarding-hub .stpoh-footer-brand .stpoh-name{color:var(--stpoh-white);font-size:18px;font-weight:800;}
+#stp-onboarding-hub .stpoh-footer-brand .stpoh-tag{font-size:12px;color:var(--stpoh-gold);margin-top:4px;letter-spacing:.5px;}
+#stp-onboarding-hub .stpoh-footer-links{display:flex;gap:24px;flex-wrap:wrap;}
+#stp-onboarding-hub .stpoh-footer-links a{font-size:13px;color:var(--stpoh-gray);text-decoration:none;}
+#stp-onboarding-hub .stpoh-footer-links a:hover{color:var(--stpoh-gold-light);}
+#stp-onboarding-hub .stpoh-footer-links a[aria-disabled="true"]{color:#666;cursor:not-allowed;}
+#stp-onboarding-hub .stpoh-footer-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-top:22px;font-size:11.5px;color:#7a7a7a;}
+#stp-onboarding-hub .stpoh-footer-motto{color:var(--stpoh-gold);letter-spacing:.5px;}
+
+/* ---------------- Back to top / sticky mobile CTA ---------------- */
+#stp-onboarding-hub #stpoh-back-to-top{
+  position:fixed;right:22px;bottom:22px;width:48px;height:48px;border-radius:50%;
+  background:var(--stpoh-gold-grad);color:var(--stpoh-gold-text-on);border:none;box-shadow:0 8px 24px rgba(201,162,39,0.35);
+  display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;
+  transform:translateY(10px);transition:opacity .2s,transform .2s,visibility .2s;z-index:400;
+}
+#stp-onboarding-hub #stpoh-back-to-top.stpoh-show{opacity:1;visibility:visible;transform:translateY(0);}
+#stp-onboarding-hub #stpoh-back-to-top:hover{box-shadow:0 10px 30px rgba(201,162,39,0.5);}
+
+#stp-onboarding-hub #stpoh-sticky-mobile-cta{
+  display:none;position:fixed;left:0;right:0;bottom:0;z-index:399;
+  background:var(--stpoh-bg-header);border-top:2px solid var(--stpoh-gold);padding:12px 16px;
+  box-shadow:0 -8px 24px rgba(0,0,0,.4);
+}
+#stp-onboarding-hub #stpoh-sticky-mobile-cta .stpoh-btn{width:100%;}
+@media (max-width:900px){
+  #stp-onboarding-hub #stpoh-sticky-mobile-cta.stpoh-show{display:block;}
+}
+</style>
+
+<div id="stp-onboarding-hub">
+<a class="stpoh-skip-link" href="#stpoh-main-content">Skip to main content</a>
+
+<!-- =====================================================================
+     SETUP-STATUS WARNING (admin-only visual cue)
+     Populated automatically by JavaScript from window.STP_ONBOARDING_CONFIG.
+     Disappears on its own once every required value below is filled in.
+     ===================================================================== -->
+<div class="stpoh-setup-warning" id="stpoh-setup-warning">
+  <div class="stpoh-setup-warning-inner">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg>
+    <div>
+      <h4>Setup Required Before Sharing This Page</h4>
+      <p>This page is not yet ready to send to customers. The following configuration items still need to be completed in <code>window.STP_ONBOARDING_CONFIG</code>:</p>
+      <ul id="stpoh-setup-warning-list"></ul>
+    </div>
+  </div>
+</div>
+
+<!-- =====================================================================
+     HEADER
+     ===================================================================== -->
+<header class="stpoh-site-header">
+  <div class="stpoh-header-inner">
+    <a class="stpoh-brand" href="#stpoh-hero-top" aria-label="Solutions Tax Pro home">
+      <span id="stpoh-logo-slot">
+        <span class="stpoh-brand-logo-fallback">STP</span>
+      </span>
+      <span class="stpoh-brand-text">
+        <span class="stpoh-name">Solutions Tax Pro</span>
+        <span class="stpoh-tag">Software Onboarding</span>
+      </span>
+    </a>
+
+    <nav class="stpoh-main-nav" aria-label="Primary navigation">
+      <a href="#stpoh-onboarding-steps">Onboarding Steps</a>
+      <a href="#stpoh-what-happens-next">What Happens Next</a>
+      <a href="#stpoh-support">Support</a>
+    </nav>
+
+    <a class="stpoh-header-cta stpoh-btn stpoh-btn-primary" href="#stpoh-support">Support</a>
+
+    <button class="stpoh-mobile-nav-toggle" id="stpoh-mobile-nav-toggle" aria-expanded="false" aria-controls="stpoh-mobile-nav-panel" aria-label="Open menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+  <nav class="stpoh-mobile-nav-panel" id="stpoh-mobile-nav-panel" aria-label="Mobile navigation">
+    <a href="#stpoh-onboarding-steps">Onboarding Steps</a>
+    <a href="#stpoh-what-happens-next">What Happens Next</a>
+    <a href="#stpoh-support">Support</a>
+    <a class="stpoh-btn stpoh-btn-primary" href="#stpoh-support">Support</a>
+  </nav>
+</header>
+
+<main id="stpoh-main-content">
+
+<!-- =====================================================================
+     HERO
+     ===================================================================== -->
+<section class="stpoh-hero" id="stpoh-hero-top">
+  <span class="stpoh-glow-circle" aria-hidden="true" style="width:380px;height:380px;top:-180px;right:-130px;"></span>
+  <div class="stpoh-container">
+    <div class="stpoh-hero-grid">
+      <div class="stpoh-hero-copy">
+        <span class="stpoh-eyebrow">Solutions Tax Pro Software</span>
+        <h1>Welcome to Your Software Onboarding Hub</h1>
+        <p class="stpoh-lede">Complete each onboarding step so our team can confirm your information, review your documents, set up your account, and get you ready to use Solutions Tax Pro Software.</p>
+        <div class="stpoh-hero-actions">
+          <a href="#stpoh-onboarding-steps" class="stpoh-btn stpoh-btn-primary" id="stpoh-start-onboarding-btn">
+            START ONBOARDING
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+        <div class="stpoh-security-note">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 5v6c0 5.2 3.4 9.4 8 11 4.6-1.6 8-5.8 8-11V5l-8-3z"/></svg>
+          <p>Your personal and business information should only be submitted through the secure forms provided below.</p>
+        </div>
+      </div>
+
+      <div class="stpoh-checklist-card">
+        <h3>Onboarding Checklist</h3>
+        <p class="stpoh-cc-sub">Four steps to get your account ready</p>
+        <div class="stpoh-checklist-items">
+          <div class="stpoh-checklist-item">
+            <span class="stpoh-num-badge"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+            <span class="stpoh-ci-text"><span class="stpoh-t1">Account Information</span><span class="stpoh-t2">Business, PTIN &amp; contact details</span></span>
+          </div>
+          <div class="stpoh-checklist-item">
+            <span class="stpoh-num-badge"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 15l2 2 4-4"/></svg></span>
+            <span class="stpoh-ci-text"><span class="stpoh-t1">Required Agreements</span><span class="stpoh-t2">Review &amp; sign your documents</span></span>
+          </div>
+          <div class="stpoh-checklist-item">
+            <span class="stpoh-num-badge"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></span>
+            <span class="stpoh-ci-text"><span class="stpoh-t1">Secure Documents</span><span class="stpoh-t2">Upload records through a protected link</span></span>
+          </div>
+          <div class="stpoh-checklist-item">
+            <span class="stpoh-num-badge"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span>
+            <span class="stpoh-ci-text"><span class="stpoh-t1">Training and Setup</span><span class="stpoh-t2">Software training &amp; account activation</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     BEFORE YOU BEGIN
+     ===================================================================== -->
+<section class="stpoh-before-section">
+  <div class="stpoh-container">
+    <div class="stpoh-before-card">
+      <span class="stpoh-eyebrow">Get Ready</span>
+      <h2 style="font-size:22px;margin-top:10px;">Before You Begin</h2>
+      <p>Preparing the following information before you begin can help you complete onboarding more efficiently.</p>
+      <ul class="stpoh-before-list" id="stpoh-before-you-begin-list"></ul>
+      <div class="stpoh-before-security-note">Do not email or text Social Security numbers, banking information, identification documents, PTIN records, EFIN records, or other sensitive information. Use only the secure forms and upload links provided on this page.</div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     ONBOARDING PROGRESS
+     ===================================================================== -->
+<section class="stpoh-progress-section" id="stpoh-onboarding-steps">
+  <div class="stpoh-container">
+    <div class="stpoh-section-head">
+      <span class="stpoh-eyebrow">Process Overview</span>
+      <h2>Your Onboarding Process</h2>
+      <p>Please complete the steps in order. Our team will review your submission and contact you if additional information is required.</p>
+    </div>
+
+    <div class="stpoh-progress-track">
+      <div class="stpoh-progress-step"><span class="stpoh-p-num">1</span><span class="stpoh-p-label">Submit Information</span></div>
+      <div class="stpoh-progress-step"><span class="stpoh-p-num">2</span><span class="stpoh-p-label">Review Agreements</span></div>
+      <div class="stpoh-progress-step"><span class="stpoh-p-num">3</span><span class="stpoh-p-label">Upload Documents</span></div>
+      <div class="stpoh-progress-step"><span class="stpoh-p-num">4</span><span class="stpoh-p-label">Training and Setup</span></div>
+    </div>
+
+    <p class="stpoh-progress-note">Official onboarding statuses are updated only after Solutions Tax Pro reviews the submitted information and documents.</p>
+  </div>
+</section>
+
+<!-- =====================================================================
+     PACKAGE-SPECIFIC REQUIREMENTS NOTICE + SETUP TIMELINE
+     ===================================================================== -->
+<section class="stpoh-notice-wrap">
+  <div class="stpoh-container">
+    <div class="stpoh-role-card">
+      <span class="stpoh-role-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></svg></span>
+      <div>
+        <h3>Requirements May Vary by Package</h3>
+        <p>Your required forms, agreements, documents, training, and system access may vary according to the Solutions Tax Pro package you selected. Complete only the requirements assigned to your account.</p>
+      </div>
+    </div>
+
+    <div class="stpoh-timeline-card">
+      <span class="stpoh-timeline-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span>
+      <div>
+        <h3>Software Setup Timeline</h3>
+        <p id="stpoh-setup-timeline-text">Setup timeline to be confirmed once all required information, documents, and agreements have been submitted and approved.</p>
+        <span class="stpoh-timeline-note">Missing or incomplete information may delay setup.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     STEP CARDS
+     ===================================================================== -->
+<section class="stpoh-steps-wrap">
+  <div class="stpoh-container">
+
+    <!-- Step 1 -->
+    <article class="stpoh-step-card" id="stpoh-step-1">
+      <div class="stpoh-step-num-col">
+        <span class="stpoh-step-num">01</span>
+        <span class="stpoh-step-status stpoh-required">Required</span>
+      </div>
+      <div class="stpoh-step-body">
+        <h3>Complete Your Account Setup Information</h3>
+        <p class="stpoh-step-desc">Submit your legal name, contact information, business details, PTIN, EFIN information when applicable, and required banking information for billing and e-file.</p>
+        <ul class="stpoh-step-checklist">
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg>Legal and contact information</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg>Business information</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg>PTIN information</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg>EFIN information, when applicable</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg>Banking and payment information</li>
+        </ul>
+        <!-- Button target set by JS from STP_ONBOARDING_CONFIG.ONBOARDING_FORM_URL -->
+        <a class="stpoh-btn stpoh-btn-primary" id="stpoh-onboarding-form-btn" href="#" target="_blank" rel="noopener noreferrer">
+          COMPLETE ONBOARDING FORM
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </article>
+
+    <!-- Step 2 -->
+    <article class="stpoh-step-card" id="stpoh-step-2">
+      <div class="stpoh-step-num-col">
+        <span class="stpoh-step-num">02</span>
+        <span class="stpoh-step-status stpoh-required">Required</span>
+      </div>
+      <div class="stpoh-step-body">
+        <h3>Review and Sign Required Agreements</h3>
+        <p class="stpoh-step-desc">Review all assigned documents carefully. Confirm that your legal name, business information, package selection, and payment information are correct before signing.</p>
+        <ul class="stpoh-step-checklist" id="stpoh-agreements-list"></ul>
+        <div class="stpoh-step-inline-note" id="stpoh-agreement-note"></div>
+        <a class="stpoh-btn stpoh-btn-primary" id="stpoh-agreement-btn" href="#" target="_blank" rel="noopener noreferrer"></a>
+      </div>
+    </article>
+
+    <!-- Step 3 -->
+    <article class="stpoh-step-card" id="stpoh-step-3">
+      <div class="stpoh-step-num-col">
+        <span class="stpoh-step-num">03</span>
+        <span class="stpoh-step-status stpoh-required">Required</span>
+      </div>
+      <div class="stpoh-step-body">
+        <h3>Upload Required Records Securely</h3>
+        <p class="stpoh-step-desc">Use the protected upload page to provide the records requested for your Solutions Tax Pro account. Never send identity, tax, or banking documents through regular email or text message.</p>
+        <ul class="stpoh-step-checklist" id="stpoh-uploads-list"></ul>
+        <a class="stpoh-btn stpoh-btn-primary" id="stpoh-upload-btn" href="#" target="_blank" rel="noopener noreferrer">
+          UPLOAD DOCUMENTS SECURELY
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </article>
+
+    <!-- Step 4 -->
+    <article class="stpoh-step-card" id="stpoh-step-4">
+      <div class="stpoh-step-num-col">
+        <span class="stpoh-step-num">04</span>
+        <span class="stpoh-step-status stpoh-available">Available After Review</span>
+      </div>
+      <div class="stpoh-step-body">
+        <h3>Review Training and Setup Information</h3>
+        <p class="stpoh-step-desc">After your information and documents are reviewed, you will receive your training schedule, software-access instructions, and final onboarding confirmation.</p>
+        <div class="stpoh-training-meta">
+          <div class="stpoh-tm"><span class="stpoh-lbl">Training Format</span><span class="stpoh-val" id="stpoh-training-format-val">To be confirmed</span></div>
+          <div class="stpoh-tm"><span class="stpoh-lbl">Schedule</span><span class="stpoh-val" id="stpoh-training-schedule-val"></span></div>
+          <div class="stpoh-tm"><span class="stpoh-lbl">Time Zone</span><span class="stpoh-val" id="stpoh-training-timezone-val"></span></div>
+        </div>
+        <ul class="stpoh-step-checklist" id="stpoh-training-list" style="margin-top:20px;"></ul>
+        <div class="stpoh-training-extra">
+          <div class="stpoh-te-item">
+            <span class="stpoh-lbl">Attendance Expectations</span>
+            <span class="stpoh-val" id="stpoh-training-attendance-val"></span>
+          </div>
+          <div class="stpoh-te-item">
+            <span class="stpoh-lbl">Replay or Recording Policy</span>
+            <span class="stpoh-val" id="stpoh-training-replay-val"></span>
+          </div>
+          <div class="stpoh-te-item">
+            <span class="stpoh-lbl">If You Cannot Attend</span>
+            <span class="stpoh-val" id="stpoh-training-contact-val"></span>
+          </div>
+        </div>
+        <a class="stpoh-btn stpoh-btn-primary" id="stpoh-training-btn" href="#" target="_blank" rel="noopener noreferrer" style="margin-top:20px;">
+          VIEW TRAINING INFORMATION
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- =====================================================================
+     TECHNOLOGY REQUIREMENTS
+     ===================================================================== -->
+<section class="stpoh-tech-section">
+  <div class="stpoh-container">
+    <div class="stpoh-section-head">
+      <span class="stpoh-eyebrow">Get Set Up</span>
+      <h2>Technology Requirements</h2>
+      <p>Please have the following ready before training and software setup.</p>
+    </div>
+    <ul class="stpoh-tech-list" id="stpoh-technology-requirements-list"></ul>
+    <p class="stpoh-tech-note">Never share your personal password or multi-factor authentication code with another person.</p>
+  </div>
+</section>
+
+<!-- =====================================================================
+     HANDBOOK AND RESOURCES
+     ===================================================================== -->
+<section class="stpoh-handbook-section">
+  <div class="stpoh-container">
+    <div class="stpoh-handbook-primary">
+      <span class="stpoh-eyebrow">Reference Materials</span>
+      <h2>Software User Guide and Resources</h2>
+      <p style="font-size:13.5px;color:var(--stpoh-gray);margin-top:12px;line-height:1.7;">Review the materials assigned to you so you understand the onboarding process, training expectations, and available support.</p>
+      <span class="stpoh-handbook-label">Solutions Tax Pro Software User Guide</span>
+      <a class="stpoh-btn stpoh-btn-primary" id="stpoh-handbook-btn" href="#" target="_blank" rel="noopener noreferrer">
+        VIEW SOFTWARE USER GUIDE
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17 17 7M7 7h10v10"/></svg>
+      </a>
+    </div>
+
+    <div class="stpoh-resource-grid" id="stpoh-optional-resources-grid"></div>
+    <p class="stpoh-resource-empty-note" id="stpoh-optional-resources-empty" style="display:none;">Additional resources will appear here as they become available.</p>
+  </div>
+</section>
+
+<!-- =====================================================================
+     SUBMIT ONBOARDING FOR REVIEW
+     ===================================================================== -->
+<section class="stpoh-review-section">
+  <div class="stpoh-container">
+    <div class="stpoh-review-card">
+      <h2>Ready for Final Review?</h2>
+      <p class="stpoh-review-lede">After completing your account form, agreements, document uploads, and training review, submit your onboarding for team review.</p>
+
+      <ul class="stpoh-review-checklist">
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg>I completed my onboarding-information form.</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg>I reviewed or signed my assigned agreements.</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg>I uploaded all requested documents securely.</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg>I reviewed the user guide and assigned training information.</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg>I understand that Solutions Tax Pro must review my submission before my account is officially activated.</li>
+      </ul>
+
+      <div class="stpoh-review-actions">
+        <a class="stpoh-btn stpoh-btn-primary" id="stpoh-final-review-btn" href="#" target="_blank" rel="noopener noreferrer">
+          SUBMIT ONBOARDING FOR REVIEW
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+      <p class="stpoh-review-disclaimer">Submitting this review request does not mean your account has been approved or activated. Solutions Tax Pro will review your information and contact you if anything else is required.</p>
+
+      <div class="stpoh-confirmation-note">
+        <strong>Thank You &mdash; Your Onboarding Is Under Review</strong>
+        Your onboarding information has been submitted for review. The Solutions Tax Pro team will contact you if additional information or corrections are required. After submitting the final-review form above, you will be directed to this confirmation on a secure page.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     WHAT HAPPENS NEXT
+     ===================================================================== -->
+<section class="stpoh-section stpoh-next-section" id="stpoh-what-happens-next">
+  <div class="stpoh-container">
+    <div class="stpoh-section-head">
+      <span class="stpoh-eyebrow">After You Submit</span>
+      <h2>What Happens After You Submit Everything?</h2>
+    </div>
+    <div class="stpoh-next-cols">
+      <div class="stpoh-next-card">
+        <span class="stpoh-n-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
+        <h3>Review</h3>
+        <p>Our team checks your submitted information, assigned agreements, and required records.</p>
+      </div>
+      <div class="stpoh-next-card">
+        <span class="stpoh-n-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+        <h3>Follow-Up</h3>
+        <p>If anything is missing or needs correction, we will contact you with the next required action.</p>
+      </div>
+      <div class="stpoh-next-card">
+        <span class="stpoh-n-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg></span>
+        <h3>Activation</h3>
+        <p>After approval, you will receive your training, software access, and onboarding confirmation.</p>
+      </div>
+    </div>
+    <p class="stpoh-next-note">Access is provided according to your approved package and onboarding status.</p>
+  </div>
+</section>
+
+<!-- =====================================================================
+     SECURITY NOTICE
+     ===================================================================== -->
+<section class="stpoh-security-section">
+  <div class="stpoh-container">
+    <div class="stpoh-security-card">
+      <span class="stpoh-shield"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 5v6c0 5.2 3.4 9.4 8 11 4.6-1.6 8-5.8 8-11V5l-8-3z"/></svg></span>
+      <div>
+        <h3>Protect Your Information</h3>
+        <p>Only submit sensitive records through the secure forms and document-upload links provided on this page. Do not send Social Security numbers, banking information, identification documents, PTIN or EFIN records, or other sensitive information through regular email or text message.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     FREQUENTLY ASKED QUESTIONS
+     ===================================================================== -->
+<section class="stpoh-faq-section" id="stpoh-faq">
+  <div class="stpoh-container">
+    <div class="stpoh-section-head">
+      <span class="stpoh-eyebrow">Common Questions</span>
+      <h2>Frequently Asked Onboarding Questions</h2>
+    </div>
+    <div class="stpoh-faq-list" id="stpoh-faq-list"></div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     ACCESS AFTER APPROVAL
+     ===================================================================== -->
+<section class="stpoh-access-section">
+  <div class="stpoh-container">
+    <div class="stpoh-section-head">
+      <span class="stpoh-eyebrow">Once Approved</span>
+      <h2>Access Provided After Approval</h2>
+      <p>After your onboarding is reviewed and approved, Solutions Tax Pro will provide the access and instructions appropriate for your package.</p>
+    </div>
+    <ul class="stpoh-access-list" id="stpoh-access-after-approval-list"></ul>
+    <p class="stpoh-access-security-note">Login credentials, passwords, and multi-factor authentication codes must never be posted on this landing page or shared through unsecured messages.</p>
+  </div>
+</section>
+
+<!-- =====================================================================
+     SUPPORT
+     ===================================================================== -->
+<section class="stpoh-support-section" id="stpoh-support">
+  <div class="stpoh-container">
+    <span class="stpoh-eyebrow" style="justify-content:center;">We're Here to Help</span>
+    <h2 style="font-size:26px;margin-top:10px;">Need Assistance With Your Onboarding?</h2>
+    <p style="font-size:13.5px;color:var(--stpoh-gray);margin-top:12px;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.7;">If you have questions or experience difficulty completing a form, reviewing an assigned document, or uploading a record, contact the Solutions Tax Pro team.</p>
+    <div class="stpoh-support-actions">
+      <a class="stpoh-btn stpoh-btn-primary" id="stpoh-email-btn" href="#">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m4 4 8 9 8-9"/></svg>
+        EMAIL OUR TEAM
+      </a>
+      <a class="stpoh-btn stpoh-btn-outline" id="stpoh-phone-btn" href="#">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.4 2.1L8.1 9.7a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2.2z"/></svg>
+        CALL SUPPORT
+      </a>
+    </div>
+    <p class="stpoh-confirmed-phone" id="stpoh-confirmed-phone-line" style="display:none;"></p>
+    <p class="stpoh-support-hours" id="stpoh-support-hours-line" style="display:none;"></p>
+    <p class="stpoh-support-reminder">Do not include Social Security numbers, banking details, identity documents, PTIN or EFIN information in regular email.</p>
+  </div>
+</section>
+
+</main>
+
+<!-- =====================================================================
+     FOOTER
+     ===================================================================== -->
+<footer class="stpoh-site-footer">
+  <div class="stpoh-container">
+    <div class="stpoh-footer-top">
+      <div class="stpoh-footer-brand">
+        <div class="stpoh-name">Solutions Tax Pro</div>
+        <div class="stpoh-tag">Software Onboarding Hub</div>
+      </div>
+      <nav class="stpoh-footer-links" aria-label="Footer navigation">
+        <a id="stpoh-privacy-link" href="#" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+        <a id="stpoh-terms-link" href="#" target="_blank" rel="noopener noreferrer">Terms and Conditions</a>
+        <a href="#stpoh-support">Support</a>
+      </nav>
+    </div>
+    <div class="stpoh-footer-bottom">
+      <span>&copy; <span id="stpoh-copyright-year"></span> Solutions Tax Pro. All rights reserved.</span>
+      <span class="stpoh-footer-motto">Software &bull; Training &bull; Support</span>
+    </div>
+  </div>
+</footer>
+
+<button id="stpoh-back-to-top" aria-label="Back to top">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+</button>
+
+<div id="stpoh-sticky-mobile-cta">
+  <a href="#stpoh-onboarding-steps" class="stpoh-btn stpoh-btn-primary">Continue Onboarding</a>
+</div>
+
+</div><!-- /#stp-onboarding-hub -->
+
+<script>
+/* =====================================================================
+   SOLUTIONS TAX PRO SOFTWARE — CUSTOMER ONBOARDING HUB (logic)
+   Safe to run more than once: if this block is re-initialized inside
+   the GoHighLevel editor, the guard below skips re-binding so nothing
+   breaks or double-fires.
+   ===================================================================== */
+(function(){
+  var stpohRoot = document.getElementById('stp-onboarding-hub');
+  if (!stpohRoot) { return; }
+  if (stpohRoot.getAttribute('data-stpoh-initialized') === 'true') { return; }
+  stpohRoot.setAttribute('data-stpoh-initialized', 'true');
+
+  /* ===================================================================
+     CONFIGURATION SECTION
+     This is the only part of the code you should need to edit for
+     day-to-day updates. Every button, list, and warning on the page
+     is generated from these values. No live URLs, contact details, or
+     final document/training lists were supplied for Solutions Tax Pro,
+     so nearly everything below starts blank — the setup warning at the
+     top of the page will flag exactly what still needs to be filled in.
+
+     AGREEMENT_DELIVERY_METHOD accepts one of three values:
+       "secure_url"      -> uses AGREEMENT_URL directly as a single
+                             public "Review and Sign Documents" link.
+                             Only use this if one universal, approved
+                             signing URL truly applies to every customer.
+       "email_or_portal"  -> (default) tells the customer their
+                             agreements are assigned individually and
+                             sent by email or through a secure portal.
+                             AGREEMENT_URL is used as the "Open Secure
+                             Customer Portal" button link (leave it
+                             empty to keep that button disabled until
+                             a portal link exists).
+       "instructions_only"-> tells the customer their agreement will be
+                             sent separately after review. No button is
+                             shown at all.
+     =================================================================== */
+  window.STP_ONBOARDING_CONFIG = {
+
+    // ---- Brand / logo ----
+    LOGO_URL: '', // TODO: paste the Solutions Tax Pro logo URL
+
+    // ---- Step 1: Onboarding information form ----
+    ONBOARDING_FORM_URL: '', // TODO: paste the live onboarding/account-setup form URL
+
+    // ---- Step 2: Agreements ----
+    AGREEMENT_DELIVERY_METHOD: 'email_or_portal', // "secure_url" | "email_or_portal" | "instructions_only"
+    AGREEMENT_URL: '', // TODO: secure sign URL (secure_url) OR secure customer portal URL (email_or_portal)
+
+    // ---- Step 3: Secure document upload ----
+    SECURE_UPLOAD_URL: '', // TODO: paste the secure document-upload page URL
+
+    // ---- Step 4: Training ----
+    TRAINING_URL: '', // TODO: paste the training information page URL
+    TRAINING_FORMAT: '', // TODO: e.g. "Live Online Training" or "On-Demand Video Training"
+    TRAINING_SCHEDULE: '', // TODO: e.g. "Tuesdays at 7:00 PM"
+    TRAINING_TIME_ZONE: '', // TODO: confirm and enter time zone, e.g. "Eastern Time (ET)"
+    TRAINING_ATTENDANCE_EXPECTATIONS: 'Customers are expected to attend or complete the assigned training, take notes, and ask questions when clarification is needed.',
+    TRAINING_REPLAY_POLICY: 'Recording or replay availability will be confirmed by the Solutions Tax Pro team.',
+    TRAINING_CONTACT_TEXT: 'If you cannot attend the assigned training, contact the Solutions Tax Pro team as soon as possible.',
+
+    // ---- Handbook / user guide & resource center ----
+    HANDBOOK_URL: '', // TODO: paste the Solutions Tax Pro Software User Guide URL
+
+    /* -----------------------------------------------------------------
+       Optional resource cards. Any item with an empty url is hidden
+       automatically — it will not render as a broken or disabled card.
+       Add, remove, or edit entries as approved resources become
+       available.
+       ----------------------------------------------------------------- */
+    OPTIONAL_RESOURCE_LINKS: [
+      {
+        title: 'Getting Started Video Tutorials',
+        description: 'Short walkthroughs covering the core software features.',
+        url: ''
+      },
+      {
+        title: 'E-Filing Requirements Overview',
+        description: 'Review the requirements for e-filing through the software.',
+        url: ''
+      },
+      {
+        title: 'Billing and Payment Guide',
+        description: 'Understand billing, payment methods, and account charges.',
+        url: ''
+      },
+      {
+        title: 'Support Resources',
+        description: 'Access approved support information and reference materials.',
+        url: ''
+      }
+    ],
+
+    // ---- Final onboarding review ----
+    FINAL_REVIEW_FORM_URL: '', // TODO: paste the secure final-review confirmation form URL
+
+    // ---- Setup timeline ----
+    // Left as a placeholder — no confirmed setup timeline was supplied.
+    // Do not publish a specific day range until it has been confirmed.
+    SETUP_TIMELINE: '', // TODO: e.g. "Please allow X-X business days for software setup after approval."
+
+    /* -----------------------------------------------------------------
+       TEMPORARY LIST — replace with the final approved list of items a
+       customer should prepare before starting onboarding.
+       ----------------------------------------------------------------- */
+    BEFORE_YOU_BEGIN_ITEMS: [
+      'Legal name and current contact information',
+      'Business name and business information',
+      'PTIN confirmation',
+      'EFIN information, if applicable',
+      'Government-issued identification',
+      'Banking information for billing and e-file',
+      'Reliable access to your email',
+      'Access to a computer and secure internet connection'
+    ],
+
+    /* -----------------------------------------------------------------
+       TEMPORARY LIST — replace with the final approved technology
+       requirements.
+       ----------------------------------------------------------------- */
+    TECHNOLOGY_REQUIREMENTS: [
+      'Desktop or laptop computer',
+      'Reliable internet connection',
+      'Working email account',
+      'Current supported web browser',
+      'Ability to receive verification codes',
+      'Ability to use multi-factor authentication',
+      'Secure personal login credentials'
+    ],
+
+    /* -----------------------------------------------------------------
+       TEMPORARY LIST — replace with the final approved list of what a
+       customer receives after approval.
+       ----------------------------------------------------------------- */
+    ACCESS_AFTER_APPROVAL_ITEMS: [
+      'Software login credentials and access instructions',
+      'Client-management dashboard access',
+      'Training and reference materials',
+      'Support contact information',
+      'Final activation confirmation'
+    ],
+
+    /* -----------------------------------------------------------------
+       TEMPORARY LIST — replace with the final approved FAQ content.
+       ----------------------------------------------------------------- */
+    FAQ_ITEMS: [
+      {
+        question: 'What if I do not have an EFIN?',
+        answer: 'Complete the information assigned to you. EFIN requirements may vary depending on your package and how you plan to use the software.'
+      },
+      {
+        question: 'How will I receive my agreement?',
+        answer: 'Agreements are assigned individually and may be delivered through email or a secure customer portal.'
+      },
+      {
+        question: 'Where should I upload my documents?',
+        answer: 'Use only the secure document-upload link provided in the onboarding steps. Do not send sensitive documents through regular email or text message.'
+      },
+      {
+        question: 'When will I receive software access?',
+        answer: 'Software access is provided after the required information, agreements, and documents have been reviewed and approved.'
+      },
+      {
+        question: 'How long does software setup take?',
+        answer: 'Setup timing varies. Once your information, documents, and agreements are submitted and approved, our team will confirm your setup timeline.'
+      },
+      {
+        question: 'What happens if something is missing?',
+        answer: 'The Solutions Tax Pro team will contact you and explain the additional information or correction that is required.'
+      },
+      {
+        question: 'Who should I contact for assistance?',
+        answer: 'Use the support contact information provided on this page. Do not include sensitive personal, tax, identity, or banking information in regular email.'
+      },
+      {
+        question: 'What if I cannot attend my assigned training?',
+        answer: 'Contact the Solutions Tax Pro team as soon as possible for further instructions. Do not assume that a recording or alternative session will be available.'
+      }
+    ],
+
+    // ---- Support ----
+    SUPPORT_EMAIL: '', // TODO: paste the confirmed support email address
+    SUPPORT_PHONE: '', // TODO: digits used for the tel: link, e.g. '+18005551234'
+    SUPPORT_PHONE_DISPLAY: '', // TODO: how the number is shown, e.g. '(800) 555-1234'
+    // Only shown on the page if filled in — do not invent business hours.
+    SUPPORT_HOURS: '', // TODO: e.g. "Monday to Friday, 9:00 AM to 5:00 PM ET"
+
+    // ---- Legal ----
+    PRIVACY_POLICY_URL: '', // TODO: paste the live Privacy Policy URL
+    TERMS_URL: '', // TODO: paste the live Terms and Conditions URL
+
+    // Set this to true only after the final approved versions of the
+    // arrays below (REQUIRED_AGREEMENTS, REQUIRED_UPLOADS,
+    // TRAINING_MATERIALS) have been confirmed. Until then the setup
+    // warning at the top of the page will keep flagging them.
+    FINAL_LISTS_CONFIRMED: false,
+
+    /* -----------------------------------------------------------------
+       TEMPORARY LIST — replace with the final approved list of
+       required agreements before this page goes live for real customers.
+       ----------------------------------------------------------------- */
+    REQUIRED_AGREEMENTS: [
+      'Software License Agreement',
+      'Terms of Service',
+      'Payment Authorization',
+      'E-File Compliance Acknowledgment',
+      'Privacy and Data Security Agreement'
+    ],
+
+    /* -----------------------------------------------------------------
+       TEMPORARY LIST — replace with the final approved list of
+       required uploads before this page goes live for real customers.
+       ----------------------------------------------------------------- */
+    REQUIRED_UPLOADS: [
+      'Government-issued photo identification',
+      'PTIN confirmation',
+      'EFIN approval letter, if applicable',
+      'Voided check or bank verification',
+      'Completed W-9',
+      'Additional requested business records'
+    ],
+
+    /* -----------------------------------------------------------------
+       TEMPORARY LIST — replace with the final approved list of
+       training materials before this page goes live for real customers.
+       ----------------------------------------------------------------- */
+    TRAINING_MATERIALS: [
+      'Software training session information',
+      'Software setup and configuration instructions',
+      'User guide and reference materials',
+      'Support contact information',
+      'Final setup confirmation'
+    ]
+  };
+
+  var CONFIG = window.STP_ONBOARDING_CONFIG;
+
+  /* ===================================================================
+     Helpers
+     =================================================================== */
+  function isFilled(v){ return typeof v === 'string' && v.trim() !== ''; }
+  function q(sel){ return stpohRoot.querySelector(sel); }
+  function qa(sel){ return Array.prototype.slice.call(stpohRoot.querySelectorAll(sel)); }
+
+  var ICON_ARROW = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17 17 7M7 7h10v10"/></svg>';
+  var ICON_CHECK = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg>';
+
+  function renderList(el, items){
+    if (!el) return;
+    el.innerHTML = '';
+    (items || []).forEach(function(text){
+      var li = document.createElement('li');
+      var span = document.createElement('span');
+      span.innerHTML = ICON_CHECK;
+      li.appendChild(span);
+      li.appendChild(document.createTextNode(text));
+      el.appendChild(li);
+    });
+  }
+
+  /* Configures a link as either a live button (URL present) or a
+     disabled, non-navigating button with a helpful tooltip. */
+  function setLinkState(el, url, tooltip){
+    if (!el) return;
+    if (isFilled(url)){
+      el.setAttribute('href', url);
+      el.setAttribute('target', '_blank');
+      el.setAttribute('rel', 'noopener noreferrer');
+      el.removeAttribute('aria-disabled');
+      el.removeAttribute('title');
+    } else {
+      el.setAttribute('href', '#');
+      el.removeAttribute('target');
+      el.setAttribute('aria-disabled', 'true');
+      el.setAttribute('title', tooltip || 'This has not been configured yet.');
+    }
+  }
+
+  /* Prevent navigation on any disabled control anywhere in the widget. */
+  stpohRoot.addEventListener('click', function(e){
+    var disabledEl = e.target.closest ? e.target.closest('[aria-disabled="true"]') : null;
+    if (disabledEl){
+      e.preventDefault();
+    }
+  });
+
+  /* ===================================================================
+     Logo
+     =================================================================== */
+  (function applyLogo(){
+    var slot = q('#stpoh-logo-slot');
+    if (slot && isFilled(CONFIG.LOGO_URL)){
+      var img = document.createElement('img');
+      img.className = 'stpoh-brand-logo-img';
+      img.src = CONFIG.LOGO_URL;
+      img.alt = 'Solutions Tax Pro logo';
+      slot.innerHTML = '';
+      slot.appendChild(img);
+    }
+  })();
+
+  /* ===================================================================
+     Step 1 — Onboarding form
+     =================================================================== */
+  setLinkState(
+    q('#stpoh-onboarding-form-btn'),
+    CONFIG.ONBOARDING_FORM_URL,
+    'Add ONBOARDING_FORM_URL in the configuration section to enable this button.'
+  );
+
+  /* ===================================================================
+     Step 2 — Agreements (list + delivery-method-aware button)
+     =================================================================== */
+  renderList(q('#stpoh-agreements-list'), CONFIG.REQUIRED_AGREEMENTS);
+
+  (function configureAgreementStep(){
+    var noteEl = q('#stpoh-agreement-note');
+    var btnEl = q('#stpoh-agreement-btn');
+    var method = CONFIG.AGREEMENT_DELIVERY_METHOD;
+
+    if (method === 'secure_url'){
+      noteEl.style.display = 'none';
+      btnEl.style.display = 'inline-flex';
+      btnEl.innerHTML = 'REVIEW AND SIGN DOCUMENTS ' + ICON_ARROW;
+      setLinkState(btnEl, CONFIG.AGREEMENT_URL, 'Add AGREEMENT_URL in the configuration section to enable this button.');
+
+    } else if (method === 'instructions_only'){
+      noteEl.style.display = 'block';
+      noteEl.textContent = 'Your agreement will be sent separately after your information is reviewed.';
+      btnEl.style.display = 'none';
+
+    } else {
+      // Default / fallback: "email_or_portal"
+      noteEl.style.display = 'block';
+      noteEl.textContent = 'Your agreements are assigned individually. Please check your email or secure customer portal.';
+      btnEl.style.display = 'inline-flex';
+      btnEl.innerHTML = 'OPEN SECURE CUSTOMER PORTAL ' + ICON_ARROW;
+      setLinkState(btnEl, CONFIG.AGREEMENT_URL, 'Add the secure customer portal URL as AGREEMENT_URL in the configuration section to enable this button.');
+    }
+  })();
+
+  /* ===================================================================
+     Step 3 — Secure uploads
+     =================================================================== */
+  renderList(q('#stpoh-uploads-list'), CONFIG.REQUIRED_UPLOADS);
+  setLinkState(
+    q('#stpoh-upload-btn'),
+    CONFIG.SECURE_UPLOAD_URL,
+    'Add SECURE_UPLOAD_URL in the configuration section to enable this button.'
+  );
+
+  /* ===================================================================
+     Step 4 — Training
+     =================================================================== */
+  renderList(q('#stpoh-training-list'), CONFIG.TRAINING_MATERIALS);
+  q('#stpoh-training-format-val').textContent = isFilled(CONFIG.TRAINING_FORMAT) ? CONFIG.TRAINING_FORMAT : 'To be confirmed';
+  q('#stpoh-training-schedule-val').textContent = isFilled(CONFIG.TRAINING_SCHEDULE) ? CONFIG.TRAINING_SCHEDULE : 'Schedule to be confirmed.';
+  q('#stpoh-training-timezone-val').textContent = isFilled(CONFIG.TRAINING_TIME_ZONE) ? CONFIG.TRAINING_TIME_ZONE : 'Time zone confirmation pending.';
+  q('#stpoh-training-attendance-val').textContent = CONFIG.TRAINING_ATTENDANCE_EXPECTATIONS || '';
+  q('#stpoh-training-replay-val').textContent = CONFIG.TRAINING_REPLAY_POLICY || '';
+  q('#stpoh-training-contact-val').textContent = CONFIG.TRAINING_CONTACT_TEXT || '';
+  setLinkState(
+    q('#stpoh-training-btn'),
+    CONFIG.TRAINING_URL,
+    'Add TRAINING_URL in the configuration section to enable this button.'
+  );
+
+  /* ===================================================================
+     Before You Begin
+     =================================================================== */
+  renderList(q('#stpoh-before-you-begin-list'), CONFIG.BEFORE_YOU_BEGIN_ITEMS);
+
+  /* ===================================================================
+     Setup timeline
+     =================================================================== */
+  var timelineEl = q('#stpoh-setup-timeline-text');
+  if (timelineEl && isFilled(CONFIG.SETUP_TIMELINE)){
+    timelineEl.textContent = CONFIG.SETUP_TIMELINE;
+  }
+
+  /* ===================================================================
+     Technology requirements
+     =================================================================== */
+  renderList(q('#stpoh-technology-requirements-list'), CONFIG.TECHNOLOGY_REQUIREMENTS);
+
+  /* ===================================================================
+     Handbook (user guide) and optional resources
+     =================================================================== */
+  setLinkState(
+    q('#stpoh-handbook-btn'),
+    CONFIG.HANDBOOK_URL,
+    'Add HANDBOOK_URL in the configuration section to enable this button.'
+  );
+
+  (function renderOptionalResources(){
+    var grid = q('#stpoh-optional-resources-grid');
+    var emptyNote = q('#stpoh-optional-resources-empty');
+    if (!grid) return;
+    grid.innerHTML = '';
+
+    var items = (CONFIG.OPTIONAL_RESOURCE_LINKS || []).filter(function(item){
+      return item && isFilled(item.url);
+    });
+
+    if (items.length === 0){
+      if (emptyNote) emptyNote.style.display = 'block';
+      return;
+    }
+    if (emptyNote) emptyNote.style.display = 'none';
+
+    items.forEach(function(item){
+      var card = document.createElement('div');
+      card.className = 'stpoh-resource-card';
+
+      var h4 = document.createElement('h4');
+      h4.textContent = item.title || 'Resource';
+      card.appendChild(h4);
+
+      if (item.description){
+        var p = document.createElement('p');
+        p.textContent = item.description;
+        card.appendChild(p);
+      }
+
+      var a = document.createElement('a');
+      a.href = item.url;
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      a.innerHTML = 'View resource ' + ICON_ARROW;
+      card.appendChild(a);
+
+      grid.appendChild(card);
+    });
+  })();
+
+  /* ===================================================================
+     Submit onboarding for final review
+     =================================================================== */
+  setLinkState(
+    q('#stpoh-final-review-btn'),
+    CONFIG.FINAL_REVIEW_FORM_URL,
+    'Add FINAL_REVIEW_FORM_URL in the configuration section to enable this button.'
+  );
+
+  /* ===================================================================
+     Frequently asked questions (accessible accordion)
+     =================================================================== */
+  (function renderFaq(){
+    var list = q('#stpoh-faq-list');
+    if (!list) return;
+    list.innerHTML = '';
+
+    (CONFIG.FAQ_ITEMS || []).forEach(function(item, index){
+      var panelId = 'stpoh-faq-panel-' + index;
+      var btnId = 'stpoh-faq-question-' + index;
+
+      var wrap = document.createElement('div');
+      wrap.className = 'stpoh-faq-item';
+
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'stpoh-faq-question';
+      btn.id = btnId;
+      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-controls', panelId);
+
+      var qText = document.createElement('span');
+      qText.textContent = item.question || '';
+      btn.appendChild(qText);
+
+      var plus = document.createElement('span');
+      plus.className = 'stpoh-faq-plus';
+      plus.setAttribute('aria-hidden', 'true');
+      plus.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>';
+      btn.appendChild(plus);
+
+      var panel = document.createElement('div');
+      panel.className = 'stpoh-faq-answer';
+      panel.id = panelId;
+      panel.setAttribute('role', 'region');
+      panel.setAttribute('aria-labelledby', btnId);
+
+      var answerP = document.createElement('p');
+      answerP.textContent = item.answer || '';
+      panel.appendChild(answerP);
+
+      btn.addEventListener('click', function(){
+        var isOpen = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+        panel.classList.toggle('stpoh-open', !isOpen);
+      });
+
+      wrap.appendChild(btn);
+      wrap.appendChild(panel);
+      list.appendChild(wrap);
+    });
+  })();
+
+  /* ===================================================================
+     Access provided after approval
+     =================================================================== */
+  renderList(q('#stpoh-access-after-approval-list'), CONFIG.ACCESS_AFTER_APPROVAL_ITEMS);
+
+  /* ===================================================================
+     Support section
+     =================================================================== */
+  setLinkState(
+    q('#stpoh-email-btn'),
+    isFilled(CONFIG.SUPPORT_EMAIL) ? ('mailto:' + CONFIG.SUPPORT_EMAIL) : '',
+    'Add SUPPORT_EMAIL in the configuration section to enable this button.'
+  );
+  setLinkState(
+    q('#stpoh-phone-btn'),
+    isFilled(CONFIG.SUPPORT_PHONE) ? ('tel:' + CONFIG.SUPPORT_PHONE) : '',
+    'Add SUPPORT_PHONE in the configuration section to enable this button.'
+  );
+
+  var confirmedPhoneLine = q('#stpoh-confirmed-phone-line');
+  if (confirmedPhoneLine){
+    if (isFilled(CONFIG.SUPPORT_PHONE_DISPLAY)){
+      confirmedPhoneLine.textContent = 'Confirmed support number: ' + CONFIG.SUPPORT_PHONE_DISPLAY;
+      confirmedPhoneLine.style.display = 'block';
+    } else {
+      confirmedPhoneLine.style.display = 'none';
+    }
+  }
+
+  // Support hours are only ever shown if SUPPORT_HOURS has been supplied —
+  // this page never invents or guesses business hours.
+  var supportHoursLine = q('#stpoh-support-hours-line');
+  if (supportHoursLine){
+    if (isFilled(CONFIG.SUPPORT_HOURS)){
+      supportHoursLine.textContent = 'Support hours: ' + CONFIG.SUPPORT_HOURS;
+      supportHoursLine.style.display = 'block';
+    } else {
+      supportHoursLine.style.display = 'none';
+    }
+  }
+
+  /* ===================================================================
+     Footer legal links
+     =================================================================== */
+  setLinkState(q('#stpoh-privacy-link'), CONFIG.PRIVACY_POLICY_URL, 'Add PRIVACY_POLICY_URL in the configuration section to enable this link.');
+  setLinkState(q('#stpoh-terms-link'), CONFIG.TERMS_URL, 'Add TERMS_URL in the configuration section to enable this link.');
+
+  /* Copyright year */
+  var yearEl = q('#stpoh-copyright-year');
+  if (yearEl){ yearEl.textContent = new Date().getFullYear(); }
+
+  /* ===================================================================
+     Setup-status warning banner
+     =================================================================== */
+  (function renderSetupWarning(){
+    var missing = [];
+
+    if (!isFilled(CONFIG.ONBOARDING_FORM_URL)) missing.push('Live onboarding-form link');
+
+    if (CONFIG.AGREEMENT_DELIVERY_METHOD !== 'instructions_only' && !isFilled(CONFIG.AGREEMENT_URL)){
+      missing.push('Agreement or secure portal process');
+    }
+
+    if (!isFilled(CONFIG.SECURE_UPLOAD_URL)) missing.push('Secure document-upload link');
+    if (!isFilled(CONFIG.TRAINING_URL)) missing.push('Training information link');
+    if (!isFilled(CONFIG.TRAINING_TIME_ZONE)) missing.push('Training time zone');
+    if (!isFilled(CONFIG.SUPPORT_EMAIL)) missing.push('Support email');
+    if (!isFilled(CONFIG.SUPPORT_PHONE)) missing.push('Support phone number');
+    if (!isFilled(CONFIG.HANDBOOK_URL)) missing.push('Software user guide link');
+    if (!isFilled(CONFIG.FINAL_REVIEW_FORM_URL)) missing.push('Final onboarding-review form link');
+    if (!isFilled(CONFIG.SETUP_TIMELINE)) missing.push('Confirmed software setup timeline');
+    if (!isFilled(CONFIG.PRIVACY_POLICY_URL)) missing.push('Privacy Policy link');
+    if (!isFilled(CONFIG.TERMS_URL)) missing.push('Terms and Conditions link');
+    if (!CONFIG.FINAL_LISTS_CONFIRMED) missing.push('Confirmation of final documents and training materials');
+
+    var banner = q('#stpoh-setup-warning');
+    var list = q('#stpoh-setup-warning-list');
+    if (!banner || !list) return;
+
+    if (missing.length === 0){
+      banner.classList.remove('stpoh-show');
+      return;
+    }
+
+    list.innerHTML = '';
+    missing.forEach(function(text){
+      var li = document.createElement('li');
+      li.textContent = text;
+      list.appendChild(li);
+    });
+    banner.classList.add('stpoh-show');
+  })();
+
+  /* ===================================================================
+     Mobile navigation toggle
+     =================================================================== */
+  (function mobileNav(){
+    var toggle = q('#stpoh-mobile-nav-toggle');
+    var panel = q('#stpoh-mobile-nav-panel');
+    if (!toggle || !panel) return;
+
+    toggle.addEventListener('click', function(){
+      var isOpen = panel.classList.toggle('stpoh-open');
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    qa('#stpoh-mobile-nav-panel a').forEach(function(link){
+      link.addEventListener('click', function(){
+        panel.classList.remove('stpoh-open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  })();
+
+  /* ===================================================================
+     Back-to-top button + sticky mobile CTA visibility
+     =================================================================== */
+  (function scrollUI(){
+    var backBtn = q('#stpoh-back-to-top');
+    var stickyCta = q('#stpoh-sticky-mobile-cta');
+    var trigger = 420;
+
+    function onScroll(){
+      var y = window.scrollY || document.documentElement.scrollTop;
+      if (backBtn) backBtn.classList.toggle('stpoh-show', y > trigger);
+      if (stickyCta) stickyCta.classList.toggle('stpoh-show', y > trigger);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    if (backBtn){
+      backBtn.addEventListener('click', function(){
+        var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+      });
+    }
+  })();
+
+  /* ===================================================================
+     Keyboard-friendly focus move after in-page anchor navigation
+     =================================================================== */
+  (function anchorFocus(){
+    qa('a[href^="#"]').forEach(function(link){
+      link.addEventListener('click', function(){
+        var id = link.getAttribute('href');
+        if (!id || id === '#') return;
+        var target = stpohRoot.querySelector(id);
+        if (!target) return;
+        window.setTimeout(function(){
+          target.setAttribute('tabindex', '-1');
+          target.focus({ preventScroll: true });
+        }, 400);
+      });
+    });
+  })();
+
+})();
+</script>
