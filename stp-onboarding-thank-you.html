@@ -1,0 +1,563 @@
+<!-- =====================================================================
+     SOLUTIONS TAX PRO SOFTWARE — ONBOARDING SUBMISSION RECEIVED PAGE
+     Paste this entire block into a GoHighLevel Custom Code / HTML
+     element and set it as the redirect target for the onboarding
+     "Submit for Review" form.
+
+     HOW TO CONFIGURE THIS PAGE
+     Scroll down to "window.STP_THANK_YOU_CONFIG" near the bottom of
+     this block. That is the only section you should need to edit.
+     ===================================================================== -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+/* =====================================================================
+   All rules are namespaced under #stp-onboarding-thank-you with an
+   "stpty-" class prefix so this element cannot conflict with the
+   separate Solutions Tax Pro onboarding hub (namespaced "stp-oh-"),
+   the sales landing page ("stp-"), or any other GoHighLevel content.
+   ===================================================================== */
+
+#stp-onboarding-thank-you{
+  --stpty-bg-primary:#121212;
+  --stpty-bg-secondary:#1A1A1A;
+  --stpty-card-bg:#202020;
+
+  --stpty-gold-champagne:#F2DC8D;
+  --stpty-gold-classic:#C9A227;
+  --stpty-gold-deep:#A67C00;
+  --stpty-gold:var(--stpty-gold-classic);
+  --stpty-gold-light:var(--stpty-gold-champagne);
+  --stpty-gold-border:rgba(201,162,39,0.28);
+  --stpty-gold-text-on:#121212;
+
+  --stpty-gold-grad:linear-gradient(135deg,#F2DC8D 0%,#C9A227 48%,#A67C00 100%);
+  --stpty-gold-grad-hover:linear-gradient(135deg,#FBF0D2 0%,#F2DC8D 45%,#C9A227 100%);
+
+  --stpty-white:#FFFFFF;
+  --stpty-gray:#D6D6D6;
+
+  --stpty-radius-sm:10px;
+  --stpty-radius-md:16px;
+  --stpty-radius-lg:24px;
+
+  --stpty-shadow-glow:0 0 40px rgba(201,162,39,0.16);
+  --stpty-shadow-card:0 10px 30px rgba(0,0,0,0.45);
+  --stpty-font:'Inter',Arial,Helvetica,sans-serif;
+
+  font-family:var(--stpty-font);
+  background:var(--stpty-bg-primary);
+  color:var(--stpty-gray);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  scroll-behavior:smooth;
+}
+#stp-onboarding-thank-you *,
+#stp-onboarding-thank-you *::before,
+#stp-onboarding-thank-you *::after{box-sizing:border-box;}
+
+@media (prefers-reduced-motion:reduce){
+  #stp-onboarding-thank-you{scroll-behavior:auto;}
+  #stp-onboarding-thank-you *,
+  #stp-onboarding-thank-you *::before,
+  #stp-onboarding-thank-you *::after{
+    animation-duration:0.001ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:0.001ms !important;
+    scroll-behavior:auto !important;
+  }
+}
+
+#stp-onboarding-thank-you h1,
+#stp-onboarding-thank-you h2,
+#stp-onboarding-thank-you h3,
+#stp-onboarding-thank-you h4{
+  font-family:var(--stpty-font);color:var(--stpty-white);margin:0;font-weight:800;letter-spacing:-.01em;
+}
+#stp-onboarding-thank-you p{margin:0;}
+#stp-onboarding-thank-you a{color:inherit;text-decoration:none;}
+#stp-onboarding-thank-you img{max-width:100%;display:block;}
+#stp-onboarding-thank-you button{font-family:inherit;cursor:pointer;}
+#stp-onboarding-thank-you ul{margin:0;padding:0;list-style:none;}
+
+#stp-onboarding-thank-you a:focus-visible,
+#stp-onboarding-thank-you button:focus-visible{
+  outline:3px solid var(--stpty-gold);
+  outline-offset:3px;
+  border-radius:6px;
+}
+#stp-onboarding-thank-you .stpty-skip-link{
+  position:absolute;left:-999px;top:auto;background:var(--stpty-gold);color:var(--stpty-gold-text-on);
+  padding:12px 18px;border-radius:0 0 10px 0;z-index:1000;font-weight:700;
+}
+#stp-onboarding-thank-you .stpty-skip-link:focus{left:0;top:0;}
+
+#stp-onboarding-thank-you .stpty-container{max-width:920px;margin:0 auto;padding:0 24px;}
+#stp-onboarding-thank-you .stpty-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;
+  letter-spacing:2.5px;text-transform:uppercase;color:var(--stpty-gold);
+}
+#stp-onboarding-thank-you .stpty-eyebrow::before{content:"";width:22px;height:2px;background:var(--stpty-gold-grad);border-radius:2px;}
+
+/* ---------------- Buttons ---------------- */
+#stp-onboarding-thank-you .stpty-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  padding:14px 28px;border-radius:100px;font-weight:700;font-size:13.5px;letter-spacing:.2px;
+  border:1.5px solid transparent;transition:transform .18s ease, box-shadow .18s ease, background .2s ease, color .2s ease, border-color .2s ease;
+  white-space:nowrap;
+}
+#stp-onboarding-thank-you .stpty-btn:active{transform:translateY(1px);}
+#stp-onboarding-thank-you .stpty-btn-primary{background:var(--stpty-gold-grad);color:var(--stpty-gold-text-on);box-shadow:0 6px 20px rgba(201,162,39,0.28);}
+#stp-onboarding-thank-you .stpty-btn-primary:hover{background:var(--stpty-gold-grad-hover);box-shadow:0 8px 30px rgba(201,162,39,0.5),0 0 18px rgba(242,220,141,0.35);transform:translateY(-1px);}
+#stp-onboarding-thank-you .stpty-btn-outline{background:transparent;color:var(--stpty-white);border-color:rgba(255,255,255,0.3);}
+#stp-onboarding-thank-you .stpty-btn-outline:hover{border-color:var(--stpty-gold);color:var(--stpty-gold);}
+#stp-onboarding-thank-you .stpty-btn[hidden]{display:none !important;}
+
+/* ---------------- Header ---------------- */
+#stp-onboarding-thank-you .stpty-site-header{
+  background:var(--stpty-card-bg);border-bottom:1px solid var(--stpty-gold-border);padding:16px 0;
+}
+#stp-onboarding-thank-you .stpty-header-inner{max-width:920px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:12px;}
+#stp-onboarding-thank-you .stpty-brand{display:flex;align-items:center;gap:12px;}
+#stp-onboarding-thank-you .stpty-brand-logo-fallback{
+  width:44px;height:44px;border-radius:11px;background:var(--stpty-gold-grad);
+  display:flex;align-items:center;justify-content:center;color:var(--stpty-gold-text-on);
+  font-weight:900;font-size:16px;flex-shrink:0;
+}
+#stp-onboarding-thank-you .stpty-brand-logo-img{width:44px;height:44px;object-fit:contain;border-radius:11px;}
+#stp-onboarding-thank-you .stpty-brand-text{line-height:1.25;}
+#stp-onboarding-thank-you .stpty-brand-text .stpty-name{font-size:16px;color:var(--stpty-white);font-weight:800;}
+#stp-onboarding-thank-you .stpty-brand-text .stpty-tag{display:block;font-size:10px;letter-spacing:1.8px;text-transform:uppercase;color:var(--stpty-gold);font-weight:700;margin-top:2px;}
+
+/* ---------------- Confirmation hero ---------------- */
+#stp-onboarding-thank-you .stpty-confirm-section{
+  position:relative;overflow:hidden;padding:70px 0 50px;text-align:center;
+}
+#stp-onboarding-thank-you .stpty-glow-circle{position:absolute;border-radius:50%;pointer-events:none;border:1px solid var(--stpty-gold-border);}
+
+#stp-onboarding-thank-you .stpty-check-badge{
+  position:relative;z-index:1;width:88px;height:88px;border-radius:50%;background:var(--stpty-card-bg);
+  display:flex;align-items:center;justify-content:center;margin:0 auto 22px;box-shadow:var(--stpty-shadow-card),var(--stpty-shadow-glow);
+  border:2px solid var(--stpty-gold);
+}
+#stp-onboarding-thank-you .stpty-check-badge svg{color:var(--stpty-gold-light);}
+
+#stp-onboarding-thank-you .stpty-confirm-section h1{position:relative;z-index:1;font-size:34px;line-height:1.22;margin-top:16px;max-width:680px;margin-left:auto;margin-right:auto;}
+#stp-onboarding-thank-you .stpty-confirm-lede{position:relative;z-index:1;font-size:15px;color:var(--stpty-gray);margin-top:18px;max-width:600px;margin-left:auto;margin-right:auto;line-height:1.75;}
+
+#stp-onboarding-thank-you .stpty-notice-box{
+  position:relative;z-index:1;max-width:620px;margin:26px auto 0;background:var(--stpty-card-bg);border:1px solid var(--stpty-gold);
+  border-radius:var(--stpty-radius-sm);padding:16px 20px;display:flex;gap:12px;align-items:flex-start;text-align:left;
+}
+#stp-onboarding-thank-you .stpty-notice-box svg{flex-shrink:0;color:var(--stpty-gold);margin-top:2px;}
+#stp-onboarding-thank-you .stpty-notice-box p{font-size:13px;color:var(--stpty-gold-light);line-height:1.65;font-weight:500;}
+
+/* ---------------- Review status card ---------------- */
+#stp-onboarding-thank-you .stpty-status-section{padding:20px 0 60px;}
+#stp-onboarding-thank-you .stpty-status-card{
+  background:var(--stpty-card-bg);border:1px solid var(--stpty-gold-border);border-radius:var(--stpty-radius-lg);
+  padding:36px;box-shadow:var(--stpty-shadow-card);
+}
+#stp-onboarding-thank-you .stpty-status-heading{margin-bottom:22px;text-align:left;}
+#stp-onboarding-thank-you .stpty-status-heading h2{font-size:22px;margin-top:8px;}
+#stp-onboarding-thank-you .stpty-status-steps{display:flex;flex-direction:column;gap:0;}
+#stp-onboarding-thank-you .stpty-status-step{display:flex;gap:18px;padding:16px 0;}
+#stp-onboarding-thank-you .stpty-status-step:not(:last-child){border-bottom:1px dashed rgba(255,255,255,0.08);}
+#stp-onboarding-thank-you .stpty-status-num{
+  width:42px;height:42px;border-radius:50%;background:var(--stpty-gold-grad);color:var(--stpty-gold-text-on);
+  display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;flex-shrink:0;
+}
+#stp-onboarding-thank-you .stpty-status-step h3{font-size:14.5px;letter-spacing:.2px;}
+#stp-onboarding-thank-you .stpty-status-step p{font-size:13.5px;color:var(--stpty-gray);margin-top:6px;line-height:1.65;}
+
+/* ---------------- What to do next ---------------- */
+#stp-onboarding-thank-you .stpty-next-section{padding:20px 0 60px;}
+#stp-onboarding-thank-you .stpty-next-card{
+  background:var(--stpty-card-bg);border:1px solid var(--stpty-gold-border);border-radius:var(--stpty-radius-lg);
+  padding:34px 36px;box-shadow:var(--stpty-shadow-card);
+}
+#stp-onboarding-thank-you .stpty-next-list{margin-top:20px;display:flex;flex-direction:column;gap:12px;}
+#stp-onboarding-thank-you .stpty-next-list li{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:var(--stpty-white);}
+#stp-onboarding-thank-you .stpty-next-list svg{flex-shrink:0;margin-top:2px;color:var(--stpty-gold);}
+
+/* ---------------- Setup timeline ---------------- */
+#stp-onboarding-thank-you .stpty-timeline-section{padding:20px 0 60px;}
+#stp-onboarding-thank-you .stpty-timeline-card{
+  display:flex;gap:18px;align-items:flex-start;background:linear-gradient(135deg,#241E0C,var(--stpty-card-bg));
+  border:1px solid var(--stpty-gold);border-radius:var(--stpty-radius-md);padding:26px 28px;
+}
+#stp-onboarding-thank-you .stpty-timeline-ico{
+  width:46px;height:46px;border-radius:12px;background:var(--stpty-gold-grad);color:var(--stpty-gold-text-on);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+#stp-onboarding-thank-you .stpty-timeline-card h3{font-size:16.5px;}
+#stp-onboarding-thank-you .stpty-timeline-card p{font-size:13.5px;color:var(--stpty-gray);margin-top:8px;line-height:1.7;}
+#stp-onboarding-thank-you .stpty-timeline-note{display:block;margin-top:8px;font-size:11.5px;color:#9a9a9a;}
+
+/* ---------------- Security reminder ---------------- */
+#stp-onboarding-thank-you .stpty-security-section{padding:20px 0 60px;}
+#stp-onboarding-thank-you .stpty-security-card{
+  display:flex;gap:22px;align-items:flex-start;background:var(--stpty-card-bg);border:1px solid var(--stpty-gold);
+  border-radius:var(--stpty-radius-lg);padding:32px 34px;box-shadow:var(--stpty-shadow-card);
+}
+#stp-onboarding-thank-you .stpty-shield{
+  width:56px;height:56px;border-radius:14px;border:2px solid var(--stpty-gold);flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;color:var(--stpty-gold);
+}
+#stp-onboarding-thank-you .stpty-security-card h3{font-size:18px;}
+#stp-onboarding-thank-you .stpty-security-card p{font-size:13.5px;color:var(--stpty-gray);margin-top:10px;line-height:1.7;}
+
+/* ---------------- Support ---------------- */
+#stp-onboarding-thank-you .stpty-support-section{padding:20px 0 70px;text-align:center;}
+#stp-onboarding-thank-you .stpty-support-actions{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:22px;}
+#stp-onboarding-thank-you .stpty-confirmed-phone{font-size:13px;color:var(--stpty-gold);font-weight:600;margin-top:16px;}
+#stp-onboarding-thank-you .stpty-support-reminder{max-width:520px;margin:16px auto 0;font-size:11.5px;color:#8a8a8a;line-height:1.7;}
+
+/* ---------------- Footer ---------------- */
+#stp-onboarding-thank-you .stpty-site-footer{background:var(--stpty-bg-primary);border-top:1px solid var(--stpty-gold-border);padding:40px 0 26px;}
+#stp-onboarding-thank-you .stpty-footer-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,0.08);}
+#stp-onboarding-thank-you .stpty-footer-brand .stpty-name{color:var(--stpty-white);font-size:16px;font-weight:800;}
+#stp-onboarding-thank-you .stpty-footer-brand .stpty-tag{font-size:11.5px;color:var(--stpty-gold);margin-top:4px;letter-spacing:.5px;}
+#stp-onboarding-thank-you .stpty-footer-links{display:flex;gap:22px;flex-wrap:wrap;align-items:center;}
+#stp-onboarding-thank-you .stpty-footer-links a{font-size:13px;color:var(--stpty-gray);}
+#stp-onboarding-thank-you .stpty-footer-links a:hover{color:var(--stpty-gold-light);}
+#stp-onboarding-thank-you .stpty-footer-links a[hidden]{display:none !important;}
+#stp-onboarding-thank-you .stpty-footer-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-top:20px;font-size:11.5px;color:#7a7a7a;}
+#stp-onboarding-thank-you .stpty-footer-notice{margin-top:18px;padding-top:18px;border-top:1px dashed rgba(255,255,255,0.08);font-size:11px;color:#7a7a7a;line-height:1.7;}
+
+@media (max-width:640px){
+  #stp-onboarding-thank-you .stpty-confirm-section h1{font-size:27px;}
+  #stp-onboarding-thank-you .stpty-status-card,
+  #stp-onboarding-thank-you .stpty-next-card{padding:26px 22px;}
+  #stp-onboarding-thank-you .stpty-security-card{flex-direction:column;padding:26px 22px;}
+  #stp-onboarding-thank-you .stpty-timeline-card{flex-direction:column;padding:22px 20px;}
+  #stp-onboarding-thank-you .stpty-footer-top{flex-direction:column;}
+  #stp-onboarding-thank-you .stpty-support-actions{flex-direction:column;align-items:stretch;}
+  #stp-onboarding-thank-you .stpty-support-actions .stpty-btn{width:100%;}
+}
+</style>
+
+<div id="stp-onboarding-thank-you">
+<a class="stpty-skip-link" href="#stpty-main-content">Skip to main content</a>
+
+<!-- =====================================================================
+     HEADER (simplified — no full navigation on this page)
+     ===================================================================== -->
+<header class="stpty-site-header">
+  <div class="stpty-header-inner">
+    <span class="stpty-brand" id="stpty-brand-slot">
+      <span id="stpty-logo-slot">
+        <span class="stpty-brand-logo-fallback">STP</span>
+      </span>
+      <span class="stpty-brand-text">
+        <span class="stpty-name">Solutions Tax Pro Software</span>
+        <span class="stpty-tag">Onboarding</span>
+      </span>
+    </span>
+  </div>
+</header>
+
+<main id="stpty-main-content">
+
+<!-- =====================================================================
+     CONFIRMATION HERO
+     ===================================================================== -->
+<section class="stpty-confirm-section">
+  <span class="stpty-glow-circle" aria-hidden="true" style="width:360px;height:360px;top:-200px;right:-130px;"></span>
+  <span class="stpty-glow-circle" aria-hidden="true" style="width:240px;height:240px;bottom:-140px;left:-100px;"></span>
+  <div class="stpty-container">
+    <div class="stpty-check-badge" aria-hidden="true">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <span class="stpty-eyebrow" style="justify-content:center;">Submission Received</span>
+    <h1>Thank You! Your Information Has Been Submitted</h1>
+    <p class="stpty-confirm-lede">We have successfully received your onboarding information and documents. Our team will carefully review your submission before beginning your software setup.</p>
+
+    <div class="stpty-notice-box">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg>
+      <p>Please monitor your email for updates, requests for corrections, and your software-access instructions.</p>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     REVIEW STATUS — WHAT HAPPENS NEXT
+     ===================================================================== -->
+<section class="stpty-status-section">
+  <div class="stpty-container">
+    <div class="stpty-status-card">
+      <div class="stpty-status-heading">
+        <span class="stpty-eyebrow">Next Steps</span>
+        <h2>What Happens Next?</h2>
+      </div>
+
+      <div class="stpty-status-steps">
+        <div class="stpty-status-step">
+          <span class="stpty-status-num">1</span>
+          <div>
+            <h3>Submission Review</h3>
+            <p>Our team will review your information and uploaded documents for completeness and accuracy.</p>
+          </div>
+        </div>
+        <div class="stpty-status-step">
+          <span class="stpty-status-num">2</span>
+          <div>
+            <h3>Corrections, If Needed</h3>
+            <p>If anything is missing or needs to be updated, we will contact you using the email address or phone number provided.</p>
+          </div>
+        </div>
+        <div class="stpty-status-step">
+          <span class="stpty-status-num">3</span>
+          <div>
+            <h3>Software Setup</h3>
+            <p>After your information is approved, your software setup will begin and you will receive your access instructions by email.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     WHAT YOU SHOULD DO NOW
+     ===================================================================== -->
+<section class="stpty-next-section">
+  <div class="stpty-container">
+    <div class="stpty-next-card">
+      <span class="stpty-eyebrow">Stay Ready</span>
+      <h2 style="font-size:21px;margin-top:10px;">What You Should Do Now</h2>
+      <ul class="stpty-next-list">
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg>Monitor your email and text messages for updates.</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg>Respond promptly if corrections or additional documents are requested.</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg>Do not submit another onboarding form unless instructed.</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg>Keep your contact and banking information current.</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg>Save your confirmation for your records.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     SETUP TIMELINE
+     ===================================================================== -->
+<section class="stpty-timeline-section">
+  <div class="stpty-container">
+    <div class="stpty-timeline-card">
+      <span class="stpty-timeline-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span>
+      <div>
+        <h3>Software Setup Timeline</h3>
+        <p>Software setup generally takes 7&ndash;21 business days after all required information and documents have been received and approved.</p>
+        <span class="stpty-timeline-note">Setup time may vary depending on document completeness, verification requirements, and correction response times.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     SECURITY REMINDER
+     ===================================================================== -->
+<section class="stpty-security-section">
+  <div class="stpty-container">
+    <div class="stpty-security-card">
+      <span class="stpty-shield"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 5v6c0 5.2 3.4 9.4 8 11 4.6-1.6 8-5.8 8-11V5l-8-3z"/></svg></span>
+      <div>
+        <h3>Protect Your Information</h3>
+        <p>For your security, never send sensitive personal, banking, EFIN, or identification information through unsecured email or social media. Use only the approved form or secure portal provided by Solutions Tax Pro Software.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     SUPPORT SECTION
+     ===================================================================== -->
+<section class="stpty-support-section">
+  <div class="stpty-container">
+    <span class="stpty-eyebrow" style="justify-content:center;">We're Here to Help</span>
+    <h2 style="font-size:21px;margin-top:10px;">Need Assistance?</h2>
+    <p style="font-size:13.5px;color:var(--stpty-gray);margin-top:12px;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.7;">If you have a question about your submission, please contact the Solutions Tax Pro Software support team. Include your full name and the email address used on your onboarding form.</p>
+    <div class="stpty-support-actions">
+      <a class="stpty-btn stpty-btn-primary" id="stpty-email-btn" href="#" hidden>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m4 4 8 9 8-9"/></svg>
+        EMAIL SUPPORT
+      </a>
+      <a class="stpty-btn stpty-btn-outline" id="stpty-phone-btn" href="#" hidden>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.4 2.1L8.1 9.7a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2.2z"/></svg>
+        CALL SUPPORT
+      </a>
+    </div>
+    <p class="stpty-confirmed-phone" id="stpty-confirmed-phone-line" hidden></p>
+    <p class="stpty-support-reminder">Do not include Social Security numbers, banking details, identity documents, PTIN or EFIN information in regular email.</p>
+  </div>
+</section>
+
+</main>
+
+<!-- =====================================================================
+     FOOTER
+     ===================================================================== -->
+<footer class="stpty-site-footer">
+  <div class="stpty-container">
+    <div class="stpty-footer-top">
+      <div class="stpty-footer-brand">
+        <div class="stpty-name">Solutions Tax Pro Software</div>
+        <div class="stpty-tag">Onboarding</div>
+      </div>
+      <nav class="stpty-footer-links" aria-label="Footer navigation">
+        <a id="stpty-privacy-link" href="#" target="_blank" rel="noopener noreferrer" hidden>Privacy Policy</a>
+        <a id="stpty-terms-link" href="#" target="_blank" rel="noopener noreferrer" hidden>Terms of Service</a>
+      </nav>
+    </div>
+    <div class="stpty-footer-bottom">
+      <span>&copy; <span id="stpty-copyright-year"></span> Solutions Tax Pro Software. All rights reserved.</span>
+    </div>
+    <p class="stpty-footer-notice">This page and the information you submitted are confidential. Solutions Tax Pro Software uses secure forms and portals to protect your personal and business information throughout the onboarding process.</p>
+  </div>
+</footer>
+
+</div><!-- /#stp-onboarding-thank-you -->
+
+<script>
+/* =====================================================================
+   SOLUTIONS TAX PRO SOFTWARE — SUBMISSION RECEIVED PAGE (logic)
+   Safe to run more than once: if this block is re-initialized inside
+   the GoHighLevel editor, the guard below skips re-binding so nothing
+   breaks or double-fires.
+   ===================================================================== */
+(function(){
+  var stptyRoot = document.getElementById('stp-onboarding-thank-you');
+  if (!stptyRoot) { return; }
+  if (stptyRoot.getAttribute('data-stpty-initialized') === 'true') { return; }
+  stptyRoot.setAttribute('data-stpty-initialized', 'true');
+
+  /* ===================================================================
+     CONFIGURATION SECTION
+     This is the only part of the code you should need to edit. Every
+     button and link on this page is generated from these values.
+
+     WHAT TO UPDATE:
+       logoUrl             -> direct URL to the Solutions Tax Pro logo.
+                               Leave blank to keep the "STP" text mark.
+       homeUrl              -> URL the header brand should link to (for
+                               example, the onboarding hub page). Leave
+                               blank to keep the header non-clickable.
+       supportEmail          -> confirmed support email address. The
+                               "Email Support" button stays hidden until
+                               this is filled in.
+       supportPhone          -> phone number used to build the tel: link,
+                               e.g. "+18433445126". The "Call Support"
+                               button stays hidden until this is filled in.
+       supportPhoneDisplay   -> how the phone number is shown on the page,
+                               e.g. "(843) 344-5126".
+       privacyUrl            -> live Privacy Policy URL. Footer link stays
+                               hidden until this is filled in.
+       termsUrl              -> live Terms of Service URL. Footer link
+                               stays hidden until this is filled in.
+     =================================================================== */
+  window.STP_THANK_YOU_CONFIG = {
+    logoUrl: "",
+    homeUrl: "",
+    supportEmail: "",
+    supportPhone: "",
+    supportPhoneDisplay: "",
+    privacyUrl: "",
+    termsUrl: ""
+  };
+
+  var CONFIG = window.STP_THANK_YOU_CONFIG;
+
+  /* ===================================================================
+     Helpers
+     =================================================================== */
+  function isFilled(v){ return typeof v === 'string' && v.trim() !== ''; }
+  function q(sel){ return stptyRoot.querySelector(sel); }
+
+  /* Shows a link/button with its real URL, or keeps it fully hidden
+     (never a broken '#' link) when the value has not been configured. */
+  function setOptionalLink(el, url){
+    if (!el) return;
+    if (isFilled(url)){
+      el.setAttribute('href', url);
+      el.removeAttribute('hidden');
+    } else {
+      el.setAttribute('href', '#');
+      el.setAttribute('hidden', '');
+    }
+  }
+
+  /* Prevent navigation on any hidden control, in case it is still
+     reachable in some assistive contexts. */
+  stptyRoot.addEventListener('click', function(e){
+    var target = e.target.closest ? e.target.closest('[hidden]') : null;
+    if (target){
+      e.preventDefault();
+    }
+  });
+
+  /* ===================================================================
+     Logo + header brand link
+     =================================================================== */
+  (function applyLogo(){
+    var slot = q('#stpty-logo-slot');
+    if (slot && isFilled(CONFIG.logoUrl)){
+      var img = document.createElement('img');
+      img.className = 'stpty-brand-logo-img';
+      img.src = CONFIG.logoUrl;
+      img.alt = 'Solutions Tax Pro Software logo';
+      slot.innerHTML = '';
+      slot.appendChild(img);
+    }
+  })();
+
+  (function applyHomeLink(){
+    var brandSlot = q('#stpty-brand-slot');
+    if (!brandSlot) return;
+    if (isFilled(CONFIG.homeUrl)){
+      var link = document.createElement('a');
+      link.className = 'stpty-brand';
+      link.href = CONFIG.homeUrl;
+      link.setAttribute('aria-label', 'Solutions Tax Pro Software home');
+      link.innerHTML = brandSlot.innerHTML;
+      brandSlot.replaceWith(link);
+    }
+    // If homeUrl is blank, the brand stays as a plain, non-interactive
+    // span — no link, no navigation, nothing broken to click.
+  })();
+
+  /* ===================================================================
+     Support section
+     =================================================================== */
+  setOptionalLink(
+    q('#stpty-email-btn'),
+    isFilled(CONFIG.supportEmail) ? ('mailto:' + CONFIG.supportEmail) : ''
+  );
+  setOptionalLink(
+    q('#stpty-phone-btn'),
+    isFilled(CONFIG.supportPhone) ? ('tel:' + CONFIG.supportPhone) : ''
+  );
+
+  var confirmedPhoneLine = q('#stpty-confirmed-phone-line');
+  if (confirmedPhoneLine){
+    if (isFilled(CONFIG.supportPhoneDisplay)){
+      confirmedPhoneLine.textContent = 'Support number: ' + CONFIG.supportPhoneDisplay;
+      confirmedPhoneLine.removeAttribute('hidden');
+    } else {
+      confirmedPhoneLine.setAttribute('hidden', '');
+    }
+  }
+
+  /* ===================================================================
+     Footer legal links
+     =================================================================== */
+  setOptionalLink(q('#stpty-privacy-link'), CONFIG.privacyUrl);
+  setOptionalLink(q('#stpty-terms-link'), CONFIG.termsUrl);
+
+  /* Copyright year */
+  var yearEl = q('#stpty-copyright-year');
+  if (yearEl){ yearEl.textContent = new Date().getFullYear(); }
+
+})();
+</script>
