@@ -1,0 +1,1181 @@
+<!-- =====================================================================
+     THE CREDIT FIXEE — CREDIT REPAIR SALES PAGE
+     (A Key Financial Consulting Brand)
+
+     Paste this entire block into a GoHighLevel Custom Code / HTML
+     element for the funnel's Step 1 (Sales Page).
+
+     HOW TO CONFIGURE THIS PAGE
+     Scroll down to "window.TCF_PAGE_CONFIG" near the bottom of this
+     block. That is the only section you should need to edit for
+     day-to-day updates (logo, owner photo, enrollment URL, contact
+     info, policy links). See the companion "GHL Funnel Setup Guide"
+     document for form-field specs, custom fields, workflow steps,
+     confirmation messages, and the pre-publication compliance
+     checklist — none of that lives in this file.
+
+     COMPLIANCE NOTE: nothing on this page states or implies that this
+     funnel, its payment process, or its policies have been legally
+     approved. Every legal/policy placeholder below must be reviewed
+     by qualified counsel before this page is published or activated.
+     ===================================================================== -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* =====================================================================
+   All rules are namespaced under #tcf-sales-page with a "tcf-" class
+   prefix so this element cannot conflict with other GoHighLevel page
+   content.
+   ===================================================================== */
+
+#tcf-sales-page{
+  /* ---- Warm light backgrounds (primary palette — ~50% of the page) ---- */
+  --tcf-lightgray:#E8E3E0;
+  --tcf-beige:#D8D0CC;
+  --tcf-white:#FFFFFF;
+  --tcf-off-white:#F7F5F2;
+
+  /* ---- Greens (deep + dark for containers/emphasis, medium for small highlights) ---- */
+  --tcf-green-deep:#003D24;
+  --tcf-green-dark:#075B35;
+  --tcf-green-medium:#36963A;
+
+  /* ---- Black / charcoal (emphasis only) ---- */
+  --tcf-black:#111111;
+  --tcf-charcoal:#262626;
+
+  /* ---- Gold ---- */
+  --tcf-gold-muted:#B38A32;
+  --tcf-gold-bright:#D9AD48;
+  --tcf-gold-pale:#F1D481;
+  --tcf-gold-start:#816A36;
+  --tcf-gold-end:#FAC96A;
+
+  --tcf-gray:#4A4A4A;
+
+  /* Decorative metallic-gold gradient (borders, icons, small accents) */
+  --tcf-gold-grad:linear-gradient(135deg,#816A36 0%,#B88A2D 35%,#FAC96A 70%,#A67418 100%);
+  /* Primary CTA button gradient + its required text color */
+  --tcf-btn-grad:linear-gradient(135deg,#816A36 0%,#FAC96A 55%,#B37A17 100%);
+  --tcf-btn-grad-hover:linear-gradient(135deg,#A67418 0%,#FAC96A 55%,#816A36 100%);
+  --tcf-btn-text:#082B1B;
+
+  /* Deep-green container gradient, for feature boxes / dark sections only */
+  --tcf-green-grad:linear-gradient(135deg,var(--tcf-green-dark) 0%,var(--tcf-green-deep) 100%);
+
+  --tcf-font-head:'Bebas Neue',Impact,'Arial Narrow Bold',sans-serif;
+  --tcf-font-body:'Montserrat',Arial,Helvetica,sans-serif;
+
+  --tcf-radius-sm:10px;
+  --tcf-radius-md:14px;
+  --tcf-radius-lg:22px;
+  --tcf-shadow-sm:0 2px 12px rgba(17,17,17,0.08);
+  --tcf-shadow-md:0 14px 34px rgba(17,17,17,0.14);
+  --tcf-shadow-gold:0 8px 22px rgba(129,106,54,0.3);
+
+  font-family:var(--tcf-font-body);
+  color:var(--tcf-charcoal);
+  background:var(--tcf-off-white);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  scroll-behavior:smooth;
+  overflow-x:hidden;
+}
+#tcf-sales-page *,
+#tcf-sales-page *::before,
+#tcf-sales-page *::after{box-sizing:border-box;}
+
+@media (prefers-reduced-motion:reduce){
+  #tcf-sales-page{scroll-behavior:auto;}
+  #tcf-sales-page *,
+  #tcf-sales-page *::before,
+  #tcf-sales-page *::after{
+    animation-duration:0.001ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:0.001ms !important;
+    scroll-behavior:auto !important;
+  }
+}
+
+#tcf-sales-page h1,#tcf-sales-page h2,#tcf-sales-page h3,#tcf-sales-page h4{
+  font-family:var(--tcf-font-head);color:var(--tcf-black);margin:0;font-weight:400;letter-spacing:.4px;line-height:1.05;
+}
+#tcf-sales-page p{margin:0;}
+#tcf-sales-page a{color:inherit;text-decoration:none;}
+#tcf-sales-page img{max-width:100%;display:block;}
+#tcf-sales-page button{font-family:inherit;cursor:pointer;}
+#tcf-sales-page ul{margin:0;padding:0;list-style:none;}
+/* Guarantee the native [hidden] behavior always wins, even over the
+   img{display:block} reset above — this page relies on [hidden] to
+   show/hide config-driven elements (photos, buttons, links). */
+#tcf-sales-page [hidden]{display:none !important;}
+#tcf-sales-page svg{display:block;flex-shrink:0;}
+
+#tcf-sales-page a:focus-visible,
+#tcf-sales-page button:focus-visible{
+  outline:3px solid var(--tcf-gold-bright);
+  outline-offset:3px;
+  border-radius:6px;
+}
+#tcf-sales-page .tcf-skip-link{
+  position:absolute;left:-999px;top:auto;background:var(--tcf-gold-bright);color:var(--tcf-black);
+  padding:12px 18px;border-radius:0 0 10px 0;z-index:1000;font-weight:700;
+}
+#tcf-sales-page .tcf-skip-link:focus{left:0;top:0;}
+
+#tcf-sales-page .tcf-container{max-width:1180px;margin:0 auto;padding:0 24px;}
+#tcf-sales-page .tcf-section{padding:80px 0;}
+#tcf-sales-page .tcf-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;
+  letter-spacing:2.5px;text-transform:uppercase;color:var(--tcf-green-dark);
+}
+#tcf-sales-page .tcf-eyebrow::before{content:"";width:24px;height:3px;background:var(--tcf-gold-grad);border-radius:2px;}
+#tcf-sales-page .tcf-eyebrow.tcf-on-dark{color:var(--tcf-gold-pale);}
+#tcf-sales-page .tcf-section-head{max-width:760px;margin:0 auto 46px;text-align:center;}
+#tcf-sales-page .tcf-section-head h2{font-size:clamp(30px,4.4vw,46px);margin-top:10px;}
+#tcf-sales-page .tcf-section-head p{font-size:15.5px;color:var(--tcf-gray);margin-top:16px;line-height:1.75;}
+#tcf-sales-page .tcf-section-head.tcf-on-dark p{color:#dcdcd4;}
+
+/* ---------------- Buttons ---------------- */
+#tcf-sales-page .tcf-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:16px 34px;border-radius:100px;font-family:var(--tcf-font-head);font-size:18px;letter-spacing:1px;
+  border:2px solid transparent;transition:transform .18s ease, box-shadow .18s ease, background .2s ease, color .2s ease, border-color .2s ease;
+  white-space:nowrap;
+}
+#tcf-sales-page .tcf-btn:active{transform:translateY(1px);}
+#tcf-sales-page .tcf-btn-gold{background:var(--tcf-btn-grad);color:var(--tcf-btn-text);box-shadow:var(--tcf-shadow-gold);}
+#tcf-sales-page .tcf-btn-gold:hover{background:var(--tcf-btn-grad-hover);box-shadow:0 12px 28px rgba(129,106,54,0.45);transform:translateY(-1px);}
+#tcf-sales-page .tcf-btn-outline{background:var(--tcf-green-deep);color:var(--tcf-white);border-color:var(--tcf-gold-bright);}
+#tcf-sales-page .tcf-btn-outline:hover{background:var(--tcf-green-dark);border-color:var(--tcf-gold-pale);color:var(--tcf-gold-pale);}
+#tcf-sales-page .tcf-btn-outline-dark{background:transparent;color:var(--tcf-green-deep);border-color:var(--tcf-green-deep);}
+#tcf-sales-page .tcf-btn-outline-dark:hover{background:var(--tcf-green-deep);color:var(--tcf-white);}
+#tcf-sales-page .tcf-btn[aria-disabled="true"]{opacity:.5;cursor:not-allowed;}
+#tcf-sales-page .tcf-btn-sm{padding:11px 22px;font-size:14px;}
+
+/* ---------------- Announcement bar ---------------- */
+#tcf-sales-page .tcf-announcement{
+  background:var(--tcf-black);color:var(--tcf-gold-pale);text-align:center;padding:9px 16px;
+  font-size:12.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;
+}
+
+/* ---------------- Header / nav ---------------- */
+#tcf-sales-page .tcf-site-header{
+  position:sticky;top:0;z-index:500;background:rgba(17,17,17,0.94);backdrop-filter:blur(8px);
+  border-bottom:1px solid rgba(217,173,72,0.3);
+}
+#tcf-sales-page .tcf-header-inner{max-width:1180px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;gap:16px;}
+#tcf-sales-page .tcf-brand{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+#tcf-sales-page .tcf-brand-logo-fallback{
+  width:42px;height:42px;border-radius:9px;background:var(--tcf-gold-grad);
+  display:flex;align-items:center;justify-content:center;color:var(--tcf-black);font-family:var(--tcf-font-head);
+  font-size:17px;flex-shrink:0;
+}
+#tcf-sales-page .tcf-brand-logo-img{width:42px;height:42px;object-fit:contain;border-radius:9px;}
+#tcf-sales-page .tcf-brand-text{line-height:1.2;}
+#tcf-sales-page .tcf-brand-text .tcf-name{font-family:var(--tcf-font-head);font-size:19px;color:var(--tcf-white);letter-spacing:.5px;}
+#tcf-sales-page .tcf-brand-text .tcf-name span{color:var(--tcf-gold-bright);}
+#tcf-sales-page .tcf-brand-text .tcf-sub{display:block;font-family:var(--tcf-font-body);font-size:9px;letter-spacing:1.2px;text-transform:uppercase;color:#b8b8b8;font-weight:600;margin-top:1px;}
+#tcf-sales-page .tcf-header-cta{margin-left:auto;flex-shrink:0;}
+#tcf-sales-page .tcf-header-cta .tcf-btn{padding:10px 22px;font-size:14px;}
+
+/* ---------------- Hero (light, warm background per brand update) ---------------- */
+#tcf-sales-page .tcf-hero{
+  position:relative;overflow:hidden;padding:64px 0 70px;
+  background:linear-gradient(115deg,var(--tcf-lightgray) 0%,var(--tcf-beige) 100%);
+}
+#tcf-sales-page .tcf-hero-glow{
+  position:absolute;border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle,rgba(0,61,36,0.14),transparent 70%);
+}
+#tcf-sales-page .tcf-hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr 1fr;gap:52px;align-items:center;}
+#tcf-sales-page .tcf-hero-brandline{color:var(--tcf-green-dark);font-family:var(--tcf-font-head);font-size:15px;letter-spacing:2px;}
+#tcf-sales-page .tcf-hero-brandline small{display:block;font-family:var(--tcf-font-body);font-size:10.5px;letter-spacing:1.5px;color:#5a5a54;text-transform:uppercase;font-weight:600;margin-top:4px;}
+#tcf-sales-page .tcf-hero-copy h1{color:var(--tcf-black);font-size:clamp(36px,5.4vw,58px);margin-top:14px;}
+#tcf-sales-page .tcf-hero-copy h1 em{font-style:normal;color:var(--tcf-green-medium);}
+#tcf-sales-page .tcf-hero-copy h1 .tcf-gold-word{
+  background:var(--tcf-gold-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+}
+#tcf-sales-page .tcf-hero-copy .tcf-lede{color:#3a3a36;font-size:16px;margin-top:18px;max-width:520px;line-height:1.75;font-weight:500;}
+
+/* Main-offer box — a "dark-green feature box" per brand guidance */
+#tcf-sales-page .tcf-offer-box{
+  margin-top:28px;background:var(--tcf-green-grad);border:1.5px solid var(--tcf-gold-bright);border-radius:var(--tcf-radius-md);
+  padding:22px 24px;max-width:480px;box-shadow:var(--tcf-shadow-md);
+}
+#tcf-sales-page .tcf-offer-box .tcf-offer-label{font-family:var(--tcf-font-head);font-size:14px;letter-spacing:1.5px;color:var(--tcf-gold-pale);}
+#tcf-sales-page .tcf-offer-box .tcf-offer-price{font-family:var(--tcf-font-head);font-size:44px;color:var(--tcf-white);margin-top:4px;}
+#tcf-sales-page .tcf-offer-box .tcf-offer-price small{font-family:var(--tcf-font-body);font-size:13px;color:#dcdcd4;font-weight:600;letter-spacing:0;}
+#tcf-sales-page .tcf-offer-box .tcf-offer-note{font-size:12px;color:#e2e2da;margin-top:10px;line-height:1.6;}
+
+#tcf-sales-page .tcf-hero-actions{display:flex;align-items:center;gap:16px;margin-top:26px;flex-wrap:wrap;}
+#tcf-sales-page .tcf-hero-micro{font-size:12px;color:#5a5a54;margin-top:14px;font-weight:600;}
+
+#tcf-sales-page .tcf-hero-photo{position:relative;filter:drop-shadow(0 20px 34px rgba(17,17,17,0.22));}
+#tcf-sales-page .tcf-photo-frame{
+  position:relative;border-radius:var(--tcf-radius-lg);overflow:hidden;border:2px solid var(--tcf-gold-bright);
+  box-shadow:var(--tcf-shadow-md);aspect-ratio:4/5;background:linear-gradient(160deg,#ded7d1,#c7bfb8);
+}
+#tcf-sales-page .tcf-photo-placeholder{
+  position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;
+  color:#6b6b64;text-align:center;padding:24px;
+}
+#tcf-sales-page .tcf-photo-placeholder svg{color:var(--tcf-gold-muted);opacity:.75;}
+#tcf-sales-page .tcf-photo-placeholder span{font-size:12.5px;font-weight:600;letter-spacing:.3px;max-width:220px;}
+#tcf-sales-page .tcf-photo-frame img{width:100%;height:100%;object-fit:cover;}
+#tcf-sales-page .tcf-photo-ribbon{
+  position:absolute;top:18px;right:-38px;background:var(--tcf-gold-grad);color:var(--tcf-black);
+  padding:6px 46px;font-family:var(--tcf-font-head);font-size:13px;letter-spacing:1px;transform:rotate(35deg);
+  box-shadow:var(--tcf-shadow-sm);
+}
+
+@media (max-width:980px){
+  #tcf-sales-page .tcf-hero-grid{grid-template-columns:1fr;}
+  #tcf-sales-page .tcf-hero-photo{max-width:380px;margin:0 auto 44px;order:-1;}
+}
+</style>
+<style>
+/* ---------------- Benefit cards ---------------- */
+#tcf-sales-page .tcf-benefit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+#tcf-sales-page .tcf-benefit-card{
+  background:var(--tcf-white);border:1px solid #e2ddd6;border-radius:var(--tcf-radius-md);padding:28px 24px;
+  box-shadow:var(--tcf-shadow-sm);transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  border-top:3px solid transparent;
+}
+#tcf-sales-page .tcf-benefit-card:hover{transform:translateY(-4px);border-color:var(--tcf-gold-bright);box-shadow:var(--tcf-shadow-md);}
+#tcf-sales-page .tcf-benefit-card .tcf-b-ico{
+  width:52px;height:52px;border-radius:50%;background:var(--tcf-gold-grad);color:var(--tcf-black);
+  display:flex;align-items:center;justify-content:center;margin-bottom:16px;
+}
+#tcf-sales-page .tcf-benefit-card h3{font-family:var(--tcf-font-body);font-size:16px;font-weight:700;color:var(--tcf-green-deep);}
+#tcf-sales-page .tcf-benefit-card p{font-size:13.5px;color:var(--tcf-charcoal);margin-top:9px;line-height:1.65;}
+#tcf-sales-page .tcf-compliance-line{
+  text-align:center;max-width:720px;margin:36px auto 0;font-size:12px;color:#6b6b64;line-height:1.7;
+  padding:14px 18px;border:1px dashed #cfc7bf;border-radius:var(--tcf-radius-sm);
+}
+@media (max-width:900px){#tcf-sales-page .tcf-benefit-grid{grid-template-columns:1fr 1fr;}}
+@media (max-width:600px){#tcf-sales-page .tcf-benefit-grid{grid-template-columns:1fr;}}
+
+/* ---------------- Credit challenges (light section, white/beige cards) ---------------- */
+#tcf-sales-page .tcf-challenges-section{background:var(--tcf-beige);position:relative;overflow:hidden;}
+#tcf-sales-page .tcf-challenge-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+#tcf-sales-page .tcf-challenge-card{
+  background:var(--tcf-white);border:1px solid #e2ddd6;border-radius:var(--tcf-radius-md);padding:22px 18px;
+  text-align:center;transition:border-color .2s, transform .2s;box-shadow:var(--tcf-shadow-sm);
+}
+#tcf-sales-page .tcf-challenge-card:hover{border-color:var(--tcf-gold-bright);transform:translateY(-3px);}
+#tcf-sales-page .tcf-challenge-card .tcf-c-ico{
+  width:44px;height:44px;border-radius:11px;border:1.5px solid var(--tcf-green-dark);color:var(--tcf-green-dark);
+  display:flex;align-items:center;justify-content:center;margin:0 auto 14px;
+}
+#tcf-sales-page .tcf-challenge-card p{font-size:13px;font-weight:600;color:var(--tcf-charcoal);}
+#tcf-sales-page .tcf-challenges-note{max-width:760px;margin:36px auto 0;text-align:center;font-size:12.5px;color:#5a5a54;line-height:1.75;}
+@media (max-width:900px){#tcf-sales-page .tcf-challenge-grid{grid-template-columns:1fr 1fr;}}
+
+/* ---------------- What's included / dispute rounds ---------------- */
+#tcf-sales-page .tcf-included-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+#tcf-sales-page .tcf-included-item{
+  display:flex;gap:14px;align-items:flex-start;background:var(--tcf-white);border:1px solid #e2ddd6;
+  border-radius:var(--tcf-radius-md);padding:18px 20px;box-shadow:var(--tcf-shadow-sm);
+}
+#tcf-sales-page .tcf-included-item svg{color:var(--tcf-green-medium);margin-top:2px;}
+#tcf-sales-page .tcf-included-item p{font-size:13.5px;color:var(--tcf-charcoal);font-weight:600;line-height:1.55;}
+#tcf-sales-page .tcf-included-clarify{
+  margin-top:26px;background:var(--tcf-green-grad);border-left:4px solid var(--tcf-gold-bright);border-radius:0 var(--tcf-radius-sm) var(--tcf-radius-sm) 0;
+  padding:16px 20px;font-size:13px;color:#eae6df;line-height:1.7;max-width:900px;margin-left:auto;margin-right:auto;
+}
+@media (max-width:700px){#tcf-sales-page .tcf-included-grid{grid-template-columns:1fr;}}
+
+/* ---------------- How it works (process steps) ---------------- */
+#tcf-sales-page .tcf-process-section{background:var(--tcf-off-white);}
+#tcf-sales-page .tcf-process-grid{display:flex;flex-direction:column;gap:0;max-width:820px;margin:0 auto;}
+#tcf-sales-page .tcf-process-step{display:flex;gap:22px;padding:22px 0;position:relative;}
+#tcf-sales-page .tcf-process-step:not(:last-child){border-bottom:1px dashed #d8d0c9;}
+#tcf-sales-page .tcf-process-step .tcf-p-num{
+  width:52px;height:52px;border-radius:50%;background:var(--tcf-gold-grad);color:var(--tcf-black);
+  display:flex;align-items:center;justify-content:center;font-family:var(--tcf-font-head);font-size:22px;flex-shrink:0;
+  box-shadow:var(--tcf-shadow-gold);
+}
+#tcf-sales-page .tcf-process-step h3{font-size:18px;letter-spacing:.3px;color:var(--tcf-green-deep);}
+#tcf-sales-page .tcf-process-step p{font-size:13.5px;color:var(--tcf-charcoal);margin-top:7px;line-height:1.7;}
+#tcf-sales-page .tcf-process-step a{color:var(--tcf-green-dark);font-weight:700;text-decoration:underline;}
+
+/* ---------------- Credit-score results (clean white section) ---------------- */
+#tcf-sales-page .tcf-results-section{background:var(--tcf-white);}
+#tcf-sales-page .tcf-results-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+#tcf-sales-page .tcf-result-card{
+  background:var(--tcf-off-white);border:1px dashed var(--tcf-gold-muted);border-radius:var(--tcf-radius-md);
+  padding:30px 22px;text-align:center;min-height:220px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;
+  box-shadow:var(--tcf-shadow-sm);
+}
+#tcf-sales-page .tcf-result-card svg{color:var(--tcf-gold-muted);opacity:.85;}
+#tcf-sales-page .tcf-result-card span{font-size:12.5px;font-weight:700;color:var(--tcf-gray);letter-spacing:.3px;line-height:1.6;}
+#tcf-sales-page .tcf-results-disclaimer{
+  max-width:760px;margin:34px auto 0;text-align:center;font-size:12px;color:#6b6b64;line-height:1.75;
+  border-top:1px solid #e2ddd6;padding-top:22px;
+}
+@media (max-width:900px){#tcf-sales-page .tcf-results-grid{grid-template-columns:1fr;}}
+
+/* ---------------- Why choose us ---------------- */
+#tcf-sales-page .tcf-why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+#tcf-sales-page .tcf-why-card{text-align:center;padding:10px;}
+#tcf-sales-page .tcf-why-card .tcf-w-ico{
+  width:60px;height:60px;border-radius:50%;background:var(--tcf-off-white);border:2px solid var(--tcf-gold-bright);
+  color:var(--tcf-green-dark);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;
+}
+#tcf-sales-page .tcf-why-card h3{font-family:var(--tcf-font-body);font-size:16px;font-weight:700;color:var(--tcf-green-deep);}
+#tcf-sales-page .tcf-why-card p{font-size:13.5px;color:var(--tcf-charcoal);margin-top:9px;line-height:1.65;}
+@media (max-width:800px){#tcf-sales-page .tcf-why-grid{grid-template-columns:1fr;}}
+
+/* ---------------- Client requirements (deep-green feature section) ---------------- */
+#tcf-sales-page .tcf-requirements-section{background:var(--tcf-green-grad);color:var(--tcf-white);}
+#tcf-sales-page .tcf-req-list{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:12px;}
+#tcf-sales-page .tcf-req-list li{
+  display:flex;gap:14px;align-items:flex-start;background:rgba(255,255,255,0.06);border:1px solid rgba(217,173,72,0.3);
+  border-radius:var(--tcf-radius-sm);padding:14px 18px;font-size:13.5px;color:#f0ede8;
+}
+#tcf-sales-page .tcf-req-list .tcf-req-num{
+  width:26px;height:26px;border-radius:50%;background:var(--tcf-gold-grad);color:var(--tcf-black);flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-family:var(--tcf-font-head);font-size:13px;
+}
+#tcf-sales-page .tcf-req-note{
+  max-width:720px;margin:30px auto 0;text-align:center;font-size:13px;color:var(--tcf-gold-pale);font-weight:600;
+  line-height:1.7;
+}
+#tcf-sales-page .tcf-req-secure-note{max-width:720px;margin:14px auto 0;text-align:center;font-size:12px;color:#c9c9be;line-height:1.7;}
+</style>
+<style>
+/* ---------------- Lead qualification form ---------------- */
+#tcf-sales-page .tcf-form-section{background:var(--tcf-off-white);}
+#tcf-sales-page .tcf-form-card{
+  max-width:680px;margin:0 auto;background:var(--tcf-white);border:1px solid #e2ddd6;border-radius:var(--tcf-radius-lg);
+  padding:8px;box-shadow:var(--tcf-shadow-md);position:relative;
+}
+#tcf-sales-page .tcf-form-card::before{
+  content:"";position:absolute;inset:-2px;border-radius:var(--tcf-radius-lg);background:var(--tcf-gold-grad);z-index:-1;opacity:.7;
+}
+#tcf-sales-page .tcf-form-card iframe{
+  width:100%;border:none;border-radius:18px;display:block;min-height:820px;background:var(--tcf-white);
+}
+#tcf-sales-page .tcf-form-fallback-note{text-align:center;font-size:12px;color:#7a7a72;margin-top:16px;}
+@media (max-width:600px){
+  #tcf-sales-page .tcf-form-card iframe{min-height:960px;}
+}
+
+/* ---------------- FAQ ---------------- */
+#tcf-sales-page .tcf-faq-list{max-width:840px;margin:0 auto;}
+#tcf-sales-page .tcf-faq-item{border-bottom:1px solid #e2ddd6;}
+#tcf-sales-page .tcf-faq-question{
+  width:100%;text-align:left;background:none;border:none;padding:20px 4px;
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  font-size:15.5px;font-weight:700;color:var(--tcf-green-deep);font-family:var(--tcf-font-body);
+}
+#tcf-sales-page .tcf-faq-question .tcf-faq-plus{
+  width:28px;height:28px;border-radius:50%;border:1.5px solid var(--tcf-gold-muted);color:var(--tcf-gold-muted);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .2s ease, background .2s ease, color .2s ease;
+}
+#tcf-sales-page .tcf-faq-question[aria-expanded="true"] .tcf-faq-plus{transform:rotate(45deg);background:var(--tcf-gold-grad);color:var(--tcf-black);border-color:transparent;}
+#tcf-sales-page .tcf-faq-answer{overflow:hidden;max-height:0;transition:max-height .25s ease;}
+#tcf-sales-page .tcf-faq-answer.tcf-open{max-height:500px;}
+#tcf-sales-page .tcf-faq-answer p{font-size:13.5px;color:var(--tcf-charcoal);line-height:1.75;padding:0 4px 20px;}
+
+/* ---------------- Final CTA (deep-green feature section) ---------------- */
+#tcf-sales-page .tcf-final-cta{
+  text-align:center;background:var(--tcf-green-grad);color:var(--tcf-white);position:relative;overflow:hidden;
+}
+#tcf-sales-page .tcf-final-cta h2{color:var(--tcf-white);font-size:clamp(32px,5vw,52px);max-width:760px;margin:0 auto;}
+#tcf-sales-page .tcf-final-cta p{color:#e2e2da;font-size:15px;margin-top:16px;max-width:560px;margin-left:auto;margin-right:auto;}
+#tcf-sales-page .tcf-final-cta .tcf-btn{margin-top:30px;}
+
+/* ---------------- Legal disclosures ---------------- */
+#tcf-sales-page .tcf-legal-section{background:var(--tcf-white);border-top:1px solid #e2ddd6;}
+#tcf-sales-page .tcf-legal-box{
+  max-width:900px;margin:0 auto;background:var(--tcf-off-white);border:1px solid #e2ddd6;border-radius:var(--tcf-radius-md);
+  padding:30px 32px;border-top:3px solid var(--tcf-gold-muted);
+}
+#tcf-sales-page .tcf-legal-box p{font-size:12.5px;color:var(--tcf-charcoal);line-height:1.8;}
+#tcf-sales-page .tcf-legal-box p + p{margin-top:14px;}
+#tcf-sales-page .tcf-legal-box strong{color:var(--tcf-green-deep);}
+#tcf-sales-page .tcf-legal-placeholders{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px;}
+#tcf-sales-page .tcf-legal-placeholders span{
+  font-size:11px;font-weight:700;background:var(--tcf-white);border:1px dashed #c9bfae;color:#7a7a72;
+  padding:6px 12px;border-radius:100px;
+}
+
+/* ---------------- Contact + footer ---------------- */
+#tcf-sales-page .tcf-site-footer{background:var(--tcf-black);color:#c9c9c2;padding:52px 0 28px;}
+#tcf-sales-page .tcf-footer-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:30px;padding-bottom:28px;border-bottom:1px solid rgba(255,255,255,0.1);}
+#tcf-sales-page .tcf-footer-brand .tcf-name{font-family:var(--tcf-font-head);color:var(--tcf-white);font-size:22px;letter-spacing:.5px;}
+#tcf-sales-page .tcf-footer-brand .tcf-name span{color:var(--tcf-gold-bright);}
+#tcf-sales-page .tcf-footer-brand .tcf-sub{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#a8a8a0;margin-top:4px;font-weight:600;}
+#tcf-sales-page .tcf-footer-brand .tcf-provider{font-size:12.5px;color:#c0c0b8;margin-top:14px;line-height:1.7;max-width:340px;}
+#tcf-sales-page .tcf-footer-cols{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+#tcf-sales-page .tcf-footer-col h4{font-size:11px;text-transform:uppercase;letter-spacing:1.2px;color:var(--tcf-gold-bright);margin-bottom:14px;font-weight:700;}
+#tcf-sales-page .tcf-footer-col a, #tcf-sales-page .tcf-footer-col span{
+  display:block;font-size:13px;color:#c0c0b8;margin-bottom:10px;
+}
+#tcf-sales-page .tcf-footer-col a[hidden]{display:none;}
+#tcf-sales-page .tcf-footer-col a:hover{color:var(--tcf-gold-bright);}
+#tcf-sales-page .tcf-footer-bottom{
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-top:24px;font-size:11.5px;color:#8a8a82;
+}
+#tcf-sales-page .tcf-footer-disclaimer{
+  margin-top:22px;padding-top:22px;border-top:1px solid rgba(255,255,255,0.08);
+  font-size:10.5px;color:#7a7a72;line-height:1.8;
+}
+@media (max-width:800px){
+  #tcf-sales-page .tcf-footer-top{flex-direction:column;}
+}
+@media (max-width:480px){
+  #tcf-sales-page .tcf-footer-cols{grid-template-columns:1fr;}
+}
+
+/* ---------------- Scroll reveal ---------------- */
+#tcf-sales-page .tcf-reveal{opacity:0;transform:translateY(16px);transition:opacity .55s ease, transform .55s ease;}
+#tcf-sales-page .tcf-reveal.tcf-in-view{opacity:1;transform:translateY(0);}
+@media (prefers-reduced-motion:reduce){
+  #tcf-sales-page .tcf-reveal{opacity:1;transform:none;transition:none;}
+}
+
+/* ---------------- Mobile nav ---------------- */
+#tcf-sales-page .tcf-mobile-nav-toggle{display:none;}
+@media (max-width:640px){
+  #tcf-sales-page .tcf-header-inner{padding:10px 14px;gap:8px;}
+  #tcf-sales-page .tcf-header-cta .tcf-btn{padding:9px 14px;font-size:11.5px;letter-spacing:.3px;}
+  #tcf-sales-page .tcf-brand-logo-fallback,
+  #tcf-sales-page .tcf-brand-logo-img{width:34px;height:34px;font-size:13px;}
+  #tcf-sales-page .tcf-brand-text .tcf-name{font-size:14px;}
+  #tcf-sales-page .tcf-brand-text .tcf-sub{font-size:7.5px;letter-spacing:.6px;}
+}
+@media (max-width:360px){
+  #tcf-sales-page .tcf-brand-text .tcf-sub{display:none;}
+}
+
+/* ---------------- Mobile: lighter, shorter dark sections + full-width CTAs ---------------- */
+@media (max-width:640px){
+  #tcf-sales-page .tcf-requirements-section,
+  #tcf-sales-page .tcf-final-cta,
+  #tcf-sales-page .tcf-challenges-section{padding:56px 0;}
+  #tcf-sales-page .tcf-hero-actions{justify-content:center;width:100%;}
+  #tcf-sales-page .tcf-hero-actions .tcf-btn{width:100%;}
+  #tcf-sales-page .tcf-final-cta .tcf-btn{width:100%;max-width:360px;}
+  #tcf-sales-page .tcf-header-cta .tcf-btn{white-space:nowrap;}
+}
+</style>
+
+<div id="tcf-sales-page">
+<a class="tcf-skip-link" href="#tcf-main-content">Skip to main content</a>
+
+<!-- =====================================================================
+     1. ANNOUNCEMENT BAR
+     ===================================================================== -->
+<div class="tcf-announcement">Your Credit Journey Starts With One Decision.</div>
+
+<!-- =====================================================================
+     2. NAVIGATION AND BRAND LOGO
+     ===================================================================== -->
+<header class="tcf-site-header">
+  <div class="tcf-header-inner">
+    <a class="tcf-brand" href="#tcf-top" aria-label="The Credit Fixee home">
+      <span id="tcf-logo-slot">
+        <span class="tcf-brand-logo-fallback">CF</span>
+      </span>
+      <span class="tcf-brand-text">
+        <span class="tcf-name">THE CREDIT <span>FIXEE</span></span>
+        <span class="tcf-sub">A Key Financial Consulting Brand</span>
+      </span>
+    </a>
+    <div class="tcf-header-cta">
+      <a href="#tcf-lead-form" class="tcf-btn tcf-btn-gold tcf-btn-sm">GET STARTED</a>
+    </div>
+  </div>
+</header>
+
+<main id="tcf-main-content">
+
+<!-- =====================================================================
+     3. HERO AND MAIN OFFER
+     ===================================================================== -->
+<section class="tcf-hero" id="tcf-top">
+  <span class="tcf-hero-glow" aria-hidden="true" style="width:520px;height:520px;top:-220px;right:-140px;"></span>
+  <div class="tcf-container">
+    <div class="tcf-hero-grid">
+      <div class="tcf-hero-copy">
+        <span class="tcf-hero-brandline">THE CREDIT FIXEE<small>A Key Financial Consulting Brand</small></span>
+        <h1>Bad Credit Doesn&rsquo;t Have to <em>Define</em> Your <span class="tcf-gold-word">Next Chapter</span></h1>
+        <p class="tcf-lede">Take the first step toward understanding and addressing your credit challenges with three structured dispute rounds, credit education, and a process built around your individual credit profile.</p>
+
+        <div class="tcf-offer-box">
+          <div class="tcf-offer-label">THREE CREDIT DISPUTE ROUNDS</div>
+          <div class="tcf-offer-price">$145 <small>one-time service fee</small></div>
+          <p class="tcf-offer-note">Required three-bureau credit monitoring is billed separately and must remain active throughout the process.</p>
+        </div>
+
+        <div class="tcf-hero-actions">
+          <a href="#tcf-lead-form" class="tcf-btn tcf-btn-gold" id="tcf-hero-cta">GET STARTED</a>
+        </div>
+        <p class="tcf-hero-micro">No consultation is required before enrollment.</p>
+      </div>
+
+      <div class="tcf-hero-photo">
+        <div class="tcf-photo-frame">
+          <span class="tcf-photo-placeholder" id="tcf-owner-photo-placeholder">
+            <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+            <span>OWNER PHOTO PLACEHOLDER<br>Replace with an approved professional photo</span>
+          </span>
+          <img id="tcf-owner-photo-img" alt="The Credit Fixee — business owner" hidden>
+        </div>
+        <span class="tcf-photo-ribbon" aria-hidden="true">REAL RESULTS</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     4. BENEFITS AND FINANCIAL GOALS
+     ===================================================================== -->
+<section class="tcf-section" id="tcf-benefits">
+  <div class="tcf-container">
+    <div class="tcf-section-head tcf-reveal">
+      <span class="tcf-eyebrow">Why It Matters</span>
+      <h2>Better Credit Habits Can Support Better Opportunities</h2>
+    </div>
+    <div class="tcf-benefit-grid tcf-reveal">
+      <div class="tcf-benefit-card">
+        <span class="tcf-b-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg></span>
+        <h3>Preparing to Buy a Home</h3>
+        <p>Work toward the kind of credit profile lenders look for when you're ready to start the homebuying process.</p>
+      </div>
+      <div class="tcf-benefit-card">
+        <span class="tcf-b-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="9" width="22" height="9" rx="2"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></span>
+        <h3>Qualifying for Vehicle Financing</h3>
+        <p>Understand where your credit stands as you consider financing options for a vehicle.</p>
+      </div>
+      <div class="tcf-benefit-card">
+        <span class="tcf-b-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+        <h3>Improving Financing Opportunities</h3>
+        <p>Address the items on your credit report that may be limiting the financing options available to you.</p>
+      </div>
+      <div class="tcf-benefit-card">
+        <span class="tcf-b-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg></span>
+        <h3>Working Toward More Favorable Rates</h3>
+        <p>A stronger credit profile is one of the factors lenders may consider when offering rates and terms.</p>
+      </div>
+      <div class="tcf-benefit-card">
+        <span class="tcf-b-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10M18 20V4M6 20v-6"/></svg></span>
+        <h3>Building Stronger Financial Habits</h3>
+        <p>Learn how credit works and build habits that support your financial goals well beyond this program.</p>
+      </div>
+      <div class="tcf-benefit-card">
+        <span class="tcf-b-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/><path d="M8 14h4"/></svg></span>
+        <h3>Understanding Your Complete Credit Profile</h3>
+        <p>Get clarity on what's actually on your three-bureau credit reports and what it means for you.</p>
+      </div>
+    </div>
+    <p class="tcf-compliance-line tcf-reveal">The Credit Fixee does not promise approval, specific interest rates, or financial outcomes. Individual results and eligibility vary.</p>
+  </div>
+</section>
+
+<!-- =====================================================================
+     5. CREDIT CHALLENGES
+     ===================================================================== -->
+<section class="tcf-section tcf-challenges-section" id="tcf-challenges">
+  <div class="tcf-container">
+    <div class="tcf-section-head tcf-reveal">
+      <span class="tcf-eyebrow">Sound Familiar?</span>
+      <h2>What Credit Challenges Are Holding You Back?</h2>
+      <p>Our process may help you review and address concerns involving:</p>
+    </div>
+    <div class="tcf-challenge-grid tcf-reveal">
+      <div class="tcf-challenge-card"><span class="tcf-c-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></span><p>Collections</p></div>
+      <div class="tcf-challenge-card"><span class="tcf-c-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M15 9l-6 6M9 9l6 6"/></svg></span><p>Charge-Offs</p></div>
+      <div class="tcf-challenge-card"><span class="tcf-c-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span><p>Late Payments</p></div>
+      <div class="tcf-challenge-card"><span class="tcf-c-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="9" width="22" height="9" rx="2"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></span><p>Repossessions</p></div>
+      <div class="tcf-challenge-card"><span class="tcf-c-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M2 10h20"/></svg></span><p>High Credit Utilization</p></div>
+      <div class="tcf-challenge-card"><span class="tcf-c-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M12 18v-6M9 15h6"/></svg></span><p>Inaccurate or Incomplete Information</p></div>
+      <div class="tcf-challenge-card"><span class="tcf-c-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></span><p>Limited Credit History</p></div>
+      <div class="tcf-challenge-card"><span class="tcf-c-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg></span><p>Previous Credit Denials</p></div>
+    </div>
+    <p class="tcf-challenges-note tcf-reveal">We use words like "review," "identify," and "address" deliberately. Accurate, current, and verifiable information cannot legally be removed from a credit report.</p>
+  </div>
+</section>
+
+<!-- =====================================================================
+     6. WHAT THE THREE DISPUTE ROUNDS INCLUDE
+     ===================================================================== -->
+<section class="tcf-section" id="tcf-included">
+  <div class="tcf-container">
+    <div class="tcf-section-head tcf-reveal">
+      <span class="tcf-eyebrow">The Offer</span>
+      <h2>What&rsquo;s Included in the Three Dispute Rounds?</h2>
+    </div>
+    <div class="tcf-included-grid tcf-reveal">
+      <div class="tcf-included-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg><p>Review of available three-bureau credit reports</p></div>
+      <div class="tcf-included-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg><p>Identification of information the client believes may be inaccurate, incomplete, or unverifiable</p></div>
+      <div class="tcf-included-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg><p>Three structured rounds of appropriate disputes</p></div>
+      <div class="tcf-included-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg><p>Credit education</p></div>
+      <div class="tcf-included-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg><p>Personalized instructions and guidance</p></div>
+      <div class="tcf-included-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg><p>Progress reviews between dispute rounds</p></div>
+      <div class="tcf-included-item" style="grid-column:1/-1;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg><p>Client support throughout the process</p></div>
+    </div>
+    <p class="tcf-included-clarify tcf-reveal">Dispute actions are based on each client's individual credit profile. Key Financial Consulting does not dispute accurate information solely because it is negative. Credit monitoring is provided separately and is not included in the $145 credit-repair service fee.</p>
+  </div>
+</section>
+
+<!-- =====================================================================
+     7. HOW THE PROCESS WORKS
+     ===================================================================== -->
+<section class="tcf-section tcf-process-section" id="tcf-process">
+  <div class="tcf-container">
+    <div class="tcf-section-head tcf-reveal">
+      <span class="tcf-eyebrow">The Process</span>
+      <h2>How the Process Works</h2>
+    </div>
+    <div class="tcf-process-grid tcf-reveal">
+      <div class="tcf-process-step">
+        <span class="tcf-p-num">1</span>
+        <div><h3>Share Your Credit Goals</h3><p>Complete the short lead form below and tell us about your biggest credit challenge.</p></div>
+      </div>
+      <div class="tcf-process-step">
+        <span class="tcf-p-num">2</span>
+        <div><h3>Complete Enrollment</h3><p>Continue to the secure enrollment form and complete the required service agreement and approved payment process.</p></div>
+      </div>
+      <div class="tcf-process-step">
+        <span class="tcf-p-num">3</span>
+        <div><h3>Activate Credit Monitoring</h3><p>Activate and maintain the required three-bureau credit monitoring at <a id="tcf-credit-monitoring-link" href="#" target="_blank" rel="noopener noreferrer">the link provided during enrollment</a>.</p></div>
+      </div>
+      <div class="tcf-process-step">
+        <span class="tcf-p-num">4</span>
+        <div><h3>Submit Required Documents Securely</h3><p>Submit the required identification and address documents through the approved secure onboarding process.</p></div>
+      </div>
+      <div class="tcf-process-step">
+        <span class="tcf-p-num">5</span>
+        <div><h3>Credit Review and Dispute Rounds</h3><p>Key Financial Consulting reviews the available information and completes appropriate dispute rounds based on your individual credit profile.</p></div>
+      </div>
+      <div class="tcf-process-step">
+        <span class="tcf-p-num">6</span>
+        <div><h3>Follow the Plan</h3><p>Maintain credit monitoring, follow all instructions, and avoid applying for unnecessary new credit.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     8. CREDIT-SCORE RESULTS
+     ===================================================================== -->
+<section class="tcf-section tcf-results-section" id="tcf-results">
+  <div class="tcf-container">
+    <div class="tcf-section-head tcf-reveal">
+      <span class="tcf-eyebrow">Real Client Progress</span>
+      <h2>Real Client Progress</h2>
+    </div>
+    <div class="tcf-results-grid tcf-reveal">
+      <div class="tcf-result-card">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 13l3 3 5-6"/></svg>
+        <span>[INSERT APPROVED REDACTED CREDIT RESULT]</span>
+      </div>
+      <div class="tcf-result-card">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 13l3 3 5-6"/></svg>
+        <span>[INSERT APPROVED REDACTED CREDIT RESULT]</span>
+      </div>
+      <div class="tcf-result-card">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 13l3 3 5-6"/></svg>
+        <span>[INSERT APPROVED REDACTED CREDIT RESULT]</span>
+      </div>
+    </div>
+    <p class="tcf-results-disclaimer tcf-reveal">Examples reflect individual client experiences. Results are not guaranteed and vary based on each person's credit profile, participation, creditor and bureau responses, and other factors. Before publishing any credit-score screenshot, remove or cover client names, addresses, dates of birth, account numbers, Social Security numbers, report identification numbers, login information, and any other personal or sensitive information.</p>
+  </div>
+</section>
+
+<!-- =====================================================================
+     9. WHY CHOOSE THE CREDIT FIXEE
+     ===================================================================== -->
+<section class="tcf-section" id="tcf-why-us">
+  <div class="tcf-container">
+    <div class="tcf-section-head tcf-reveal">
+      <span class="tcf-eyebrow">Why Choose Us</span>
+      <h2>Why Choose The Credit Fixee</h2>
+    </div>
+    <div class="tcf-why-grid tcf-reveal">
+      <div class="tcf-why-card">
+        <span class="tcf-w-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 4 5v6c0 5.2 3.4 9.4 8 11 4.6-1.6 8-5.8 8-11V5l-8-3z"/></svg></span>
+        <h3>A Structured, Transparent Process</h3>
+        <p>Three clearly defined dispute rounds with progress reviews in between — no guesswork, no vague promises.</p>
+      </div>
+      <div class="tcf-why-card">
+        <span class="tcf-w-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>
+        <h3>Education, Not Just Disputes</h3>
+        <p>We help you understand your credit report and the habits that support your goals long after the program ends.</p>
+      </div>
+      <div class="tcf-why-card">
+        <span class="tcf-w-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+        <h3>Support Throughout the Process</h3>
+        <p>You're not left to figure it out alone — our team is available to guide you between and during each dispute round.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     10. CLIENT REQUIREMENTS
+     ===================================================================== -->
+<section class="tcf-section tcf-requirements-section" id="tcf-requirements">
+  <div class="tcf-container">
+    <div class="tcf-section-head tcf-on-dark tcf-reveal">
+      <span class="tcf-eyebrow tcf-on-dark">Your Participation Matters</span>
+      <h2 style="color:#fff;">Your Participation Matters</h2>
+    </div>
+    <ul class="tcf-req-list tcf-reveal">
+      <li><span class="tcf-req-num">1</span><span>Complete the enrollment form.</span></li>
+      <li><span class="tcf-req-num">2</span><span>Complete the legally approved agreement and payment steps.</span></li>
+      <li><span class="tcf-req-num">3</span><span>Activate and maintain required three-bureau credit monitoring.</span></li>
+      <li><span class="tcf-req-num">4</span><span>Submit a valid government-issued ID.</span></li>
+      <li><span class="tcf-req-num">5</span><span>Submit a Social Security card.</span></li>
+      <li><span class="tcf-req-num">6</span><span>Submit proof of address dated within the last 30 days.</span></li>
+      <li><span class="tcf-req-num">7</span><span>Follow all instructions.</span></li>
+      <li><span class="tcf-req-num">8</span><span>Avoid unnecessary applications for new credit during the process.</span></li>
+    </ul>
+    <p class="tcf-req-note tcf-reveal">Services cannot begin until all legally required agreements, enrollment information, and approved onboarding requirements have been completed.</p>
+    <p class="tcf-req-secure-note tcf-reveal">Sensitive documents (ID, Social Security card, proof of address) must only be submitted through the approved secure onboarding system — never through this website or by email.</p>
+  </div>
+</section>
+
+<!-- =====================================================================
+     11. LEAD QUALIFICATION FORM
+     ===================================================================== -->
+<section class="tcf-section tcf-form-section" id="tcf-lead-form">
+  <div class="tcf-container">
+    <div class="tcf-section-head tcf-reveal">
+      <span class="tcf-eyebrow">Step 1 of 2</span>
+      <h2>Let&rsquo;s Get to Know Your Credit Goals</h2>
+      <p>Tell us where you are and where you want to go. Your answers will help us better understand your needs before you continue to enrollment.</p>
+    </div>
+    <div class="tcf-form-card tcf-reveal">
+      <!-- GHL Lead Qualification Form embed. Build this form in the GHL
+           Form Builder using the exact fields listed in the companion
+           "GHL Funnel Setup Guide" document, then paste its embed URL
+           into TCF_PAGE_CONFIG.LEAD_FORM_EMBED_URL below. Configure the
+           form's own "Continue to Enrollment" redirect inside GHL to
+           point at the external enrollment URL. -->
+      <iframe id="tcf-lead-form-iframe" src="" title="The Credit Fixee lead qualification form" loading="lazy"></iframe>
+    </div>
+    <p class="tcf-form-fallback-note">This form does not collect Social Security numbers, ID, credit-report logins, or proof of address. Those are submitted later through the approved secure onboarding system.</p>
+  </div>
+</section>
+
+<!-- =====================================================================
+     12. FREQUENTLY ASKED QUESTIONS
+     ===================================================================== -->
+<section class="tcf-section" id="tcf-faq">
+  <div class="tcf-container">
+    <div class="tcf-section-head tcf-reveal">
+      <span class="tcf-eyebrow">Common Questions</span>
+      <h2>Frequently Asked Questions</h2>
+    </div>
+    <div class="tcf-faq-list tcf-reveal" id="tcf-faq-list">
+
+      <div class="tcf-faq-item">
+        <button type="button" class="tcf-faq-question" id="tcf-faq-q-0" aria-expanded="false" aria-controls="tcf-faq-a-0">
+          <span>What does the $145 service include?</span>
+          <span class="tcf-faq-plus" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="tcf-faq-answer" id="tcf-faq-a-0" role="region" aria-labelledby="tcf-faq-q-0">
+          <p>The $145 one-time service fee covers three structured rounds of credit disputes, review of your available three-bureau credit reports, credit education, personalized guidance, and progress reviews between rounds.</p>
+        </div>
+      </div>
+
+      <div class="tcf-faq-item">
+        <button type="button" class="tcf-faq-question" id="tcf-faq-q-1" aria-expanded="false" aria-controls="tcf-faq-a-1">
+          <span>Is credit monitoring included in the $145 fee?</span>
+          <span class="tcf-faq-plus" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="tcf-faq-answer" id="tcf-faq-a-1" role="region" aria-labelledby="tcf-faq-q-1">
+          <p>No. Required three-bureau credit monitoring is provided separately and is billed on its own — it is not included in the $145 credit-repair service fee.</p>
+        </div>
+      </div>
+
+      <div class="tcf-faq-item">
+        <button type="button" class="tcf-faq-question" id="tcf-faq-q-2" aria-expanded="false" aria-controls="tcf-faq-a-2">
+          <span>Why is three-bureau monitoring required?</span>
+          <span class="tcf-faq-plus" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="tcf-faq-answer" id="tcf-faq-a-2" role="region" aria-labelledby="tcf-faq-q-2">
+          <p>Active monitoring across all three bureaus lets us track updates and responses throughout the dispute process, so it must stay active for the full duration of your service.</p>
+        </div>
+      </div>
+
+      <div class="tcf-faq-item">
+        <button type="button" class="tcf-faq-question" id="tcf-faq-q-3" aria-expanded="false" aria-controls="tcf-faq-a-3">
+          <span>How long does the process take?</span>
+          <span class="tcf-faq-plus" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="tcf-faq-answer" id="tcf-faq-a-3" role="region" aria-labelledby="tcf-faq-q-3">
+          <p>Timelines vary by client, credit profile, and how quickly bureaus and creditors respond to each dispute round. We do not publish a fixed timeline because it is not the same for everyone.</p>
+        </div>
+      </div>
+
+      <div class="tcf-faq-item">
+        <button type="button" class="tcf-faq-question" id="tcf-faq-q-4" aria-expanded="false" aria-controls="tcf-faq-a-4">
+          <span>Can you guarantee that negative items will be removed?</span>
+          <span class="tcf-faq-plus" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="tcf-faq-answer" id="tcf-faq-a-4" role="region" aria-labelledby="tcf-faq-q-4">
+          <p>No. Accurate, current, and verifiable information cannot legally be removed from a credit report. We review your report and dispute items you believe may be inaccurate, incomplete, or unverifiable — we do not dispute accurate information solely because it is negative.</p>
+        </div>
+      </div>
+
+      <div class="tcf-faq-item">
+        <button type="button" class="tcf-faq-question" id="tcf-faq-q-5" aria-expanded="false" aria-controls="tcf-faq-a-5">
+          <span>Can you guarantee a credit-score increase?</span>
+          <span class="tcf-faq-plus" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="tcf-faq-answer" id="tcf-faq-a-5" role="region" aria-labelledby="tcf-faq-q-5">
+          <p>No. We do not promise or guarantee a specific score increase, deletion, credit approval, loan approval, interest rate, or completion date. Results and timelines vary by individual.</p>
+        </div>
+      </div>
+
+      <div class="tcf-faq-item">
+        <button type="button" class="tcf-faq-question" id="tcf-faq-q-6" aria-expanded="false" aria-controls="tcf-faq-a-6">
+          <span>What documents are required?</span>
+          <span class="tcf-faq-plus" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="tcf-faq-answer" id="tcf-faq-a-6" role="region" aria-labelledby="tcf-faq-q-6">
+          <p>A valid government-issued ID, a Social Security card, and proof of address dated within the last 30 days. These are submitted only through our approved secure onboarding system, never through the public website or by email.</p>
+        </div>
+      </div>
+
+      <div class="tcf-faq-item">
+        <button type="button" class="tcf-faq-question" id="tcf-faq-q-7" aria-expanded="false" aria-controls="tcf-faq-a-7">
+          <span>Do I need a consultation before enrolling?</span>
+          <span class="tcf-faq-plus" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="tcf-faq-answer" id="tcf-faq-a-7" role="region" aria-labelledby="tcf-faq-q-7">
+          <p>No. After completing the short lead form, you'll be taken directly to the enrollment step. A consultation is not required before enrollment.</p>
+        </div>
+      </div>
+
+      <div class="tcf-faq-item">
+        <button type="button" class="tcf-faq-question" id="tcf-faq-q-8" aria-expanded="false" aria-controls="tcf-faq-a-8">
+          <span>What should I avoid during the process?</span>
+          <span class="tcf-faq-plus" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="tcf-faq-answer" id="tcf-faq-a-8" role="region" aria-labelledby="tcf-faq-q-8">
+          <p>Avoid applying for unnecessary new credit, and avoid letting your three-bureau credit monitoring lapse. Both can interfere with the dispute process.</p>
+        </div>
+      </div>
+
+      <div class="tcf-faq-item">
+        <button type="button" class="tcf-faq-question" id="tcf-faq-q-9" aria-expanded="false" aria-controls="tcf-faq-a-9">
+          <span>What happens after I click Get Started?</span>
+          <span class="tcf-faq-plus" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="tcf-faq-answer" id="tcf-faq-a-9" role="region" aria-labelledby="tcf-faq-q-9">
+          <p>You'll be taken to the short lead qualification form on this page. Once submitted, you'll be redirected to the secure external enrollment form to complete your service agreement and payment.</p>
+        </div>
+      </div>
+
+      <div class="tcf-faq-item">
+        <button type="button" class="tcf-faq-question" id="tcf-faq-q-10" aria-expanded="false" aria-controls="tcf-faq-a-10">
+          <span>How do cancellation rights work?</span>
+          <span class="tcf-faq-plus" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="tcf-faq-answer" id="tcf-faq-a-10" role="region" aria-labelledby="tcf-faq-q-10">
+          <p>Cancellation rights and terms are set out in our final approved Cancellation Policy and Service Agreement, provided during enrollment. Please review those documents for complete details.</p>
+        </div>
+      </div>
+
+      <div class="tcf-faq-item">
+        <button type="button" class="tcf-faq-question" id="tcf-faq-q-11" aria-expanded="false" aria-controls="tcf-faq-a-11">
+          <span>Who provides the credit-repair service?</span>
+          <span class="tcf-faq-plus" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="tcf-faq-answer" id="tcf-faq-a-11" role="region" aria-labelledby="tcf-faq-q-11">
+          <p>The services are provided by Key Financial Consulting. The Credit Fixee is its customer-facing brand.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     13. FINAL GET STARTED CTA
+     ===================================================================== -->
+<section class="tcf-section tcf-final-cta">
+  <div class="tcf-container">
+    <span class="tcf-eyebrow tcf-on-dark" style="justify-content:center;">Take the Next Step</span>
+    <h2>Your Credit Journey Can Start Today.</h2>
+    <p>Complete the short lead form and take the first step toward understanding and addressing your credit challenges.</p>
+    <a href="#tcf-lead-form" class="tcf-btn tcf-btn-gold">GET STARTED</a>
+  </div>
+</section>
+
+<!-- =====================================================================
+     14. LEGAL DISCLOSURES
+     ===================================================================== -->
+<section class="tcf-section tcf-legal-section">
+  <div class="tcf-container">
+    <div class="tcf-legal-box tcf-reveal">
+      <p><strong>The Credit Fixee is a customer-facing brand of Key Financial Consulting.</strong> Credit results are not guaranteed. Individual results and timelines vary. Accurate, current, and verifiable information cannot legally be removed from a credit report. Key Financial Consulting does not promise or guarantee a specific score increase, deletion, credit approval, loan approval, interest rate, or completion date.</p>
+      <p>Credit monitoring is provided separately and is not included in the $145 credit-repair service fee.</p>
+      <p>All agreements, payment timing, checkout terms, policies, and disclosures must be reviewed for compliance with the federal Credit Repair Organizations Act and applicable state laws before this funnel is published. Nothing on this page states or implies that this funnel, its payment process, or its policies have already been legally approved.</p>
+      <div class="tcf-legal-placeholders">
+        <span>[ Privacy Policy — link pending ]</span>
+        <span>[ Terms and Conditions — link pending ]</span>
+        <span>[ Service Agreement — link pending ]</span>
+        <span>[ Cancellation Policy — link pending ]</span>
+        <span>[ Refund Policy — link pending ]</span>
+        <span>[ Consumer Credit File Rights disclosure — link pending ]</span>
+        <span>[ Notice of Cancellation — link pending ]</span>
+        <span>[ Applicable state-specific disclosures — pending ]</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- =====================================================================
+     15. CONTACT INFORMATION AND POLICY LINKS
+     ===================================================================== -->
+<footer class="tcf-site-footer">
+  <div class="tcf-container">
+    <div class="tcf-footer-top">
+      <div class="tcf-footer-brand">
+        <div class="tcf-name">THE CREDIT <span>FIXEE</span></div>
+        <div class="tcf-sub">A Key Financial Consulting Brand</div>
+        <p class="tcf-provider">Service Provider: Key Financial Consulting</p>
+      </div>
+
+      <div class="tcf-footer-cols">
+        <div class="tcf-footer-col">
+          <h4>Contact</h4>
+          <a id="tcf-footer-email" href="mailto:Info@providingkeys.com">Info@providingkeys.com</a>
+          <a id="tcf-footer-phone" href="#" hidden></a>
+        </div>
+        <div class="tcf-footer-col">
+          <h4>Legal &amp; Policies</h4>
+          <a id="tcf-privacy-link" href="#" target="_blank" rel="noopener noreferrer" hidden>Privacy Policy</a>
+          <a id="tcf-terms-link" href="#" target="_blank" rel="noopener noreferrer" hidden>Terms and Conditions</a>
+          <a id="tcf-agreement-link" href="#" target="_blank" rel="noopener noreferrer" hidden>Service Agreement</a>
+          <a id="tcf-cancellation-link" href="#" target="_blank" rel="noopener noreferrer" hidden>Cancellation Policy</a>
+          <a id="tcf-refund-link" href="#" target="_blank" rel="noopener noreferrer" hidden>Refund Policy</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="tcf-footer-bottom">
+      <span>&copy; <span id="tcf-copyright-year"></span> Key Financial Consulting. All rights reserved.</span>
+      <span>The Credit Fixee is a customer-facing brand of Key Financial Consulting.</span>
+    </div>
+
+    <p class="tcf-footer-disclaimer">This page is a marketing funnel draft. It does not constitute legal advice and has not been reviewed or approved by legal counsel. All pricing, policies, and claims are subject to change pending compliance review under the federal Credit Repair Organizations Act and applicable state law.</p>
+  </div>
+</footer>
+
+</div><!-- /#tcf-sales-page -->
+
+<script>
+/* =====================================================================
+   THE CREDIT FIXEE — SALES PAGE (logic)
+   Safe to run more than once: if this block is re-initialized inside
+   the GoHighLevel editor, the guard below skips re-binding so nothing
+   breaks or double-fires.
+   ===================================================================== */
+(function(){
+  var tcfRoot = document.getElementById('tcf-sales-page');
+  if (!tcfRoot) { return; }
+  if (tcfRoot.getAttribute('data-tcf-initialized') === 'true') { return; }
+  tcfRoot.setAttribute('data-tcf-initialized', 'true');
+
+  /* ===================================================================
+     CONFIGURATION SECTION
+     This is the only part of the code you should need to edit for
+     day-to-day updates. See the companion "GHL Funnel Setup Guide"
+     document for the lead-form field spec, custom fields, workflow
+     steps, and confirmation-message copy — none of that lives here.
+
+     IMPORTANT — ABOUT THE ENROLLMENT REDIRECT:
+     This page cannot control what happens after someone submits the
+     embedded GHL lead form, because the form is loaded in a cross-
+     domain iframe. The "redirect to the external enrollment URL after
+     submission" behavior described in the brief must be configured
+     INSIDE the GHL form builder itself, under that form's own
+     "Actions after submission > Redirect URL" setting — paste
+     ENROLLMENT_REDIRECT_URL there, not just here. The value below is
+     kept for reference and for the "how it works" step-3 monitoring
+     link, not as a functioning redirect mechanism on its own.
+     =================================================================== */
+  window.TCF_PAGE_CONFIG = {
+
+    // ---- Brand assets ----
+    LOGO_URL: '', // TODO: paste The Credit Fixee logo URL. Leave blank to keep the "CF" text mark.
+    OWNER_PHOTO_URL: '', // TODO: paste an approved professional photo URL for the hero section.
+
+    // ---- Funnel step 2: lead qualification form ----
+    // TODO: build this form in the GHL Form Builder using the exact
+    // fields in the "GHL Funnel Setup Guide," then paste its embed
+    // URL here.
+    LEAD_FORM_EMBED_URL: '',
+
+    // ---- Funnel step 3: external enrollment form (confirmed URL) ----
+    ENROLLMENT_REDIRECT_URL: 'https://pulse.disputeprocess.com/jsp/custom_form.jsp?tab_id=UUZIRzQ4Y3NkaXMrZWJvdVhXZ3NKUT09&add_affiliate=0&cust_type=2&company_id=ajNYZE1DL2c4Y1dRRUFXM3Q5RFo1UT09&isLinkFromIframe=1&redirect_url=',
+
+    // Required three-bureau credit-monitoring activation link (confirmed)
+    CREDIT_MONITORING_URL: 'https://bit.ly/CREDITRESET',
+
+    // ---- Contact ----
+    SUPPORT_EMAIL: 'Info@providingkeys.com',
+    SUPPORT_PHONE: '', // TODO: digits used for the tel: link, e.g. '+18005551234'
+    SUPPORT_PHONE_DISPLAY: '', // TODO: how the number is shown, e.g. '(800) 555-1234'
+
+    // ---- Legal / policy links (all pending legal review — see brief) ----
+    PRIVACY_POLICY_URL: '',
+    TERMS_URL: '',
+    SERVICE_AGREEMENT_URL: '',
+    CANCELLATION_POLICY_URL: '',
+    REFUND_POLICY_URL: ''
+  };
+
+  var CONFIG = window.TCF_PAGE_CONFIG;
+
+  /* ===================================================================
+     Helpers
+     =================================================================== */
+  function isFilled(v){ return typeof v === 'string' && v.trim() !== ''; }
+  function q(sel){ return tcfRoot.querySelector(sel); }
+  function qa(sel){ return Array.prototype.slice.call(tcfRoot.querySelectorAll(sel)); }
+
+  function setOptionalLink(el, url){
+    if (!el) return;
+    if (isFilled(url)){
+      el.setAttribute('href', url);
+      el.removeAttribute('hidden');
+    } else {
+      el.setAttribute('href', '#');
+      el.setAttribute('hidden', '');
+    }
+  }
+
+  tcfRoot.addEventListener('click', function(e){
+    var target = e.target.closest ? e.target.closest('[hidden]') : null;
+    if (target){ e.preventDefault(); }
+  });
+
+  /* ===================================================================
+     Logo + owner photo
+     =================================================================== */
+  (function applyLogo(){
+    var slot = q('#tcf-logo-slot');
+    if (slot && isFilled(CONFIG.LOGO_URL)){
+      var img = document.createElement('img');
+      img.className = 'tcf-brand-logo-img';
+      img.src = CONFIG.LOGO_URL;
+      img.alt = 'The Credit Fixee logo';
+      slot.innerHTML = '';
+      slot.appendChild(img);
+    }
+  })();
+
+  (function applyOwnerPhoto(){
+    var placeholder = q('#tcf-owner-photo-placeholder');
+    var img = q('#tcf-owner-photo-img');
+    if (!img) return;
+    if (isFilled(CONFIG.OWNER_PHOTO_URL)){
+      img.src = CONFIG.OWNER_PHOTO_URL;
+      img.removeAttribute('hidden');
+      if (placeholder) placeholder.setAttribute('hidden', '');
+    }
+  })();
+
+  /* ===================================================================
+     Lead-form iframe
+     =================================================================== */
+  (function applyLeadForm(){
+    var iframe = q('#tcf-lead-form-iframe');
+    if (iframe && isFilled(CONFIG.LEAD_FORM_EMBED_URL)){
+      iframe.setAttribute('src', CONFIG.LEAD_FORM_EMBED_URL);
+    }
+  })();
+
+  /* ===================================================================
+     Credit-monitoring link (Step 3 of "How the Process Works")
+     =================================================================== */
+  setOptionalLink(q('#tcf-credit-monitoring-link'), CONFIG.CREDIT_MONITORING_URL);
+
+  /* ===================================================================
+     Footer contact + legal links
+     =================================================================== */
+  (function applyFooterContact(){
+    var emailEl = q('#tcf-footer-email');
+    if (emailEl && isFilled(CONFIG.SUPPORT_EMAIL)){
+      emailEl.textContent = CONFIG.SUPPORT_EMAIL;
+      emailEl.setAttribute('href', 'mailto:' + CONFIG.SUPPORT_EMAIL);
+    }
+
+    var phoneEl = q('#tcf-footer-phone');
+    if (phoneEl){
+      if (isFilled(CONFIG.SUPPORT_PHONE)){
+        phoneEl.textContent = isFilled(CONFIG.SUPPORT_PHONE_DISPLAY) ? CONFIG.SUPPORT_PHONE_DISPLAY : CONFIG.SUPPORT_PHONE;
+        phoneEl.setAttribute('href', 'tel:' + CONFIG.SUPPORT_PHONE);
+        phoneEl.removeAttribute('hidden');
+      } else {
+        phoneEl.setAttribute('hidden', '');
+      }
+    }
+  })();
+
+  setOptionalLink(q('#tcf-privacy-link'), CONFIG.PRIVACY_POLICY_URL);
+  setOptionalLink(q('#tcf-terms-link'), CONFIG.TERMS_URL);
+  setOptionalLink(q('#tcf-agreement-link'), CONFIG.SERVICE_AGREEMENT_URL);
+  setOptionalLink(q('#tcf-cancellation-link'), CONFIG.CANCELLATION_POLICY_URL);
+  setOptionalLink(q('#tcf-refund-link'), CONFIG.REFUND_POLICY_URL);
+
+  /* Copyright year */
+  var yearEl = q('#tcf-copyright-year');
+  if (yearEl){ yearEl.textContent = new Date().getFullYear(); }
+
+  /* ===================================================================
+     FAQ accordion
+     =================================================================== */
+  qa('.tcf-faq-question').forEach(function(btn){
+    var panelId = btn.getAttribute('aria-controls');
+    var panel = panelId ? document.getElementById(panelId) : null;
+    if (!panel) return;
+    btn.addEventListener('click', function(){
+      var isOpen = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+      panel.classList.toggle('tcf-open', !isOpen);
+    });
+  });
+
+  /* ===================================================================
+     Scroll-reveal animation (skipped under reduced motion)
+     =================================================================== */
+  (function scrollReveal(){
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var items = qa('.tcf-reveal');
+    if (reduceMotion || !items.length) return;
+
+    if (!('IntersectionObserver' in window)){
+      items.forEach(function(el){ el.classList.add('tcf-in-view'); });
+      return;
+    }
+
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting){
+          entry.target.classList.add('tcf-in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    items.forEach(function(el){ observer.observe(el); });
+  })();
+
+})();
+</script>
