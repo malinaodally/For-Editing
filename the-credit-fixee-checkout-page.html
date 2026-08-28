@@ -1,0 +1,249 @@
+<!-- THE CREDIT FIXEE — GHL CHECKOUT PAGE -->
+<div id="tcf-checkout-page">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+    #tcf-checkout-page{
+      --green-dark:#003d24;--green:#157811;--green-light:#26a920;
+      --black:#111;--white:#fff;--cream:#f7f4ef;--muted:#686863;
+      --gold-1:#816a36;--gold-2:#fac96a;--gold:linear-gradient(110deg,#816a36 0%,#fac96a 55%,#d49a20 100%);
+      --head:'Bebas Neue',Impact,sans-serif;--body:'Montserrat',Arial,sans-serif;
+      --shadow:0 18px 48px rgba(17,17,17,.13);--radius:18px;
+      color:var(--black);font-family:var(--body);background:var(--cream);line-height:1.6;
+    }
+    #tcf-checkout-page *{box-sizing:border-box}
+    #tcf-checkout-page a{text-decoration:none}
+    #tcf-checkout-page .tcf-wrap{max-width:1160px;margin:auto;padding:0 24px}
+    #tcf-checkout-page .tcf-topbar{background:#0c0c0c;color:#f7ce6e;text-align:center;padding:9px 18px;font-size:12px;font-weight:800;letter-spacing:1.1px;text-transform:uppercase}
+    #tcf-checkout-page .tcf-header{background:rgba(17,17,17,.98);border-bottom:4px solid var(--green);color:#fff}
+    #tcf-checkout-page .tcf-header-inner{min-height:84px;display:flex;align-items:center;justify-content:space-between;gap:22px}
+    #tcf-checkout-page .tcf-brand{display:flex;align-items:center;gap:12px;color:#fff}
+    #tcf-checkout-page .tcf-logo{width:48px;height:48px;border-radius:12px;background:var(--gold);display:grid;place-items:center;color:#111;font:18px var(--head);overflow:hidden;box-shadow:0 5px 18px rgba(250,201,106,.25)}
+    #tcf-checkout-page .tcf-logo img{width:100%;height:100%;object-fit:contain;background:#fff}
+    #tcf-checkout-page .tcf-brand-name{font:23px var(--head);letter-spacing:.4px;line-height:1}
+    #tcf-checkout-page .tcf-brand-name span{color:#f7c75e}
+    #tcf-checkout-page .tcf-brand-sub{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1.25px;color:#bdbdb9;margin-top:5px}
+    #tcf-checkout-page .tcf-secure{display:flex;align-items:center;gap:8px;color:#f4d27d;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.8px}
+
+    #tcf-checkout-page .tcf-intro{padding:58px 0 36px;text-align:center;background:linear-gradient(120deg,#f8f6f2,#e9e4de)}
+    #tcf-checkout-page .tcf-kicker{display:inline-flex;align-items:center;gap:9px;color:var(--green-dark);font-size:12px;font-weight:800;letter-spacing:1.8px;text-transform:uppercase}
+    #tcf-checkout-page .tcf-kicker:before{content:'';width:26px;height:3px;background:var(--gold);border-radius:4px}
+    #tcf-checkout-page h1,#tcf-checkout-page h2,#tcf-checkout-page h3{font-family:var(--head);font-weight:400;line-height:1.05;margin:0}
+    #tcf-checkout-page h1{font-size:clamp(40px,6vw,66px);margin:14px auto 16px;max-width:920px}
+    #tcf-checkout-page h1 em{font-style:normal;color:var(--green)}
+    #tcf-checkout-page .tcf-intro p{max-width:760px;margin:0 auto;color:#4e4e49;font-size:15px}
+
+    #tcf-checkout-page .tcf-checkout{padding:46px 0 64px}
+    #tcf-checkout-page .tcf-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(310px,.65fr);gap:30px;align-items:start}
+    #tcf-checkout-page .tcf-card{background:#fff;border:1px solid #e2ddd5;border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+    #tcf-checkout-page .tcf-card-head{padding:22px 26px;background:var(--green-dark);color:#fff;border-bottom:3px solid #d9aa3d}
+    #tcf-checkout-page .tcf-card-head h2{font-size:29px;letter-spacing:.5px}
+    #tcf-checkout-page .tcf-card-head p{margin:5px 0 0;color:#dce9df;font-size:12px}
+    #tcf-checkout-page .tcf-payment-body{padding:22px}
+    #tcf-checkout-page .tcf-checkout-frame{width:100%;min-height:650px;border:0;background:#fff;display:block}
+    #tcf-checkout-page .tcf-checkout-placeholder{min-height:520px;border:2px dashed #c29b47;border-radius:14px;background:#fbfaf8;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:34px;color:#54544f}
+    #tcf-checkout-page .tcf-checkout-placeholder svg{width:54px;color:#b48a33;margin-bottom:15px}
+    #tcf-checkout-page .tcf-checkout-placeholder strong{font-size:17px;color:var(--green-dark);margin-bottom:6px}
+    #tcf-checkout-page .tcf-checkout-placeholder span{max-width:500px;font-size:13px}
+    #tcf-checkout-page .tcf-safe-note{text-align:center;margin:18px 0 0;color:#60605b;font-size:11px;font-weight:700}
+
+    #tcf-checkout-page .tcf-summary{position:sticky;top:20px}
+    #tcf-checkout-page .tcf-summary-body{padding:25px}
+    #tcf-checkout-page .tcf-product{display:flex;gap:14px;padding-bottom:20px;border-bottom:1px solid #e8e2da}
+    #tcf-checkout-page .tcf-product-icon{width:54px;height:54px;flex:none;border-radius:12px;background:var(--gold);display:grid;place-items:center;font:23px var(--head);color:#111}
+    #tcf-checkout-page .tcf-product h3{font:21px var(--head);color:var(--green-dark)}
+    #tcf-checkout-page .tcf-product p{margin:4px 0 0;color:var(--muted);font-size:11px}
+    #tcf-checkout-page .tcf-line{display:flex;justify-content:space-between;gap:18px;margin-top:17px;font-size:13px}
+    #tcf-checkout-page .tcf-line span:last-child{font-weight:700;white-space:nowrap}
+    #tcf-checkout-page .tcf-line.tcf-total{border-top:1px solid #ddd5ca;margin-top:20px;padding-top:20px;align-items:end}
+    #tcf-checkout-page .tcf-line.tcf-total span:first-child{font-weight:800;text-transform:uppercase;color:var(--green-dark)}
+    #tcf-checkout-page .tcf-line.tcf-total span:last-child{font:40px var(--head);color:var(--green-dark)}
+    #tcf-checkout-page .tcf-monitor-mini{margin-top:20px;padding:16px;border-radius:12px;background:#edf5ee;border-left:4px solid var(--green);font-size:11px;color:#3f4d41}
+    #tcf-checkout-page .tcf-contact-mini{margin-top:17px;text-align:center;font-size:11px;color:var(--muted)}
+    #tcf-checkout-page .tcf-contact-mini a{color:var(--green-dark);font-weight:700}
+
+    #tcf-checkout-page .tcf-section{padding:68px 0}
+    #tcf-checkout-page .tcf-section-head{text-align:center;max-width:780px;margin:0 auto 34px}
+    #tcf-checkout-page .tcf-section-head h2{font-size:clamp(34px,5vw,48px);margin-top:10px}
+    #tcf-checkout-page .tcf-list-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    #tcf-checkout-page .tcf-list-item{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid #e2ddd5;border-radius:13px;padding:16px 18px;box-shadow:0 7px 18px rgba(17,17,17,.05);font-size:13px}
+    #tcf-checkout-page .tcf-check{width:25px;height:25px;flex:none;border-radius:50%;background:var(--gold);display:grid;place-items:center;font-weight:900;color:#0e321f}
+    #tcf-checkout-page .tcf-requirements{background:var(--green-dark);color:#fff}
+    #tcf-checkout-page .tcf-requirements .tcf-kicker{color:#f8cf6c}
+    #tcf-checkout-page .tcf-requirements .tcf-list-item{background:rgba(255,255,255,.07);border-color:rgba(250,201,106,.28);box-shadow:none;color:#fff}
+    #tcf-checkout-page .tcf-security{max-width:870px;margin:24px auto 0;text-align:center;color:#d3e1d6;font-size:11px}
+
+    #tcf-checkout-page .tcf-monitor{background:#111;color:#fff}
+    #tcf-checkout-page .tcf-monitor-box{display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center;border:1px solid #c99f43;border-radius:18px;padding:32px;background:linear-gradient(135deg,#063f29,#0b5d38);box-shadow:var(--shadow)}
+    #tcf-checkout-page .tcf-monitor-box h2{font-size:38px;color:#fff}
+    #tcf-checkout-page .tcf-monitor-box p{margin:9px 0 0;color:#dce8df;font-size:13px;max-width:780px}
+    #tcf-checkout-page .tcf-btn{display:inline-flex;justify-content:center;align-items:center;min-height:52px;padding:13px 28px;border-radius:999px;background:var(--gold);color:#0d2519;font:18px var(--head);letter-spacing:.6px;box-shadow:0 9px 20px rgba(0,0,0,.2);transition:.2s}
+    #tcf-checkout-page .tcf-btn:hover{transform:translateY(-2px);filter:brightness(1.05)}
+    #tcf-checkout-page .tcf-btn:focus-visible,#tcf-checkout-page a:focus-visible{outline:3px solid #fac96a;outline-offset:4px}
+
+    #tcf-checkout-page .tcf-disclaimer{padding:48px 0;background:#f5f2ed}
+    #tcf-checkout-page .tcf-disclaimer-box{border-top:3px solid #d5a537;background:#fff;border-radius:14px;padding:25px 28px;color:#5d5d58;font-size:11px;box-shadow:0 8px 22px rgba(17,17,17,.06)}
+    #tcf-checkout-page .tcf-disclaimer-box strong{color:var(--green-dark)}
+    #tcf-checkout-page .tcf-footer{background:#111;color:#d8d8d3;padding:36px 0}
+    #tcf-checkout-page .tcf-footer-inner{display:flex;justify-content:space-between;gap:30px;align-items:center}
+    #tcf-checkout-page .tcf-footer-name{font:22px var(--head);color:#fff}
+    #tcf-checkout-page .tcf-footer-name span{color:#f5c75f}
+    #tcf-checkout-page .tcf-footer p{margin:5px 0 0;font-size:10px;color:#a7a7a2}
+    #tcf-checkout-page .tcf-footer-contact{text-align:right;font-size:11px}
+    #tcf-checkout-page .tcf-footer-contact a{color:#f4d27d}
+
+    @media(max-width:880px){
+      #tcf-checkout-page .tcf-grid{grid-template-columns:1fr}
+      #tcf-checkout-page .tcf-summary{position:static;order:-1}
+      #tcf-checkout-page .tcf-monitor-box{grid-template-columns:1fr;text-align:center}
+    }
+    @media(max-width:620px){
+      #tcf-checkout-page .tcf-wrap{padding:0 16px}
+      #tcf-checkout-page .tcf-header-inner{min-height:74px}
+      #tcf-checkout-page .tcf-secure{font-size:0}
+      #tcf-checkout-page .tcf-secure svg{width:23px}
+      #tcf-checkout-page .tcf-brand-name{font-size:20px}
+      #tcf-checkout-page .tcf-logo{width:43px;height:43px}
+      #tcf-checkout-page .tcf-intro{padding:42px 0 30px}
+      #tcf-checkout-page .tcf-checkout{padding:28px 0 48px}
+      #tcf-checkout-page .tcf-list-grid{grid-template-columns:1fr}
+      #tcf-checkout-page .tcf-card-head,#tcf-checkout-page .tcf-payment-body,#tcf-checkout-page .tcf-summary-body{padding:19px}
+      #tcf-checkout-page .tcf-checkout-frame{min-height:760px}
+      #tcf-checkout-page .tcf-monitor-box{padding:25px 20px}
+      #tcf-checkout-page .tcf-footer-inner{display:block;text-align:center}
+      #tcf-checkout-page .tcf-footer-contact{text-align:center;margin-top:18px}
+    }
+  </style>
+
+  <div class="tcf-topbar">Your credit journey starts with one decision.</div>
+  <header class="tcf-header">
+    <div class="tcf-wrap tcf-header-inner">
+      <div class="tcf-brand">
+        <div class="tcf-logo" id="tcf-logo-box"><span>CF</span></div>
+        <div><div class="tcf-brand-name">THE CREDIT <span>FIXEE</span></div><div class="tcf-brand-sub">A Key Financial Consulting Brand</div></div>
+      </div>
+      <div class="tcf-secure">
+        <svg width="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+        Secure Enrollment
+      </div>
+    </div>
+  </header>
+
+  <section class="tcf-intro">
+    <div class="tcf-wrap">
+      <span class="tcf-kicker">Complete Your Enrollment</span>
+      <h1>TAKE THE NEXT STEP IN YOUR <em>CREDIT JOURNEY</em></h1>
+      <p>Review the offer information below and complete the secure checkout and enrollment process. All required onboarding steps must be completed before services can begin.</p>
+    </div>
+  </section>
+
+  <main>
+    <section class="tcf-checkout">
+      <div class="tcf-wrap tcf-grid">
+        <article class="tcf-card">
+          <div class="tcf-card-head"><h2>SECURE CHECKOUT</h2><p>Complete your information using the approved secure payment form.</p></div>
+          <div class="tcf-payment-body">
+            <div id="tcf-checkout-mount"></div>
+            <p class="tcf-safe-note">🔒 Payment information must be processed only through the approved secure checkout provider.</p>
+          </div>
+        </article>
+
+        <aside class="tcf-card tcf-summary">
+          <div class="tcf-card-head"><h2>ORDER SUMMARY</h2><p>Please review your selection.</p></div>
+          <div class="tcf-summary-body">
+            <div class="tcf-product"><div class="tcf-product-icon">3X</div><div><h3>THREE CREDIT DISPUTE ROUNDS</h3><p>Structured disputes, education, and support based on your individual credit profile.</p></div></div>
+            <div class="tcf-line"><span>Service</span><span>$145.00</span></div>
+            <div class="tcf-line"><span>Quantity</span><span>1</span></div>
+            <div class="tcf-line"><span>Credit monitoring</span><span>Separate</span></div>
+            <div class="tcf-line tcf-total"><span>Total service fee</span><span>$145</span></div>
+            <div class="tcf-monitor-mini"><strong>Important:</strong> Required three-bureau credit monitoring is billed separately and must remain active throughout the process.</div>
+            <div class="tcf-contact-mini">Questions? <a class="tcf-email-link" href="mailto:Info@providingkeys.com">Info@providingkeys.com</a></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="tcf-section">
+      <div class="tcf-wrap">
+        <div class="tcf-section-head"><span class="tcf-kicker">Your Service</span><h2>WHAT IS INCLUDED</h2></div>
+        <div class="tcf-list-grid">
+          <div class="tcf-list-item"><span class="tcf-check">✓</span><span>Credit-report review based on available monitoring information.</span></div>
+          <div class="tcf-list-item"><span class="tcf-check">✓</span><span>Three structured credit dispute rounds.</span></div>
+          <div class="tcf-list-item"><span class="tcf-check">✓</span><span>Disputes addressing information identified as inaccurate, incomplete, or unverifiable.</span></div>
+          <div class="tcf-list-item"><span class="tcf-check">✓</span><span>Credit education throughout the process.</span></div>
+          <div class="tcf-list-item"><span class="tcf-check">✓</span><span>Progress review between dispute rounds.</span></div>
+          <div class="tcf-list-item"><span class="tcf-check">✓</span><span>Client instructions and support.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="tcf-section tcf-requirements">
+      <div class="tcf-wrap">
+        <div class="tcf-section-head"><span class="tcf-kicker">Your Participation Matters</span><h2>CLIENT REQUIREMENTS</h2></div>
+        <div class="tcf-list-grid">
+          <div class="tcf-list-item"><span class="tcf-check">1</span><span>Complete all enrollment information.</span></div>
+          <div class="tcf-list-item"><span class="tcf-check">2</span><span>Complete the approved agreement and payment steps.</span></div>
+          <div class="tcf-list-item"><span class="tcf-check">3</span><span>Activate and maintain required three-bureau credit monitoring.</span></div>
+          <div class="tcf-list-item"><span class="tcf-check">4</span><span>Submit a valid government-issued ID.</span></div>
+          <div class="tcf-list-item"><span class="tcf-check">5</span><span>Submit a Social Security card.</span></div>
+          <div class="tcf-list-item"><span class="tcf-check">6</span><span>Submit proof of address dated within the last 30 days.</span></div>
+          <div class="tcf-list-item"><span class="tcf-check">7</span><span>Follow all instructions.</span></div>
+          <div class="tcf-list-item"><span class="tcf-check">8</span><span>Avoid unnecessary applications for new credit during the process.</span></div>
+        </div>
+        <p class="tcf-security">Sensitive documents must only be submitted through the approved secure onboarding system—never through this public checkout page or ordinary email.</p>
+      </div>
+    </section>
+
+    <section class="tcf-section tcf-monitor">
+      <div class="tcf-wrap">
+        <div class="tcf-monitor-box">
+          <div><h2>THREE-BUREAU CREDIT MONITORING IS REQUIRED</h2><p>The monitoring service and its fee are separate from the $145 service fee. Monitoring must remain active throughout the process.</p></div>
+          <a id="tcf-monitor-button" class="tcf-btn" href="https://bit.ly/CREDITRESET" target="_blank" rel="noopener noreferrer">ACTIVATE CREDIT MONITORING</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="tcf-disclaimer">
+      <div class="tcf-wrap">
+        <div class="tcf-disclaimer-box"><strong>The Credit Fixee is a customer-facing brand of Key Financial Consulting.</strong> Key Financial Consulting is the service provider. Credit results are not guaranteed. Individual results and timelines vary. Accurate, current, and verifiable information cannot legally be removed from a credit report. Key Financial Consulting does not promise or guarantee a specific score increase, deletion, credit approval, loan approval, interest rate, or completion date. Credit monitoring is required, provided separately, and is not included in the $145 credit-repair service fee.</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="tcf-footer">
+    <div class="tcf-wrap tcf-footer-inner">
+      <div><div class="tcf-footer-name">THE CREDIT <span>FIXEE</span></div><p>A Key Financial Consulting Brand</p><p>Service Provider: Key Financial Consulting</p></div>
+      <div class="tcf-footer-contact"><a class="tcf-email-link" href="mailto:Info@providingkeys.com">Info@providingkeys.com</a><p>© <span id="tcf-year"></span> Key Financial Consulting. All rights reserved.</p></div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      var CONFIG={
+        LOGO_URL:'',
+        CHECKOUT_EMBED_URL:'',
+        CREDIT_MONITORING_URL:'https://bit.ly/CREDITRESET',
+        CONTACT_EMAIL:'Info@providingkeys.com',
+        SUPPORT_PHONE:'',
+        SUPPORT_PHONE_DISPLAY:''
+      };
+
+      var mount=document.getElementById('tcf-checkout-mount');
+      if(CONFIG.CHECKOUT_EMBED_URL){
+        var frame=document.createElement('iframe');
+        frame.className='tcf-checkout-frame';frame.src=CONFIG.CHECKOUT_EMBED_URL;
+        frame.title='Secure checkout';frame.loading='eager';frame.setAttribute('allow','payment');
+        mount.appendChild(frame);
+      }else{
+        mount.innerHTML='<div class="tcf-checkout-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="15" rx="2"/><path d="M3 10h18M7 16h4"/></svg><strong>GHL CHECKOUT PLACEHOLDER</strong><span>Add the approved GHL order-form or checkout embed URL to <b>CHECKOUT_EMBED_URL</b>. Do not place raw card fields in custom HTML.</span></div>';
+      }
+
+      if(CONFIG.LOGO_URL){
+        document.getElementById('tcf-logo-box').innerHTML='<img src="'+CONFIG.LOGO_URL+'" alt="The Credit Fixee logo">';
+      }
+      document.getElementById('tcf-monitor-button').href=CONFIG.CREDIT_MONITORING_URL;
+      document.querySelectorAll('.tcf-email-link').forEach(function(a){a.href='mailto:'+CONFIG.CONTACT_EMAIL;a.textContent=CONFIG.CONTACT_EMAIL});
+      document.getElementById('tcf-year').textContent=new Date().getFullYear();
+    })();
+  </script>
+</div>
